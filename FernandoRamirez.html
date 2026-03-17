@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Instructor // Teamwork</title>
+    <title>Fernando Ramirez // Teamwork</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
@@ -15,9 +15,11 @@
         <a href="index.html" class="back-link">&lt; VOLVER A LA GALERIA</a>
 
         <section class="profile-hero">
-            <div class="profile-avatar">[*]</div>
-            <h1>INSTRUCTOR</h1>
-            <p class="tagline">Curso de Git & GitHub // 2026</p>
+            <div class="profile-avatar">
+                <canvas id="myAvatar" width="80" height="80" style="image-rendering: pixelated;"></canvas>
+            </div>
+            <h1>FERNANDO RAMIREZ</h1>
+            <p class="tagline">Never give up - Checo Perez</p>
 
             <div class="social-links">
                 <a href="https://github.com" class="social-link" target="_blank">
@@ -53,7 +55,8 @@
             <p>
                 Este proyecto esta hecho con un tema 8-bit retro.
                 Los estilos estan en styles.css y puedes usarlos
-                o hacer los tuyos desde cero. Diviertete.
+                o hacer los tuyos desde cero. Para el avatar, abre
+                avatar-builder.html y dibuja el tuyo.
             </p>
         </section>
 
@@ -63,7 +66,17 @@
         <p>Hecho para el curso de Git & GitHub // 2026</p>
     </footer>
 
+    <script src="avatars.js"></script>
     <script>
+        // Render avatar
+        renderAvatar(
+            document.getElementById('myAvatar'),
+            'warrior',
+            80,
+            { primary: '#cc0000', secondary: '#1a6b0a' }
+        );
+
+        // Starfield
         (function() {
             var field = document.getElementById('starfield');
             if (!field) return;
@@ -74,10 +87,7 @@
                 star.style.top = Math.random() * 100 + '%';
                 star.style.setProperty('--duration', (2 + Math.random() * 4) + 's');
                 star.style.setProperty('--delay', (Math.random() * 5) + 's');
-                if (Math.random() > 0.7) {
-                    star.style.width = '3px';
-                    star.style.height = '3px';
-                }
+                if (Math.random() > 0.7) { star.style.width = '3px'; star.style.height = '3px'; }
                 field.appendChild(star);
             }
         })();

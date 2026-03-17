@@ -1,0 +1,571 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Avatar Builder // Teamwork</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        .builder-layout {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 24px;
+            margin-bottom: 40px;
+        }
+
+        .builder-panel {
+            background: var(--surface);
+            border: var(--pixel) solid var(--border-color);
+            padding: 20px;
+            box-shadow:
+                inset calc(var(--pixel) * -1) calc(var(--pixel) * -1) 0 0 rgba(0,0,0,0.3),
+                inset var(--pixel) var(--pixel) 0 0 rgba(255,255,255,0.05);
+        }
+
+        .panel-title {
+            font-size: 9px;
+            color: var(--cyan);
+            margin-bottom: 16px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        /* Drawing grid */
+        .draw-grid {
+            display: grid;
+            grid-template-columns: repeat(8, 1fr);
+            gap: 1px;
+            background: rgba(255,255,255,0.05);
+            border: 2px solid var(--border-color);
+            aspect-ratio: 1;
+            max-width: 320px;
+            margin: 0 auto;
+            cursor: crosshair;
+            user-select: none;
+        }
+
+        .draw-cell {
+            aspect-ratio: 1;
+            background: var(--bg);
+            transition: background 0.05s;
+            border: 1px solid rgba(255,255,255,0.03);
+        }
+
+        .draw-cell:hover {
+            outline: 2px solid var(--gold);
+            outline-offset: -2px;
+            z-index: 1;
+        }
+
+        /* Color palette */
+        .color-palette {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 6px;
+            margin-bottom: 16px;
+        }
+
+        .color-swatch {
+            width: 32px;
+            height: 32px;
+            border: 2px solid var(--border-color);
+            cursor: pointer;
+            transition: transform 0.1s;
+        }
+
+        .color-swatch:hover {
+            transform: scale(1.15);
+        }
+
+        .color-swatch.active {
+            border-color: var(--gold);
+            box-shadow: 0 0 8px rgba(255, 204, 0, 0.4);
+        }
+
+        .color-swatch.eraser {
+            background: var(--bg) !important;
+            position: relative;
+        }
+
+        .color-swatch.eraser::after {
+            content: 'X';
+            position: absolute;
+            inset: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--red);
+            font-size: 10px;
+            font-family: 'Press Start 2P', monospace;
+        }
+
+        /* Preview */
+        .preview-area {
+            text-align: center;
+            margin-bottom: 16px;
+        }
+
+        .preview-canvas {
+            image-rendering: pixelated;
+            border: 2px solid var(--border-color);
+            background: var(--bg);
+        }
+
+        .preview-sizes {
+            display: flex;
+            gap: 16px;
+            justify-content: center;
+            align-items: flex-end;
+            margin-top: 12px;
+        }
+
+        /* Presets */
+        .preset-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 8px;
+            margin-bottom: 16px;
+        }
+
+        .preset-btn {
+            background: var(--surface-alt);
+            border: 2px solid var(--border-color);
+            padding: 8px;
+            cursor: pointer;
+            text-align: center;
+            font-family: 'Press Start 2P', monospace;
+            font-size: 6px;
+            color: var(--text-dim);
+            transition: border-color 0.15s, color 0.15s;
+        }
+
+        .preset-btn:hover {
+            border-color: var(--gold);
+            color: var(--gold);
+        }
+
+        .preset-btn canvas {
+            display: block;
+            margin: 0 auto 6px;
+            image-rendering: pixelated;
+        }
+
+        /* Output */
+        .output-box {
+            background: #0a0a18;
+            border: 2px solid var(--border-color);
+            padding: 12px;
+            font-family: 'Press Start 2P', monospace;
+            font-size: 7px;
+            color: var(--green);
+            line-height: 2.4;
+            word-break: break-all;
+            margin-bottom: 12px;
+            min-height: 40px;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 10px 16px;
+            background: var(--surface-alt);
+            border: 2px solid var(--border-color);
+            color: var(--text);
+            font-family: 'Press Start 2P', monospace;
+            font-size: 7px;
+            cursor: pointer;
+            text-transform: uppercase;
+            transition: border-color 0.15s, color 0.15s;
+            margin-right: 6px;
+            margin-bottom: 6px;
+        }
+
+        .btn:hover {
+            border-color: var(--cyan);
+            color: var(--cyan);
+        }
+
+        .btn-primary {
+            border-color: var(--green);
+            color: var(--green);
+        }
+
+        .btn-primary:hover {
+            background: rgba(0, 204, 0, 0.1);
+            box-shadow: 0 0 8px var(--green-dim);
+        }
+
+        .btn-danger {
+            border-color: var(--red);
+            color: var(--red);
+        }
+
+        .custom-colors {
+            display: flex;
+            gap: 12px;
+            align-items: center;
+            margin-bottom: 12px;
+            flex-wrap: wrap;
+        }
+
+        .color-input-group {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .color-input-group label {
+            font-size: 7px;
+            color: var(--text-dim);
+            text-transform: uppercase;
+        }
+
+        .color-input-group input[type="color"] {
+            width: 32px;
+            height: 32px;
+            border: 2px solid var(--border-color);
+            background: var(--surface);
+            cursor: pointer;
+            padding: 0;
+        }
+
+        .copy-msg {
+            color: var(--gold);
+            font-size: 7px;
+            margin-top: 6px;
+            opacity: 0;
+            transition: opacity 0.2s;
+        }
+
+        .copy-msg.show {
+            opacity: 1;
+        }
+
+        @media (max-width: 700px) {
+            .builder-layout {
+                grid-template-columns: 1fr;
+            }
+            .preset-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="starfield" id="starfield"></div>
+
+    <div class="container">
+
+        <a href="index.html" class="back-link">&lt; VOLVER A LA GALERIA</a>
+
+        <section class="hero" style="padding: 50px 0 30px;">
+            <h1>AVATAR BUILDER</h1>
+            <p>Dibuja tu avatar 8-bit. Usa los presets o crea uno desde cero.</p>
+        </section>
+
+        <!-- Presets -->
+        <div class="builder-panel" style="margin-bottom: 20px;">
+            <div class="panel-title">PRESETS - HAZ CLIC PARA CARGAR</div>
+            <div class="preset-grid" id="presetGrid"></div>
+        </div>
+
+        <div class="builder-layout">
+
+            <!-- Left: Drawing area -->
+            <div class="builder-panel">
+                <div class="panel-title">DIBUJAR</div>
+
+                <div class="panel-title" style="font-size: 7px; color: var(--text-dim); margin-bottom: 10px;">
+                    PALETA DE COLORES
+                </div>
+                <div class="color-palette" id="colorPalette"></div>
+
+                <div class="draw-grid" id="drawGrid"></div>
+
+                <div style="margin-top: 12px; display: flex; gap: 6px; flex-wrap: wrap;">
+                    <button class="btn btn-danger" onclick="clearGrid()">LIMPIAR</button>
+                    <button class="btn" onclick="flipH()">VOLTEAR H</button>
+                    <button class="btn" onclick="flipV()">VOLTEAR V</button>
+                </div>
+            </div>
+
+            <!-- Right: Preview & output -->
+            <div class="builder-panel">
+                <div class="panel-title">PREVIEW</div>
+
+                <div class="preview-area">
+                    <div class="preview-sizes">
+                        <div>
+                            <canvas id="preview32" width="32" height="32" class="preview-canvas"></canvas>
+                            <div style="font-size: 6px; color: var(--text-dim); margin-top: 4px;">32px</div>
+                        </div>
+                        <div>
+                            <canvas id="preview64" width="64" height="64" class="preview-canvas"></canvas>
+                            <div style="font-size: 6px; color: var(--text-dim); margin-top: 4px;">64px</div>
+                        </div>
+                        <div>
+                            <canvas id="preview128" width="128" height="128" class="preview-canvas"></canvas>
+                            <div style="font-size: 6px; color: var(--text-dim); margin-top: 4px;">128px</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="panel-title" style="margin-top: 20px;">COLORES CUSTOM</div>
+                <div class="custom-colors">
+                    <div class="color-input-group">
+                        <label>Primario:</label>
+                        <input type="color" id="primaryColor" value="#cc0000" onchange="updatePreview()">
+                    </div>
+                    <div class="color-input-group">
+                        <label>Secundario:</label>
+                        <input type="color" id="secondaryColor" value="#0066cc" onchange="updatePreview()">
+                    </div>
+                </div>
+
+                <div class="panel-title" style="margin-top: 20px;">TU CODIGO</div>
+                <p style="font-size: 7px; color: var(--text-dim); margin-bottom: 8px; line-height: 2;">
+                    Copia esta linea y pegala en <code>team.js</code>:
+                </p>
+                <div class="output-box" id="outputBox"></div>
+                <button class="btn btn-primary" onclick="copyOutput()">COPIAR</button>
+                <div class="copy-msg" id="copyMsg">COPIADO AL PORTAPAPELES</div>
+            </div>
+
+        </div>
+    </div>
+
+    <footer class="footer">
+        <p>Hecho para el curso de Git & GitHub // 2026</p>
+    </footer>
+
+    <script src="avatars.js"></script>
+    <script>
+        var gridData = new Array(64).fill(0);
+        var currentColor = 4; // default: primario
+        var isDrawing = false;
+
+        var DRAW_COLORS = [
+            { index: 0, hex: 'transparent', label: 'Borrar' },
+            { index: 1, hex: '#1a1a2e', label: 'Negro' },
+            { index: 2, hex: '#e8c8a0', label: 'Piel' },
+            { index: 3, hex: '#5c3a1e', label: 'Cabello' },
+            { index: 4, hex: '#cc0000', label: 'Primario' },
+            { index: 5, hex: '#0066cc', label: 'Secundario' },
+            { index: 6, hex: '#ffffff', label: 'Blanco' },
+            { index: 7, hex: '#ff4444', label: 'Rojo' },
+            { index: 8, hex: '#ffcc00', label: 'Dorado' },
+        ];
+
+        // Build color palette
+        (function() {
+            var pal = document.getElementById('colorPalette');
+            DRAW_COLORS.forEach(function(c) {
+                var swatch = document.createElement('div');
+                swatch.className = 'color-swatch' + (c.index === 0 ? ' eraser' : '') + (c.index === currentColor ? ' active' : '');
+                if (c.index > 0) swatch.style.background = c.hex;
+                swatch.title = c.label;
+                swatch.setAttribute('data-index', c.index);
+                swatch.onclick = function() {
+                    currentColor = c.index;
+                    document.querySelectorAll('.color-swatch').forEach(function(s) { s.classList.remove('active'); });
+                    swatch.classList.add('active');
+                };
+                pal.appendChild(swatch);
+            });
+        })();
+
+        // Build draw grid
+        (function() {
+            var grid = document.getElementById('drawGrid');
+
+            grid.addEventListener('mousedown', function(e) { isDrawing = true; });
+            document.addEventListener('mouseup', function() { isDrawing = false; });
+
+            for (var i = 0; i < 64; i++) {
+                var cell = document.createElement('div');
+                cell.className = 'draw-cell';
+                cell.setAttribute('data-i', i);
+
+                cell.addEventListener('mousedown', function(e) {
+                    e.preventDefault();
+                    paintCell(this);
+                });
+                cell.addEventListener('mouseenter', function(e) {
+                    if (isDrawing) paintCell(this);
+                });
+                // Touch support
+                cell.addEventListener('touchstart', function(e) {
+                    e.preventDefault();
+                    paintCell(this);
+                });
+
+                grid.appendChild(cell);
+            }
+        })();
+
+        function paintCell(cell) {
+            var i = parseInt(cell.getAttribute('data-i'));
+            gridData[i] = currentColor;
+
+            if (currentColor === 0) {
+                cell.style.background = 'var(--bg)';
+            } else {
+                // Use the actual custom color for indices 4 and 5
+                var hex = DRAW_COLORS.find(function(c) { return c.index === currentColor; });
+                if (currentColor === 4) {
+                    cell.style.background = document.getElementById('primaryColor').value;
+                } else if (currentColor === 5) {
+                    cell.style.background = document.getElementById('secondaryColor').value;
+                } else {
+                    cell.style.background = hex ? hex.hex : '#ff00ff';
+                }
+            }
+
+            updatePreview();
+        }
+
+        function getAvatarString() {
+            return gridData.map(function(v) { return v.toString(16); }).join('');
+        }
+
+        function updatePreview() {
+            var data = getAvatarString();
+            var colors = {
+                primary: document.getElementById('primaryColor').value,
+                secondary: document.getElementById('secondaryColor').value
+            };
+
+            renderAvatar(document.getElementById('preview32'), data, 32, colors);
+            renderAvatar(document.getElementById('preview64'), data, 64, colors);
+            renderAvatar(document.getElementById('preview128'), data, 128, colors);
+
+            // Refresh cell colors for primary/secondary
+            var cells = document.querySelectorAll('.draw-cell');
+            cells.forEach(function(cell) {
+                var i = parseInt(cell.getAttribute('data-i'));
+                if (gridData[i] === 4) cell.style.background = colors.primary;
+                if (gridData[i] === 5) cell.style.background = colors.secondary;
+            });
+
+            // Update output
+            var output = document.getElementById('outputBox');
+            output.textContent =
+                '{ name: "TU NOMBRE", page: "tu-archivo.html", desc: "Tu frase", avatar: "' + data + '", colors: "' + colors.primary + ',' + colors.secondary + '" },';
+        }
+
+        function clearGrid() {
+            gridData = new Array(64).fill(0);
+            document.querySelectorAll('.draw-cell').forEach(function(cell) {
+                cell.style.background = 'var(--bg)';
+            });
+            updatePreview();
+        }
+
+        function flipH() {
+            var newData = [];
+            for (var row = 0; row < 8; row++) {
+                for (var col = 7; col >= 0; col--) {
+                    newData.push(gridData[row * 8 + col]);
+                }
+            }
+            gridData = newData;
+            refreshGrid();
+        }
+
+        function flipV() {
+            var newData = [];
+            for (var row = 7; row >= 0; row--) {
+                for (var col = 0; col < 8; col++) {
+                    newData.push(gridData[row * 8 + col]);
+                }
+            }
+            gridData = newData;
+            refreshGrid();
+        }
+
+        function refreshGrid() {
+            var cells = document.querySelectorAll('.draw-cell');
+            var colors = {
+                primary: document.getElementById('primaryColor').value,
+                secondary: document.getElementById('secondaryColor').value
+            };
+            cells.forEach(function(cell) {
+                var i = parseInt(cell.getAttribute('data-i'));
+                var val = gridData[i];
+                if (val === 0) {
+                    cell.style.background = 'var(--bg)';
+                } else if (val === 4) {
+                    cell.style.background = colors.primary;
+                } else if (val === 5) {
+                    cell.style.background = colors.secondary;
+                } else {
+                    var c = DRAW_COLORS.find(function(dc) { return dc.index === val; });
+                    cell.style.background = c ? c.hex : '#ff00ff';
+                }
+            });
+            updatePreview();
+        }
+
+        function loadPreset(presetName) {
+            var preset = AVATAR_PRESETS[presetName];
+            if (!preset) return;
+            var data = preset.data.replace(/\s/g, '');
+            for (var i = 0; i < 64; i++) {
+                gridData[i] = parseInt(data[i] || '0', 16);
+            }
+            refreshGrid();
+        }
+
+        function copyOutput() {
+            var text = document.getElementById('outputBox').textContent;
+            navigator.clipboard.writeText(text).then(function() {
+                var msg = document.getElementById('copyMsg');
+                msg.classList.add('show');
+                setTimeout(function() { msg.classList.remove('show'); }, 2000);
+            });
+        }
+
+        // Render presets
+        (function() {
+            var grid = document.getElementById('presetGrid');
+            var names = Object.keys(AVATAR_PRESETS);
+            names.forEach(function(name) {
+                var btn = document.createElement('button');
+                btn.className = 'preset-btn';
+
+                var canvas = document.createElement('canvas');
+                canvas.width = 48;
+                canvas.height = 48;
+                renderAvatar(canvas, name, 48);
+
+                var label = document.createTextNode(AVATAR_PRESETS[name].name);
+                btn.appendChild(canvas);
+                btn.appendChild(label);
+
+                btn.onclick = function() { loadPreset(name); };
+                grid.appendChild(btn);
+            });
+        })();
+
+        // Generate starfield
+        (function() {
+            var field = document.getElementById('starfield');
+            if (!field) return;
+            for (var i = 0; i < 80; i++) {
+                var star = document.createElement('div');
+                star.className = 'star';
+                star.style.left = Math.random() * 100 + '%';
+                star.style.top = Math.random() * 100 + '%';
+                star.style.setProperty('--duration', (2 + Math.random() * 4) + 's');
+                star.style.setProperty('--delay', (Math.random() * 5) + 's');
+                if (Math.random() > 0.7) { star.style.width = '3px'; star.style.height = '3px'; }
+                field.appendChild(star);
+            }
+        })();
+
+        // Init preview
+        updatePreview();
+    </script>
+
+</body>
+</html>

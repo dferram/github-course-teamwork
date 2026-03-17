@@ -109,20 +109,16 @@ cd Teamwork</div>
                 <div class="step">
                     <div class="step-number">4</div>
                     <div class="step-content">
-                        <h3>REGISTRAR TU PAGINA EN LA GALERIA</h3>
+                        <h3>CREAR TU AVATAR 8-BIT</h3>
                         <p>
-                            Abre el archivo <code>team.js</code> y agrega
-                            UNA linea con tus datos dentro del array:
+                            Abre <code>avatar-builder.html</code> en tu navegador.
+                            Puedes elegir un preset (warrior, robot, ninja...)
+                            o dibujar tu propio personaje pixel por pixel.
+                            Personaliza los colores primario y secundario.
                         </p>
-                        <div class="code-block">{ name: "Tu Nombre", page: "nombre-apellido.html", icon: "[?]", desc: "Algo sobre ti" },</div>
-                        <div class="warning-box">
-                            <span class="box-label">[!]</span>
-                            <span>
-                                Varios alumnos editan este mismo archivo. Si hay un
-                                <strong>merge conflict</strong>, es normal.
-                                Solo necesitas conservar tu linea y las de tus
-                                companeros. Ver paso 7.
-                            </span>
+                        <div class="tip-box">
+                            <span class="box-label">[TIP]</span>
+                            <span>El builder genera el codigo que necesitas para el siguiente paso. Solo dale COPIAR.</span>
                         </div>
                     </div>
                 </div>
@@ -130,6 +126,33 @@ cd Teamwork</div>
                 <!-- Paso 5 -->
                 <div class="step">
                     <div class="step-number">5</div>
+                    <div class="step-content">
+                        <h3>REGISTRAR TU PAGINA EN LA GALERIA</h3>
+                        <p>
+                            Abre el archivo <code>team.js</code> y agrega
+                            UNA linea con tus datos dentro del array:
+                        </p>
+                        <div class="code-block">{ name: "Tu Nombre", page: "nombre-apellido.html", desc: "Tu frase", avatar: "warrior", colors: "#cc0000,#0066cc" },</div>
+                        <p style="margin-top: 10px;">
+                            En <code>avatar</code> pon el nombre del preset o el
+                            string que te dio el builder. En <code>colors</code> pon
+                            tus dos colores personalizados.
+                        </p>
+                        <div class="warning-box">
+                            <span class="box-label">[!]</span>
+                            <span>
+                                Varios alumnos editan este mismo archivo. Si hay un
+                                <strong>merge conflict</strong>, es normal.
+                                Solo necesitas conservar tu linea y las de tus
+                                companeros. Ver paso 8.
+                            </span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Paso 6 -->
+                <div class="step">
+                    <div class="step-number">6</div>
                     <div class="step-content">
                         <h3>COMMIT Y PUSH</h3>
                         <p>Guarda tus cambios y subelos al repositorio:</p>
@@ -139,9 +162,9 @@ git push origin nombre-apellido</div>
                     </div>
                 </div>
 
-                <!-- Paso 6 -->
+                <!-- Paso 7 -->
                 <div class="step">
-                    <div class="step-number">6</div>
+                    <div class="step-number">7</div>
                     <div class="step-content">
                         <h3>CREAR UN PULL REQUEST</h3>
                         <p>
@@ -153,9 +176,9 @@ git push origin nombre-apellido</div>
                     </div>
                 </div>
 
-                <!-- Paso 7 -->
+                <!-- Paso 8 -->
                 <div class="step">
-                    <div class="step-number">7</div>
+                    <div class="step-number">8</div>
                     <div class="step-content">
                         <h3>RESOLVER MERGE CONFLICTS</h3>
                         <p>Si GitHub indica conflictos al hacer merge, actualiza tu rama:</p>
@@ -175,9 +198,9 @@ git push origin nombre-apellido</div>
                     </div>
                 </div>
 
-                <!-- Paso 8 -->
+                <!-- Paso 9 -->
                 <div class="step">
-                    <div class="step-number">8</div>
+                    <div class="step-number">9</div>
                     <div class="step-content">
                         <h3>MISION COMPLETA</h3>
                         <p>
@@ -229,6 +252,7 @@ git push origin nombre-apellido</div>
     </footer>
 
     <!-- Scripts -->
+    <script src="avatars.js"></script>
     <script src="team.js"></script>
     <script>
         // Generate starfield
@@ -250,7 +274,7 @@ git push origin nombre-apellido</div>
             }
         })();
 
-        // Build gallery from team.js data
+        // Build gallery from team.js data with pixel avatars
         (function() {
             var grid = document.getElementById('galleryGrid');
             if (!grid || typeof team === 'undefined') return;
@@ -260,10 +284,31 @@ git push origin nombre-apellido</div>
                 var card = document.createElement('a');
                 card.href = m.page;
                 card.className = 'gallery-card';
-                card.innerHTML =
-                    '<div class="card-icon">' + m.icon + '</div>' +
-                    '<h3>' + m.name + '</h3>' +
-                    '<p>' + m.desc + '</p>';
+
+                // Avatar canvas
+                var avatarDiv = document.createElement('div');
+                avatarDiv.className = 'card-icon';
+                var canvas = document.createElement('canvas');
+                canvas.width = 48;
+                canvas.height = 48;
+                canvas.style.imageRendering = 'pixelated';
+
+                var customColors = null;
+                if (m.colors) {
+                    var parts = m.colors.split(',');
+                    customColors = { primary: parts[0], secondary: parts[1] };
+                }
+                renderAvatar(canvas, m.avatar || 'ghost', 48, customColors);
+                avatarDiv.appendChild(canvas);
+
+                var nameEl = document.createElement('h3');
+                nameEl.textContent = m.name;
+                var descEl = document.createElement('p');
+                descEl.textContent = m.desc;
+
+                card.appendChild(avatarDiv);
+                card.appendChild(nameEl);
+                card.appendChild(descEl);
                 grid.appendChild(card);
             }
 
