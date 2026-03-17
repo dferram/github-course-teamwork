@@ -48,22 +48,30 @@ cp _plantilla.html nombre-apellido.html
 ### Paso 4 - Crear tu avatar 8-bit
 
 Abre `avatar-builder.html` en tu navegador. Puedes:
-- Elegir un preset (warrior, robot, ninja, alien, cat, ghost, mage, astro)
+- Elegir un preset (classic, spike, punk, bob, longhair, robot, ninja, alien, cat, wizard, spiderman, pirate, zombie, viking, cyborg, witch, superhero, demon)
 - O dibujar tu propio personaje pixel por pixel
 - Personalizar los colores primario y secundario
+
+**Importante:** Los avatares son solo cabezas (8 filas superiores de la cuadrícula). Deja las 4 filas inferiores vacías.
 
 El builder genera el codigo que necesitas para el siguiente paso.
 
 ### Paso 5 - Registrar tu pagina en la galeria
 
-Abre `team.js` y agrega UNA linea con tus datos:
+Abre `team.js` y agrega UNA linea con TUS datos debajo del comentario "AGREGA TU LINEA AQUI ABAJO":
 
 ```js
-{ name: "Tu Nombre", page: "nombre-apellido.html", desc: "Tu frase", avatar: "warrior", colors: "#cc0000,#0066cc" },
+{ name: "Tu Nombre", page: "nombre-apellido.html", desc: "Tu frase", avatar: "spiderman", colors: "#e74c3c,#1a1a2e" },
 ```
 
 En `avatar` pon el nombre del preset o el string del builder.
 En `colors` pon tus dos colores separados por coma.
+
+**¿Cómo sé que estoy editando MI avatar?**
+- Busca tu nombre en el array. Si NO estás en la lista, agrega una NUEVA línea.
+- Si YA estás en la lista, edita SOLO tu línea (la que tiene tu nombre).
+- NO modifiques las líneas de otros estudiantes.
+- Cada línea es independiente = cada estudiante tiene su propio avatar.
 
 > **Importante:** Varios alumnos editan `team.js`. Si hay un merge conflict, es normal. Solo conserva tu linea y las de tus companeros.
 

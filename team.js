@@ -1,23 +1,44 @@
 /*
     TEAM.JS — Registro del equipo
     ==============================
-    Cada integrante agrega UNA linea al array de abajo.
-    La galeria en index.html se genera automaticamente
-    a partir de estos datos.
-
-    FORMATO:
-    { name: "Tu Nombre", page: "nombre-apellido.html", desc: "Algo sobre ti", avatar: "warrior", colors: "#cc0000,#0066cc" },
-
+    
+    🎯 IMPORTANTE: Cada estudiante edita SOLO SU PROPIA LÍNEA
+    =========================================================
+    
+    ¿CÓMO FUNCIONA?
+    ---------------
+    1. Cada estudiante agrega UNA línea al array de abajo
+    2. Tu línea contiene TU nombre, TU página, y TU avatar
+    3. NO modifiques las líneas de otros estudiantes
+    4. La galería en index.html se genera automáticamente
+    
+    ¿CÓMO SÉ QUE ESTOY EDITANDO MI AVATAR?
+    ---------------------------------------
+    - Busca tu nombre en el array
+    - Si NO estás en la lista, agrega una NUEVA línea con TUS datos
+    - Si YA estás en la lista, edita SOLO tu línea (la que tiene tu nombre)
+    - Cada línea es independiente = cada estudiante tiene su propio avatar
+    
+    FORMATO DE CADA LÍNEA:
+    ----------------------
+    { name: "Tu Nombre", page: "nombre-apellido.html", desc: "Algo sobre ti", avatar: "spiderman", colors: "#cc0000,#0066cc" },
+    
     AVATAR:
-    Puedes usar un preset: classic, spike, punk, bob, longhair, robot, ninja, alien, 
-    cat, wizard, spiderman, pirate, zombie, viking, cyborg, witch, superhero, demon
-    O puedes crear tu propio avatar en avatar-builder.html y pegar el string que genera.
-
-    COLORS:
+    -------
+    Opción 1 - Usar un preset (copia el nombre exacto):
+      classic, spike, punk, bob, longhair, robot, ninja, alien, 
+      cat, wizard, spiderman, pirate, zombie, viking, cyborg, witch, superhero, demon
+    
+    Opción 2 - Crear tu propio avatar:
+      Ve a avatar-builder.html, dibuja tu avatar, y copia el código que genera
+    
+    COLORS (opcional):
+    ------------------
     Dos colores separados por coma: primario,secundario
-    Estos cambian los colores 4 y 5 de tu avatar.
-
-    NOTA: no olvides la coma al final de tu linea.
+    Ejemplo: "#e74c3c,#1a1a2e"
+    Estos cambian los colores personalizables de tu avatar.
+    
+    ⚠️ IMPORTANTE: No olvides la coma al final de tu línea
 */
 
 var team = [

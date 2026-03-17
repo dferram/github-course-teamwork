@@ -112,13 +112,13 @@ cd Teamwork</div>
                         <h3>CREAR TU AVATAR 8-BIT</h3>
                         <p>
                             Abre <code>avatar-builder.html</code> en tu navegador.
-                            Puedes elegir un preset (warrior, robot, ninja...)
+                            Puedes elegir un preset (spiderman, wizard, ninja, zombie...)
                             o dibujar tu propio personaje pixel por pixel.
                             Personaliza los colores primario y secundario.
                         </p>
                         <div class="tip-box">
                             <span class="box-label">[TIP]</span>
-                            <span>El builder genera el codigo que necesitas para el siguiente paso. Solo dale COPIAR.</span>
+                            <span>Los avatares son solo cabezas (8 filas superiores). Si usas un preset, solo copia su nombre. Si dibujas uno, el builder genera el código automáticamente.</span>
                         </div>
                     </div>
                 </div>
@@ -130,13 +130,15 @@ cd Teamwork</div>
                         <h3>REGISTRAR TU PAGINA EN LA GALERIA</h3>
                         <p>
                             Abre el archivo <code>team.js</code> y agrega
-                            UNA linea con tus datos dentro del array:
+                            UNA linea con TUS datos dentro del array, debajo del comentario "AGREGA TU LINEA AQUI ABAJO":
                         </p>
-                        <div class="code-block">{ name: "Tu Nombre", page: "nombre-apellido.html", desc: "Tu frase", avatar: "warrior", colors: "#cc0000,#0066cc" },</div>
+                        <div class="code-block">{ name: "Tu Nombre", page: "nombre-apellido.html", desc: "Tu frase", avatar: "spiderman", colors: "#e74c3c,#1a1a2e" },</div>
                         <p style="margin-top: 10px;">
-                            En <code>avatar</code> pon el nombre del preset o el
-                            string que te dio el builder. En <code>colors</code> pon
-                            tus dos colores personalizados.
+                            <strong>¿Cómo sé que estoy editando MI avatar?</strong><br>
+                            - Busca tu nombre en el array. Si NO estás, agrega una NUEVA línea.<br>
+                            - Si YA estás, edita SOLO tu línea (la que tiene tu nombre).<br>
+                            - NO modifiques las líneas de otros estudiantes.<br>
+                            - Cada línea es independiente = cada estudiante tiene su propio avatar.
                         </p>
                         <div class="warning-box">
                             <span class="box-label">[!]</span>
