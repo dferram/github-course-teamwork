@@ -29,8 +29,6 @@
         avatar: "spiderman",
         colors: "#cc0000,#0066cc",
         github: "https://github.com/tu-usuario",
-        linkedin: "",  // Opcional, deja vacío si no tienes
-        twitter: "",   // Opcional, deja vacío si no tienes
         about: "Texto largo sobre ti. Puedes escribir varias líneas aquí.",
         skills: ["HTML", "CSS", "JavaScript", "Git"],
         randomFact: "Un dato curioso o divertido sobre ti"
@@ -84,15 +82,23 @@ var team = [
         tagline: "Never give up - Checo Perez",
         avatar: "5vvvvvv5v5vvvv5v11vvvv11161vv16116655661v11vv11v5vvvvvv555vvvv55",
         colors: "#cc0000,#cc0000",
-        github: "https://github.com",
-        linkedin: "",
-        twitter: "",
+        github: "https://github.com//dferram",
         about: "Esta es una pagina de ejemplo para que veas como se ve el resultado final. Tu pagina puede ser igual a esta, o puedes modificarla como quieras. Lo importante es que practiques el flujo de Git: clonar, crear rama, hacer cambios, commit, push y pull request.",
         skills: ["Git", "GitHub", "HTML", "CSS", "JavaScript"],
         randomFact: "Este proyecto esta hecho con un tema 8-bit retro. Los estilos estan en styles.css y puedes usarlos o hacer los tuyos desde cero. Para el avatar, abre avatar-builder.html y dibuja el tuyo."
     },
 
     // --- AGREGA TU LINEA AQUI ABAJO ---
-
+    // {
+    //     name: "Tu Nombre Completo",
+    //     page: "nombre-apellido.html",
+    //     tagline: "Una frase corta sobre ti",
+    //     avatar: "spiderman",
+    //     colors: "#cc0000,#0066cc",
+    //     github: "https://github.com/tu-usuario",
+    //     about: "Texto largo sobre ti, mantenlo sobre la misma línea para evitar el Merge Conflict",
+    //     skills: ["HTML", "CSS", "JavaScript", "Git"],
+    //     randomFact: "Un dato curioso o divertido sobre ti"
+    // },
 
 ];
