@@ -21,7 +21,7 @@
 
 var team = [
     // --- EJEMPLO (no borrar) ---
-    { name: "Fernando Ramirez", page: "ejemplo-instructor.html", desc: "Never give up - Checo Perez", avatar: "warrior", colors: "#cc0000,#1a6b0a" },
+    { name: "Fernando Ramirez", page: "FernandoRamirez.html", desc: "Never give up - Checo Perez", avatar: "warrior", colors: "#cc0000,#1a6b0a" },
 
     // --- AGREGA TU LINEA AQUI ABAJO ---
 
