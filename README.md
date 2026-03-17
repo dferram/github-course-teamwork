@@ -1,31 +1,27 @@
-# 🚀 Proyecto en Equipo — Curso de Git & GitHub
+# Proyecto en Equipo — Curso de Git & GitHub
 
-¡Bienvenido/a al proyecto colaborativo del curso! En este ejercicio vas a practicar el flujo completo de trabajo en equipo con Git y GitHub.
+Bienvenido/a al proyecto colaborativo del curso. En este ejercicio vas a practicar el flujo completo de trabajo en equipo con Git y GitHub.
 
-## 🎯 Objetivo
+## Objetivo
 
-Crear una **página personal en HTML** y agregarla a la galería del equipo. Al final, tendremos un sitio web publicado con GitHub Pages donde cada integrante tiene su propia página.
+Crear una **pagina personal en HTML** con tu avatar 8-bit y agregarla a la galeria del equipo. Al final, tendremos un sitio web publicado donde cada integrante tiene su propia pagina.
 
 ---
 
-## 📋 Instrucciones paso a paso
+## Instrucciones paso a paso
 
-### Paso 1 · Hacer Fork del repositorio
+### Paso 1 - Clonar el repositorio
 
-1. Entra al repositorio original en GitHub.
-2. Haz clic en el botón **Fork** (esquina superior derecha).
-3. Esto crea una copia del repositorio en **tu cuenta personal**.
-
-### Paso 2 · Clonar tu Fork
-
-Abre tu terminal y clona **tu fork** (no el original):
+Abre tu terminal y clona el repositorio del curso:
 
 ```bash
-git clone https://github.com/TU-USUARIO/Teamwork.git
+git clone https://github.com/USUARIO/Teamwork.git
 cd Teamwork
 ```
 
-### Paso 3 · Crear una rama nueva
+> Cambia `USUARIO` por la URL que te de tu instructor.
+
+### Paso 2 - Crear una rama nueva
 
 Crea una rama con tu nombre para trabajar sin afectar `main`:
 
@@ -33,69 +29,75 @@ Crea una rama con tu nombre para trabajar sin afectar `main`:
 git checkout -b nombre-apellido
 ```
 
-> **Ejemplo:** `git checkout -b juan-perez`
+> Ejemplo: `git checkout -b juan-perez`
 
-### Paso 4 · Crear tu página HTML
+### Paso 3 - Crear tu pagina HTML
 
-1. Copia la plantilla que ya existe:
+1. Copia la plantilla:
 
 ```bash
 cp _plantilla.html nombre-apellido.html
 ```
 
-2. Abre el archivo y personalízalo:
-   - Cambia el título con tu nombre
-   - Escribe algo sobre ti (bio, hobbies, lo que quieras)
-   - Agrega links a tus redes sociales
-   - ¡Sé creativo/a! Puedes modificar los colores, agregar imágenes, lo que gustes
+2. Abre el archivo y personalizalo:
+   - Cambia el titulo con tu nombre
+   - Escribe sobre ti, agrega tus redes
+   - Cambia el avatar (ver paso 4)
+   - Se creativo/a
 
-> **💡 Tip:** Puedes usar el archivo `styles.css` que ya está incluido, o escribir tu propio CSS dentro de tu archivo.
+> **Tip:** Revisa `ejemplo-instructor.html` para ver una pagina terminada.
 
-### Paso 5 · Agregar tu link a la galería
+### Paso 4 - Crear tu avatar 8-bit
 
-Abre el archivo `index.html` y busca la sección `<!-- GALERÍA -->`. Agrega una nueva tarjeta con tu información **dentro** del `<div class="gallery-grid">`:
+Abre `avatar-builder.html` en tu navegador. Puedes:
+- Elegir un preset (warrior, robot, ninja, alien, cat, ghost, mage, astro)
+- O dibujar tu propio personaje pixel por pixel
+- Personalizar los colores primario y secundario
 
-```html
-<!-- Tu Nombre -->
-<a href="nombre-apellido.html" class="gallery-card">
-    <div class="card-avatar">🧑‍💻</div>
-    <h3>Tu Nombre</h3>
-    <p>Una frase corta sobre ti</p>
-</a>
+El builder genera el codigo que necesitas para el siguiente paso.
+
+### Paso 5 - Registrar tu pagina en la galeria
+
+Abre `team.js` y agrega UNA linea con tus datos:
+
+```js
+{ name: "Tu Nombre", page: "nombre-apellido.html", desc: "Tu frase", avatar: "warrior", colors: "#cc0000,#0066cc" },
 ```
 
-> **⚠️ Importante:** Este paso puede generar un *merge conflict* porque varios alumnos editan el mismo archivo. ¡Eso es intencional! Es parte del aprendizaje.
+En `avatar` pon el nombre del preset o el string del builder.
+En `colors` pon tus dos colores separados por coma.
 
-### Paso 6 · Hacer commit y push
+> **Importante:** Varios alumnos editan `team.js`. Si hay un merge conflict, es normal. Solo conserva tu linea y las de tus companeros.
+
+### Paso 6 - Hacer commit y push
 
 ```bash
 git add .
-git commit -m "Agregar página de nombre-apellido"
+git commit -m "Agregar pagina de nombre-apellido"
 git push origin nombre-apellido
 ```
 
-### Paso 7 · Crear un Pull Request
+### Paso 7 - Crear un Pull Request
 
-1. Ve a **tu fork** en GitHub.
-2. GitHub mostrará un banner para crear un Pull Request. Haz clic en **"Compare & pull request"**.
-3. Escribe un título descriptivo, por ejemplo: *"Agregar página de Juan Pérez"*.
-4. Haz clic en **"Create pull request"**.
+1. Ve al repositorio en GitHub.
+2. Veras un banner para crear un Pull Request de tu rama. Haz clic en **"Compare & pull request"**.
+3. Escribe un titulo descriptivo y crealo.
 
-### Paso 8 · Resolver merge conflicts (si los hay)
+### Paso 8 - Resolver merge conflicts (si los hay)
 
-Si GitHub indica que hay conflictos:
+Si GitHub indica conflictos:
 
-1. Actualiza tu rama con los últimos cambios:
+1. Actualiza tu rama:
 
 ```bash
 git checkout main
-git pull upstream main
+git pull origin main
 git checkout nombre-apellido
 git merge main
 ```
 
-2. Abre los archivos con conflictos y resuélvelos manualmente.
-3. Haz commit y push nuevamente:
+2. Abre los archivos con conflictos (probablemente `team.js`), resuelvelos conservando todas las lineas.
+3. Commit y push:
 
 ```bash
 git add .
@@ -103,30 +105,34 @@ git commit -m "Resolver merge conflicts"
 git push origin nombre-apellido
 ```
 
-### Paso 9 · ¡Listo!
+### Paso 9 - Mision completa
 
-Una vez que tu Pull Request sea aprobado y mergeado, tu página aparecerá en la galería del equipo. 🎉
+Una vez que tu PR sea aprobado y mergeado, tu pagina y avatar aparecen en la galeria automaticamente.
 
 ---
 
-## 📁 Estructura del proyecto
+## Estructura del proyecto
 
 ```
 Teamwork/
-├── index.html          ← Página principal (galería del equipo)
-├── styles.css          ← Estilos compartidos (opcional)
-├── _plantilla.html     ← Plantilla base para tu página
-├── README.md           ← Este archivo
-└── nombre-apellido.html ← Tu página personal
+|-- index.html              <- Pagina principal (galeria automatica)
+|-- styles.css              <- Estilos 8-bit compartidos
+|-- avatars.js              <- Sistema de avatares pixel
+|-- avatar-builder.html     <- Editor de avatares interactivo
+|-- team.js                 <- Registro del equipo (cada quien agrega su linea)
+|-- _plantilla.html         <- Plantilla base para tu pagina
+|-- ejemplo-instructor.html <- Ejemplo de pagina terminada
+|-- README.md               <- Este archivo
+|-- nombre-apellido.html    <- Tu pagina personal
 ```
 
-## 🔗 Recursos útiles
+## Recursos utiles
 
-- [Git Cheat Sheet (GitHub)](https://education.github.com/git-cheat-sheet-education.pdf)
-- [Cómo resolver merge conflicts](https://docs.github.com/es/pull-requests/collaborating-with-pull-requests/addressing-merge-conflicts)
-- [Guía de Markdown](https://guides.github.com/features/mastering-markdown/)
+- [Git Cheat Sheet](https://education.github.com/git-cheat-sheet-education.pdf)
+- [Como resolver merge conflicts](https://docs.github.com/es/pull-requests/collaborating-with-pull-requests/addressing-merge-conflicts)
+- [Guia de Markdown](https://guides.github.com/features/mastering-markdown/)
 - [GitHub Pages](https://pages.github.com/)
 
 ---
 
-> **¿Tienes dudas?** Pregunta al instructor o abre un **Issue** en el repositorio. ¡Estamos para ayudarte! 💬
+> Tienes dudas? Pregunta al instructor o abre un **Issue** en el repositorio.
