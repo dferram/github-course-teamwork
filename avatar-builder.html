@@ -33,7 +33,7 @@
         /* Drawing grid */
         .draw-grid {
             display: grid;
-            grid-template-columns: repeat(12, 1fr);
+            grid-template-columns: repeat(16, 1fr);
             gap: 1px;
             background: rgba(255,255,255,0.05);
             border: 2px solid var(--border-color);
@@ -272,16 +272,23 @@
                         <li style="margin-bottom: 6px;">NO modifiques las líneas de otros estudiantes - solo la tuya</li>
                     </ol>
                     
-                    <p style="margin-bottom: 10px;"><strong>Pasos para agregar tu avatar:</strong></p>
+                    <p style="margin-bottom: 10px;"><strong>Pasos para crear tu avatar:</strong></p>
                     <ol style="margin-left: 20px; margin-bottom: 10px;">
-                        <li style="margin-bottom: 6px;"><strong>Opción 1 - Usar un preset:</strong> Elige un avatar de arriba y copia su nombre (ej: "spiderman", "wizard")</li>
-                        <li style="margin-bottom: 6px;"><strong>Opción 2 - Crear tu propio avatar:</strong> Dibuja en la cuadrícula de abajo y copia el código que se genera</li>
-                        <li style="margin-bottom: 6px;">Abre el archivo <code>team.js</code> y agrega TU línea debajo del comentario "AGREGA TU LINEA AQUI ABAJO"</li>
-                        <li style="margin-bottom: 6px;">Formato: <code>{ name: "Tu Nombre", page: "tunombre.html", desc: "Tu descripción", avatar: "spiderman", colors: "#ff0000,#0000ff" },</code></li>
-                        <li style="margin-bottom: 6px;">¡No olvides la coma al final!</li>
+                        <li style="margin-bottom: 6px;"><strong>Opción 1 - Usar un preset:</strong> Haz clic en un avatar de arriba para cargarlo</li>
+                        <li style="margin-bottom: 6px;"><strong>Opción 2 - Crear desde cero:</strong> Selecciona un color de la paleta y dibuja en la cuadrícula 16x16</li>
+                        <li style="margin-bottom: 6px;"><strong>Personalizar colores:</strong> Usa los selectores "PRIMARIO" y "SECUNDARIO" para cambiar colores específicos</li>
+                        <li style="margin-bottom: 6px;"><strong>Herramientas:</strong> Usa LIMPIAR para borrar todo, VOLTEAR H/V para reflejar el diseño</li>
+                        <li style="margin-bottom: 6px;"><strong>Copiar código:</strong> Haz clic en COPIAR para obtener el código de tu avatar</li>
+                        <li style="margin-bottom: 6px;">Pega el código en <code>team.js</code> en tu línea personal</li>
                     </ol>
                     
-                    <p style="color: var(--cyan); margin-top: 10px;"><strong>💡 Tip:</strong> Los avatares son solo cabezas (8 filas superiores). Deja las 4 filas inferiores vacías.</p>
+                    <p style="color: var(--cyan); margin-top: 10px;"><strong>💡 Tips:</strong></p>
+                    <ul style="margin-left: 20px; margin-top: 6px;">
+                        <li style="margin-bottom: 4px;">Los avatares son solo cabezas (10 filas superiores). Deja las 6 filas inferiores vacías</li>
+                        <li style="margin-bottom: 4px;">Tienes 32 colores disponibles en la paleta expandida</li>
+                        <li style="margin-bottom: 4px;">El grid es 16x16 = 256 píxeles para mejor detalle</li>
+                        <li style="margin-bottom: 4px;">Usa el borrador (X roja) para eliminar píxeles</li>
+                    </ul>
                 </div>
             </div>
         </section>
@@ -363,7 +370,7 @@
 
     <script src="avatars.js"></script>
     <script>
-        var gridData = new Array(144).fill(0);
+        var gridData = new Array(256).fill(0);
         var currentColor = 3; // default: primario
         var isDrawing = false;
 
@@ -371,13 +378,35 @@
             { index: 0, hex: 'transparent', label: 'Borrar' },
             { index: 1, hex: '#1a1a2e', label: 'Negro' },
             { index: 2, hex: '#e8c8a0', label: 'Piel' },
-            { index: 3, hex: '#5c3a1e', label: 'Primario (Pelo)' },
+            { index: 3, hex: '#5c3a1e', label: 'Primario' },
             { index: 4, hex: '#2d2d44', label: 'Ropa' },
             { index: 5, hex: '#cc0000', label: 'Secundario' },
             { index: 6, hex: '#ffffff', label: 'Blanco' },
             { index: 7, hex: '#c9a87c', label: 'Sombra' },
-            { index: 8, hex: '#333344', label: 'Zapatos' },
-            { index: 9, hex: '#ff8888', label: 'Labios/Detalle' }
+            { index: 8, hex: '#333344', label: 'Gris' },
+            { index: 9, hex: '#ff8888', label: 'Rosa' },
+            { index: 10, hex: '#4a90e2', label: 'Azul' },
+            { index: 11, hex: '#2ecc71', label: 'Verde' },
+            { index: 12, hex: '#f39c12', label: 'Naranja' },
+            { index: 13, hex: '#9b59b6', label: 'Morado' },
+            { index: 14, hex: '#e74c3c', label: 'Rojo' },
+            { index: 15, hex: '#34495e', label: 'Gris O' },
+            { index: 16, hex: '#ffeb3b', label: 'Amarillo' },
+            { index: 17, hex: '#00bcd4', label: 'Cyan' },
+            { index: 18, hex: '#ff5722', label: 'Naranja O' },
+            { index: 19, hex: '#795548', label: 'Marrón' },
+            { index: 20, hex: '#607d8b', label: 'Azul G' },
+            { index: 21, hex: '#8bc34a', label: 'Lima' },
+            { index: 22, hex: '#ff9800', label: 'Naranja M' },
+            { index: 23, hex: '#3f51b5', label: 'Índigo' },
+            { index: 24, hex: '#e91e63', label: 'Rosa F' },
+            { index: 25, hex: '#009688', label: 'Teal' },
+            { index: 26, hex: '#ffc107', label: 'Ámbar' },
+            { index: 27, hex: '#673ab7', label: 'Púrpura' },
+            { index: 28, hex: '#cddc39', label: 'Lima B' },
+            { index: 29, hex: '#ff6f00', label: 'Naranja P' },
+            { index: 30, hex: '#00897b', label: 'Esmeralda' },
+            { index: 31, hex: '#d32f2f', label: 'Rojo O' }
         ];
 
         // Build color palette
@@ -405,7 +434,7 @@
             grid.addEventListener('mousedown', function(e) { isDrawing = true; });
             document.addEventListener('mouseup', function() { isDrawing = false; });
 
-            for (var i = 0; i < 144; i++) {
+            for (var i = 0; i < 256; i++) {
                 var cell = document.createElement('div');
                 cell.className = 'draw-cell';
                 cell.setAttribute('data-i', i);
@@ -478,7 +507,7 @@
         }
 
         function clearGrid() {
-            gridData = new Array(144).fill(0);
+            gridData = new Array(256).fill(0);
             document.querySelectorAll('.draw-cell').forEach(function(cell) {
                 cell.style.background = 'var(--bg)';
             });
@@ -487,9 +516,9 @@
 
         function flipH() {
             var newData = [];
-            for (var row = 0; row < 12; row++) {
-                for (var col = 11; col >= 0; col--) {
-                    newData.push(gridData[row * 12 + col]);
+            for (var row = 0; row < 16; row++) {
+                for (var col = 15; col >= 0; col--) {
+                    newData.push(gridData[row * 16 + col]);
                 }
             }
             gridData = newData;
@@ -498,9 +527,9 @@
 
         function flipV() {
             var newData = [];
-            for (var row = 11; row >= 0; row--) {
-                for (var col = 0; col < 12; col++) {
-                    newData.push(gridData[row * 12 + col]);
+            for (var row = 15; row >= 0; row--) {
+                for (var col = 0; col < 16; col++) {
+                    newData.push(gridData[row * 16 + col]);
                 }
             }
             gridData = newData;
@@ -534,7 +563,7 @@
             var preset = AVATAR_PRESETS[presetName];
             if (!preset) return;
             var data = preset.data.replace(/\s/g, '');
-            for (var i = 0; i < 144; i++) {
+            for (var i = 0; i < 256; i++) {
                 gridData[i] = parseInt(data[i] || '0', 16);
             }
             refreshGrid();
