@@ -33,7 +33,7 @@
         /* Drawing grid */
         .draw-grid {
             display: grid;
-            grid-template-columns: repeat(16, 1fr);
+            grid-template-columns: repeat(8, 1fr);
             gap: 1px;
             background: rgba(255,255,255,0.05);
             border: 2px solid var(--border-color);
@@ -275,8 +275,8 @@
                     <p style="margin-bottom: 10px;"><strong>Pasos para crear tu avatar:</strong></p>
                     <ol style="margin-left: 20px; margin-bottom: 10px;">
                         <li style="margin-bottom: 6px;"><strong>Opción 1 - Usar un preset:</strong> Haz clic en un avatar de arriba para cargarlo</li>
-                        <li style="margin-bottom: 6px;"><strong>Opción 2 - Crear desde cero:</strong> Selecciona un color de la paleta y dibuja en la cuadrícula 16x16</li>
-                        <li style="margin-bottom: 6px;"><strong>Personalizar colores:</strong> Usa los selectores "PRIMARIO" y "SECUNDARIO" para cambiar colores específicos</li>
+                        <li style="margin-bottom: 6px;"><strong>Opción 2 - Crear desde cero:</strong> Selecciona un color de la paleta y dibuja en la cuadrícula 8x8</li>
+                        <li style="margin-bottom: 6px;"><strong>Ajustar tono:</strong> Selecciona un color y usa el selector para cambiar su tono. Usa RESTAURAR para volver al color original</li>
                         <li style="margin-bottom: 6px;"><strong>Herramientas:</strong> Usa LIMPIAR para borrar todo, VOLTEAR H/V para reflejar el diseño</li>
                         <li style="margin-bottom: 6px;"><strong>Copiar código:</strong> Haz clic en COPIAR para obtener el código de tu avatar</li>
                         <li style="margin-bottom: 6px;">Pega el código en <code>team.js</code> en tu línea personal</li>
@@ -284,9 +284,9 @@
                     
                     <p style="color: var(--cyan); margin-top: 10px;"><strong>💡 Tips:</strong></p>
                     <ul style="margin-left: 20px; margin-top: 6px;">
-                        <li style="margin-bottom: 4px;">Los avatares son solo cabezas (10 filas superiores). Deja las 6 filas inferiores vacías</li>
+                        <li style="margin-bottom: 4px;">Los avatares son cabezas completas en formato 8x8 (64 píxeles)</li>
                         <li style="margin-bottom: 4px;">Tienes 32 colores disponibles en la paleta expandida</li>
-                        <li style="margin-bottom: 4px;">El grid es 16x16 = 256 píxeles para mejor detalle</li>
+                        <li style="margin-bottom: 4px;">El grid es 8x8 = 64 píxeles (strings manejables)</li>
                         <li style="margin-bottom: 4px;">Usa el borrador (X roja) para eliminar píxeles</li>
                     </ul>
                 </div>
@@ -324,31 +324,15 @@
                 <div class="panel-title">PREVIEW</div>
 
                 <div class="preview-area">
-                    <div class="preview-sizes">
-                        <div>
-                            <canvas id="preview32" width="32" height="32" class="preview-canvas"></canvas>
-                            <div style="font-size: 6px; color: var(--text-dim); margin-top: 4px;">32px</div>
-                        </div>
-                        <div>
-                            <canvas id="preview64" width="64" height="64" class="preview-canvas"></canvas>
-                            <div style="font-size: 6px; color: var(--text-dim); margin-top: 4px;">64px</div>
-                        </div>
-                        <div>
-                            <canvas id="preview128" width="128" height="128" class="preview-canvas"></canvas>
-                            <div style="font-size: 6px; color: var(--text-dim); margin-top: 4px;">128px</div>
-                        </div>
-                    </div>
+                    <canvas id="preview128" width="128" height="128" class="preview-canvas" style="display: block; margin: 0 auto;"></canvas>
                 </div>
 
-                <div class="panel-title" style="margin-top: 20px;">COLORES CUSTOM</div>
+                <div class="panel-title" style="margin-top: 20px;">AJUSTAR TONO</div>
                 <div class="custom-colors">
                     <div class="color-input-group">
-                        <label>Primario:</label>
-                        <input type="color" id="primaryColor" value="#cc0000" onchange="updatePreview()">
-                    </div>
-                    <div class="color-input-group">
-                        <label>Secundario:</label>
-                        <input type="color" id="secondaryColor" value="#0066cc" onchange="updatePreview()">
+                        <label id="colorLabel">Selecciona un color de la paleta</label>
+                        <input type="color" id="colorPicker" oninput="updateColorTone()" style="display: none;">
+                        <button class="btn" onclick="resetColorTone()" id="resetBtn" style="display: none; margin-left: 8px;">Restaurar</button>
                     </div>
                 </div>
 
@@ -370,9 +354,11 @@
 
     <script src="avatars.js"></script>
     <script>
-        var gridData = new Array(256).fill(0);
-        var currentColor = 3; // default: primario
+        var gridData = new Array(64).fill(0);
+        var gridColors = new Array(64).fill(null);
+        var currentColor = 3;
         var isDrawing = false;
+        var customColorTones = {};
 
         var DRAW_COLORS = [
             { index: 0, hex: 'transparent', label: 'Borrar' },
@@ -422,6 +408,21 @@
                     currentColor = c.index;
                     document.querySelectorAll('.color-swatch').forEach(function(s) { s.classList.remove('active'); });
                     swatch.classList.add('active');
+                    
+                    var picker = document.getElementById('colorPicker');
+                    var label = document.getElementById('colorLabel');
+                    var resetBtn = document.getElementById('resetBtn');
+                    
+                    if (c.index > 0) {
+                        picker.style.display = 'inline-block';
+                        resetBtn.style.display = 'inline-block';
+                        picker.value = customColorTones[c.index] || c.hex;
+                        label.textContent = c.label + ':';
+                    } else {
+                        picker.style.display = 'none';
+                        resetBtn.style.display = 'none';
+                        label.textContent = 'Selecciona un color de la paleta';
+                    }
                 };
                 pal.appendChild(swatch);
             });
@@ -434,7 +435,7 @@
             grid.addEventListener('mousedown', function(e) { isDrawing = true; });
             document.addEventListener('mouseup', function() { isDrawing = false; });
 
-            for (var i = 0; i < 256; i++) {
+            for (var i = 0; i < 64; i++) {
                 var cell = document.createElement('div');
                 cell.className = 'draw-cell';
                 cell.setAttribute('data-i', i);
@@ -462,52 +463,80 @@
 
             if (currentColor === 0) {
                 cell.style.background = 'var(--bg)';
+                gridColors[i] = null;
             } else {
-                // Use the actual custom color for indices 3 and 5
-                var hex = DRAW_COLORS.find(function(c) { return c.index === currentColor; });
-                if (currentColor === 3) {
-                    cell.style.background = document.getElementById('primaryColor').value;
-                } else if (currentColor === 5) {
-                    cell.style.background = document.getElementById('secondaryColor').value;
+                var customTone = customColorTones[currentColor];
+                var finalColor;
+                if (customTone) {
+                    finalColor = customTone;
                 } else {
-                    cell.style.background = hex ? hex.hex : '#ff00ff';
+                    var hex = DRAW_COLORS.find(function(c) { return c.index === currentColor; });
+                    finalColor = hex ? hex.hex : '#ff00ff';
                 }
+                cell.style.background = finalColor;
+                gridColors[i] = finalColor;
             }
 
             updatePreview();
         }
 
         function getAvatarString() {
-            return gridData.map(function(v) { return v.toString(16); }).join('');
+            return gridData.map(function(v) { return v.toString(36); }).join('');
         }
 
         function updatePreview() {
+            var canvas = document.getElementById('preview128');
+            var size = 128;
+            canvas.width = size;
+            canvas.height = size;
+            
+            var ctx = canvas.getContext('2d');
+            ctx.imageSmoothingEnabled = false;
+            ctx.clearRect(0, 0, size, size);
+            
+            var gridSize = 8;
+            var pixelSize = size / gridSize;
+            
+            for (var i = 0; i < 64; i++) {
+                if (gridData[i] === 0) continue;
+                
+                var color = gridColors[i];
+                if (!color) {
+                    var c = DRAW_COLORS.find(function(dc) { return dc.index === gridData[i]; });
+                    color = c ? c.hex : '#ff00ff';
+                }
+                
+                var x = Math.floor((i % gridSize) * pixelSize);
+                var y = Math.floor(Math.floor(i / gridSize) * pixelSize);
+                var w = Math.ceil(pixelSize);
+                var h = Math.ceil(pixelSize);
+                
+                ctx.fillStyle = color;
+                ctx.fillRect(x, y, w, h);
+            }
+
             var data = getAvatarString();
-            var colors = {
-                primary: document.getElementById('primaryColor').value,
-                secondary: document.getElementById('secondaryColor').value
-            };
-
-            renderAvatar(document.getElementById('preview32'), data, 32, colors);
-            renderAvatar(document.getElementById('preview64'), data, 64, colors);
-            renderAvatar(document.getElementById('preview128'), data, 128, colors);
-
-            // Refresh cell colors for primary/secondary
-            var cells = document.querySelectorAll('.draw-cell');
-            cells.forEach(function(cell) {
-                var i = parseInt(cell.getAttribute('data-i'));
-                if (gridData[i] === 3) cell.style.background = colors.primary;
-                if (gridData[i] === 5) cell.style.background = colors.secondary;
-            });
-
-            // Update output
             var output = document.getElementById('outputBox');
             output.textContent =
-                '{ name: "TU NOMBRE", page: "tu-archivo.html", desc: "Tu frase", avatar: "' + data + '", colors: "' + colors.primary + ',' + colors.secondary + '" },';
+                '{name: "TU NOMBRE", page: "tu-archivo.html", desc: "Tu frase", avatar: "' + data + '" },';
+        }
+        
+        function updateColorTone() {
+            var picker = document.getElementById('colorPicker');
+            customColorTones[currentColor] = picker.value;
+        }
+        
+        function resetColorTone() {
+            delete customColorTones[currentColor];
+            var colorInfo = DRAW_COLORS.find(function(c) { return c.index === currentColor; });
+            if (colorInfo) {
+                document.getElementById('colorPicker').value = colorInfo.hex;
+            }
         }
 
         function clearGrid() {
-            gridData = new Array(256).fill(0);
+            gridData = new Array(64).fill(0);
+            gridColors = new Array(64).fill(null);
             document.querySelectorAll('.draw-cell').forEach(function(cell) {
                 cell.style.background = 'var(--bg)';
             });
@@ -516,9 +545,9 @@
 
         function flipH() {
             var newData = [];
-            for (var row = 0; row < 16; row++) {
-                for (var col = 15; col >= 0; col--) {
-                    newData.push(gridData[row * 16 + col]);
+            for (var row = 0; row < 8; row++) {
+                for (var col = 7; col >= 0; col--) {
+                    newData.push(gridData[row * 8 + col]);
                 }
             }
             gridData = newData;
@@ -527,9 +556,9 @@
 
         function flipV() {
             var newData = [];
-            for (var row = 15; row >= 0; row--) {
-                for (var col = 0; col < 16; col++) {
-                    newData.push(gridData[row * 16 + col]);
+            for (var row = 7; row >= 0; row--) {
+                for (var col = 0; col < 8; col++) {
+                    newData.push(gridData[row * 8 + col]);
                 }
             }
             gridData = newData;
@@ -538,22 +567,18 @@
 
         function refreshGrid() {
             var cells = document.querySelectorAll('.draw-cell');
-            var colors = {
-                primary: document.getElementById('primaryColor').value,
-                secondary: document.getElementById('secondaryColor').value
-            };
             cells.forEach(function(cell) {
                 var i = parseInt(cell.getAttribute('data-i'));
                 var val = gridData[i];
                 if (val === 0) {
                     cell.style.background = 'var(--bg)';
-                } else if (val === 3) {
-                    cell.style.background = colors.primary;
-                } else if (val === 5) {
-                    cell.style.background = colors.secondary;
                 } else {
-                    var c = DRAW_COLORS.find(function(dc) { return dc.index === val; });
-                    cell.style.background = c ? c.hex : '#ff00ff';
+                    if (gridColors[i]) {
+                        cell.style.background = gridColors[i];
+                    } else {
+                        var c = DRAW_COLORS.find(function(dc) { return dc.index === val; });
+                        cell.style.background = c ? c.hex : '#ff00ff';
+                    }
                 }
             });
             updatePreview();
@@ -563,8 +588,9 @@
             var preset = AVATAR_PRESETS[presetName];
             if (!preset) return;
             var data = preset.data.replace(/\s/g, '');
-            for (var i = 0; i < 256; i++) {
-                gridData[i] = parseInt(data[i] || '0', 16);
+            for (var i = 0; i < 64; i++) {
+                gridData[i] = parseInt(data[i] || '0', 36);
+                gridColors[i] = null;
             }
             refreshGrid();
         }

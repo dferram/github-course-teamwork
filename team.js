@@ -43,7 +43,7 @@
 
 var team = [
     // --- EJEMPLO (no borrar) ---
-    { name: "Fernando Ramirez", page: "FernandoRamirez.html", desc: "Never give up - Checo Perez", avatar: "spiderman", colors: "#e74c3c,#1a1a2e" },
+    {name: "Fernando Ramírez", page: "FernandoRamirez.html", desc: "Never give up - Checo Perez", avatar: "5vvvvvv5v5vvvv5v11vvvv11161vv16116655661511vv115v5vvvv5v55vvvv55", colors: "#cc0000,#9d0606" },
 
     // --- AGREGA TU LINEA AQUI ABAJO ---
 
