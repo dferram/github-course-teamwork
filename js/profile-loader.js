@@ -18,7 +18,11 @@
     // Buscar los datos del miembro del equipo en team.js
     var memberData = null;
     for (var i = 0; i < team.length; i++) {
-        if (team[i].page === currentPage) {
+        // Comparar con la ruta completa o solo el nombre del archivo
+        var pagePath = team[i].page;
+        var pageFileName = pagePath.split('/').pop();
+        
+        if (pagePath === currentPage || pageFileName === currentPage) {
             memberData = team[i];
             break;
         }

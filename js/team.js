@@ -65,8 +65,13 @@
     COLORS (opcional):
     ------------------
     Dos colores separados por coma: primario,secundario
-    Ejemplo: "#e74c3c,#1a1a2e"
-    Estos cambian los colores personalizables de tu avatar.
+    Ejemplo: "#1a1a2e,#e74c3c"
+    
+    IMPORTANTE sobre colores:
+    - El PRIMER color (primary) reemplaza el índice 3 de la paleta
+    - El SEGUNDO color (secondary) reemplaza el índice 5 de la paleta
+    - La mayoría de avatares usan el índice 5 como color principal
+    - Si tu avatar se ve con colores incorrectos, invierte el orden
     
     IMPORTANTE: No olvides la coma al final de tu objeto
 */
@@ -77,8 +82,8 @@ var team = [
         name: "Fernando Ramírez",
         page: "pages/FernandoRamirez.html",
         tagline: "Never give up - Checo Perez",
-        avatar: "5vvvvvv5v5vvvv5v11vvvv11161vv16116655661511vv115v5vvvv5v55vvvv55",
-        colors: "#e74c3c,#1a1a2e",
+        avatar: "5vvvvvv5v5vvvv5v11vvvv11161vv16116655661v11vv11v5vvvvvv555vvvv55",
+        colors: "#cc0000,#cc0000",
         github: "https://github.com",
         linkedin: "",
         twitter: "",
