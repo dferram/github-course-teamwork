@@ -33,7 +33,7 @@
         /* Drawing grid */
         .draw-grid {
             display: grid;
-            grid-template-columns: repeat(32, 1fr);
+            grid-template-columns: repeat(8, 1fr);
             gap: 1px;
             background: rgba(255,255,255,0.05);
             border: 2px solid var(--border-color);
@@ -275,8 +275,7 @@
                     <p style="margin-bottom: 10px;"><strong>Pasos para crear tu avatar:</strong></p>
                     <ol style="margin-left: 20px; margin-bottom: 10px;">
                         <li style="margin-bottom: 6px;"><strong>Opción 1 - Usar un preset:</strong> Haz clic en un avatar de arriba para cargarlo</li>
-                        <li style="margin-bottom: 6px;"><strong>Opción 2 - Crear desde cero:</strong> Selecciona un color de la paleta y dibuja en la cuadrícula 32x32</li>
-                        <li style="margin-bottom: 6px;"><strong>Personalizar colores:</strong> Usa los selectores "PRIMARIO" y "SECUNDARIO" para cambiar colores específicos</li>
+                        <li style="margin-bottom: 6px;"><strong>Opción 2 - Crear desde cero:</strong> Selecciona un color de la paleta y dibuja en la cuadrícula 8x8</li>
                         <li style="margin-bottom: 6px;"><strong>Herramientas:</strong> Usa LIMPIAR para borrar todo, VOLTEAR H/V para reflejar el diseño</li>
                         <li style="margin-bottom: 6px;"><strong>Copiar código:</strong> Haz clic en COPIAR para obtener el código de tu avatar</li>
                         <li style="margin-bottom: 6px;">Pega el código en <code>team.js</code> en tu línea personal</li>
@@ -284,9 +283,9 @@
                     
                     <p style="color: var(--cyan); margin-top: 10px;"><strong>💡 Tips:</strong></p>
                     <ul style="margin-left: 20px; margin-top: 6px;">
-                        <li style="margin-bottom: 4px;">Los avatares son solo cabezas (10 filas superiores). Deja las 6 filas inferiores vacías</li>
+                        <li style="margin-bottom: 4px;">Los avatares son cabezas completas en formato 8x8 (64 píxeles)</li>
                         <li style="margin-bottom: 4px;">Tienes 32 colores disponibles en la paleta expandida</li>
-                        <li style="margin-bottom: 4px;">El grid es 32x32 = 1024 píxeles para mejor detalle</li>
+                        <li style="margin-bottom: 4px;">El grid es 8x8 = 64 píxeles (strings manejables)</li>
                         <li style="margin-bottom: 4px;">Usa el borrador (X roja) para eliminar píxeles</li>
                     </ul>
                 </div>
@@ -324,32 +323,7 @@
                 <div class="panel-title">PREVIEW</div>
 
                 <div class="preview-area">
-                    <div class="preview-sizes">
-                        <div>
-                            <canvas id="preview32" width="32" height="32" class="preview-canvas"></canvas>
-                            <div style="font-size: 6px; color: var(--text-dim); margin-top: 4px;">32px</div>
-                        </div>
-                        <div>
-                            <canvas id="preview64" width="64" height="64" class="preview-canvas"></canvas>
-                            <div style="font-size: 6px; color: var(--text-dim); margin-top: 4px;">64px</div>
-                        </div>
-                        <div>
-                            <canvas id="preview128" width="128" height="128" class="preview-canvas"></canvas>
-                            <div style="font-size: 6px; color: var(--text-dim); margin-top: 4px;">128px</div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="panel-title" style="margin-top: 20px;">COLORES CUSTOM</div>
-                <div class="custom-colors">
-                    <div class="color-input-group">
-                        <label>Primario:</label>
-                        <input type="color" id="primaryColor" value="#cc0000" onchange="updatePreview()">
-                    </div>
-                    <div class="color-input-group">
-                        <label>Secundario:</label>
-                        <input type="color" id="secondaryColor" value="#0066cc" onchange="updatePreview()">
-                    </div>
+                    <canvas id="preview128" width="128" height="128" class="preview-canvas" style="display: block; margin: 0 auto;"></canvas>
                 </div>
 
                 <div class="panel-title" style="margin-top: 20px;">TU CODIGO</div>
@@ -370,8 +344,8 @@
 
     <script src="avatars.js"></script>
     <script>
-        var gridData = new Array(1024).fill(0);
-        var currentColor = 3; // default: primario
+        var gridData = new Array(64).fill(0);
+        var currentColor = 3;
         var isDrawing = false;
 
         var DRAW_COLORS = [
@@ -434,7 +408,7 @@
             grid.addEventListener('mousedown', function(e) { isDrawing = true; });
             document.addEventListener('mouseup', function() { isDrawing = false; });
 
-            for (var i = 0; i < 1024; i++) {
+            for (var i = 0; i < 64; i++) {
                 var cell = document.createElement('div');
                 cell.className = 'draw-cell';
                 cell.setAttribute('data-i', i);
@@ -462,10 +436,6 @@
 
             if (currentColor === 0) {
                 cell.style.background = 'var(--bg)';
-            } else if (currentColor === 3) {
-                cell.style.background = document.getElementById('primaryColor').value;
-            } else if (currentColor === 5) {
-                cell.style.background = document.getElementById('secondaryColor').value;
             } else {
                 var hex = DRAW_COLORS.find(function(c) { return c.index === currentColor; });
                 cell.style.background = hex ? hex.hex : '#ff00ff';
@@ -475,36 +445,21 @@
         }
 
         function getAvatarString() {
-            return gridData.map(function(v) { return v.toString(16); }).join('');
+            return gridData.map(function(v) { return v.toString(36); }).join('');
         }
 
         function updatePreview() {
             var data = getAvatarString();
-            var colors = {
-                primary: document.getElementById('primaryColor').value,
-                secondary: document.getElementById('secondaryColor').value
-            };
 
-            renderAvatar(document.getElementById('preview32'), data, 32, colors);
-            renderAvatar(document.getElementById('preview64'), data, 64, colors);
-            renderAvatar(document.getElementById('preview128'), data, 128, colors);
+            renderAvatar(document.getElementById('preview128'), data, 128);
 
-            // Refresh cell colors for primary/secondary
-            var cells = document.querySelectorAll('.draw-cell');
-            cells.forEach(function(cell) {
-                var i = parseInt(cell.getAttribute('data-i'));
-                if (gridData[i] === 3) cell.style.background = colors.primary;
-                if (gridData[i] === 5) cell.style.background = colors.secondary;
-            });
-
-            // Update output
             var output = document.getElementById('outputBox');
             output.textContent =
-                '{ name: "TU NOMBRE", page: "tu-archivo.html", desc: "Tu frase", avatar: "' + data + '", colors: "' + colors.primary + ',' + colors.secondary + '" },';
+                '{ name: "TU NOMBRE", page: "tu-archivo.html", desc: "Tu frase", avatar: "' + data + '" },';
         }
 
         function clearGrid() {
-            gridData = new Array(1024).fill(0);
+            gridData = new Array(64).fill(0);
             document.querySelectorAll('.draw-cell').forEach(function(cell) {
                 cell.style.background = 'var(--bg)';
             });
@@ -513,9 +468,9 @@
 
         function flipH() {
             var newData = [];
-            for (var row = 0; row < 32; row++) {
-                for (var col = 31; col >= 0; col--) {
-                    newData.push(gridData[row * 32 + col]);
+            for (var row = 0; row < 8; row++) {
+                for (var col = 7; col >= 0; col--) {
+                    newData.push(gridData[row * 8 + col]);
                 }
             }
             gridData = newData;
@@ -524,9 +479,9 @@
 
         function flipV() {
             var newData = [];
-            for (var row = 31; row >= 0; row--) {
-                for (var col = 0; col < 32; col++) {
-                    newData.push(gridData[row * 32 + col]);
+            for (var row = 7; row >= 0; row--) {
+                for (var col = 0; col < 8; col++) {
+                    newData.push(gridData[row * 8 + col]);
                 }
             }
             gridData = newData;
@@ -535,19 +490,11 @@
 
         function refreshGrid() {
             var cells = document.querySelectorAll('.draw-cell');
-            var colors = {
-                primary: document.getElementById('primaryColor').value,
-                secondary: document.getElementById('secondaryColor').value
-            };
             cells.forEach(function(cell) {
                 var i = parseInt(cell.getAttribute('data-i'));
                 var val = gridData[i];
                 if (val === 0) {
                     cell.style.background = 'var(--bg)';
-                } else if (val === 3) {
-                    cell.style.background = colors.primary;
-                } else if (val === 5) {
-                    cell.style.background = colors.secondary;
                 } else {
                     var c = DRAW_COLORS.find(function(dc) { return dc.index === val; });
                     cell.style.background = c ? c.hex : '#ff00ff';
@@ -560,8 +507,8 @@
             var preset = AVATAR_PRESETS[presetName];
             if (!preset) return;
             var data = preset.data.replace(/\s/g, '');
-            for (var i = 0; i < 1024; i++) {
-                gridData[i] = parseInt(data[i] || '0', 16);
+            for (var i = 0; i < 64; i++) {
+                gridData[i] = parseInt(data[i] || '0', 36);
             }
             refreshGrid();
         }
