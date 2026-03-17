@@ -3,75 +3,58 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Proyecto colaborativo del curso de Git y GitHub — Galería del equipo">
-    <title>Teamwork — Curso de Git & GitHub</title>
+    <meta name="description" content="Proyecto colaborativo del curso de Git y GitHub">
+    <title>Teamwork // Git & GitHub</title>
     <link rel="stylesheet" href="styles.css">
-    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🚀</text></svg>">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>*</text></svg>">
 </head>
 <body>
 
-    <!-- Fondo animado -->
-    <div class="ambient-bg"></div>
+    <!-- Starfield -->
+    <div class="starfield" id="starfield"></div>
 
-    <!-- Navegación -->
+    <!-- Nav -->
     <nav class="nav">
-        <a href="#galeria">Galería</a>
-        <a href="#instrucciones">Instrucciones</a>
-        <a href="#recursos">Recursos</a>
+        <a href="#galeria">GALERIA</a>
+        <a href="#instrucciones">INSTRUCCIONES</a>
+        <a href="#recursos">RECURSOS</a>
     </nav>
 
     <div class="container">
 
-        <!-- ===========================
-             HERO
-             =========================== -->
+        <!-- HERO -->
         <section class="hero">
-            <span class="hero-badge">📚 Curso de Git & GitHub</span>
-            <h1>Proyecto en Equipo</h1>
-            <p>Cada integrante crea su página personal y la agrega a la galería. ¡Practica Git colaborando de verdad!</p>
+            <span class="hero-label">Curso de Git & GitHub</span>
+            <h1>PROYECTO EN EQUIPO</h1>
+            <p class="cursor-blink">
+                Cada integrante crea su pagina personal
+                y la agrega a la galeria del equipo.
+                Practica Git colaborando de verdad
+            </p>
         </section>
 
-        <!-- ===========================
-             GALERÍA DEL EQUIPO
-             =========================== -->
+        <!-- XP Bar -->
+        <div class="xp-bar-container">
+            <div class="xp-label">PROGRESO DEL EQUIPO</div>
+            <div class="xp-bar">
+                <div class="xp-fill" id="xpFill"></div>
+            </div>
+        </div>
+
+        <!-- GALERIA -->
         <section id="galeria">
-            <h2 class="section-title">🎨 Galería del Equipo</h2>
-            <p class="section-subtitle">Haz clic en una tarjeta para ver la página de cada integrante.</p>
+            <h2 class="section-title">GALERIA DEL EQUIPO</h2>
+            <p class="section-subtitle">Haz clic en una tarjeta para ver la pagina de cada integrante.</p>
 
-            <div class="gallery-grid">
-
-                <!-- GALERÍA -->
-                <!--
-                    ┌─────────────────────────────────────────────────────────┐
-                    │  👋 AGREGA TU TARJETA AQUÍ ABAJO                       │
-                    │  Copia este bloque, pégalo y cámbialo con tus datos:   │
-                    │                                                         │
-                    │  <a href="nombre-apellido.html" class="gallery-card">   │
-                    │      <div class="card-avatar">🧑‍💻</div>                │
-                    │      <h3>Tu Nombre</h3>                                │
-                    │      <p>Una frase sobre ti</p>                          │
-                    │  </a>                                                   │
-                    └─────────────────────────────────────────────────────────┘
-                -->
-
-                <!-- Ejemplo: Instructor (puedes borrar este o dejarlo) -->
-                <a href="#" class="gallery-card">
-                    <div class="card-avatar">👨‍🏫</div>
-                    <h3>Instructor</h3>
-                    <p>¡Bienvenidos al curso!</p>
-                </a>
-
-                <!-- AGREGA TU TARJETA ARRIBA DE ESTA LÍNEA -->
-
+            <div class="gallery-grid" id="galleryGrid">
+                <!-- Las tarjetas se generan automaticamente desde team.js -->
             </div>
         </section>
 
-        <!-- ===========================
-             INSTRUCCIONES
-             =========================== -->
+        <!-- INSTRUCCIONES -->
         <section id="instrucciones" class="instructions">
-            <h2 class="section-title">📋 Instrucciones</h2>
-            <p class="section-subtitle">Sigue estos pasos para agregar tu página a la galería.</p>
+            <h2 class="section-title">INSTRUCCIONES</h2>
+            <p class="section-subtitle">Sigue estos pasos para agregar tu pagina a la galeria.</p>
 
             <div class="steps">
 
@@ -79,11 +62,14 @@
                 <div class="step">
                     <div class="step-number">1</div>
                     <div class="step-content">
-                        <h3>Hacer Fork del repositorio</h3>
-                        <p>
-                            Entra al repositorio original en GitHub y haz clic en el botón <strong>Fork</strong>
-                            (esquina superior derecha). Esto crea una copia en tu cuenta personal.
-                        </p>
+                        <h3>CLONAR EL REPOSITORIO</h3>
+                        <p>Abre tu terminal y clona el repositorio del curso:</p>
+                        <div class="code-block">git clone https://github.com/USUARIO/Teamwork.git
+cd Teamwork</div>
+                        <div class="tip-box">
+                            <span class="box-label">[TIP]</span>
+                            <span>Cambia <code>USUARIO</code> por el nombre del repositorio que te de tu instructor.</span>
+                        </div>
                     </div>
                 </div>
 
@@ -91,10 +77,13 @@
                 <div class="step">
                     <div class="step-number">2</div>
                     <div class="step-content">
-                        <h3>Clonar tu Fork</h3>
-                        <p>Abre tu terminal y clona <strong>tu fork</strong> (no el original):</p>
-                        <div class="code-block">git clone https://github.com/TU-USUARIO/Teamwork.git
-cd Teamwork</div>
+                        <h3>CREAR UNA RAMA NUEVA</h3>
+                        <p>Crea una rama con tu nombre para trabajar sin afectar <code>main</code>:</p>
+                        <div class="code-block">git checkout -b nombre-apellido</div>
+                        <div class="tip-box">
+                            <span class="box-label">[TIP]</span>
+                            <span>Ejemplo: <code>git checkout -b juan-perez</code></span>
+                        </div>
                     </div>
                 </div>
 
@@ -102,12 +91,16 @@ cd Teamwork</div>
                 <div class="step">
                     <div class="step-number">3</div>
                     <div class="step-content">
-                        <h3>Crear una rama nueva</h3>
-                        <p>Crea una rama con tu nombre para trabajar sin afectar <code>main</code>:</p>
-                        <div class="code-block">git checkout -b nombre-apellido</div>
+                        <h3>CREAR TU PAGINA HTML</h3>
+                        <p>Copia la plantilla y renombrala con tu nombre:</p>
+                        <div class="code-block">cp _plantilla.html nombre-apellido.html</div>
+                        <p style="margin-top: 10px;">
+                            Abre tu archivo y personalizalo: cambia el titulo, escribe
+                            sobre ti, agrega tus redes. Se creativo.
+                        </p>
                         <div class="tip-box">
-                            <span class="tip-icon">💡</span>
-                            <span>Ejemplo: <code>git checkout -b juan-perez</code></span>
+                            <span class="box-label">[TIP]</span>
+                            <span>Revisa <code>ejemplo-instructor.html</code> para ver como se ve una pagina terminada.</span>
                         </div>
                     </div>
                 </div>
@@ -116,16 +109,20 @@ cd Teamwork</div>
                 <div class="step">
                     <div class="step-number">4</div>
                     <div class="step-content">
-                        <h3>Crear tu página HTML</h3>
-                        <p>Copia la plantilla y renómbrala con tu nombre:</p>
-                        <div class="code-block">cp _plantilla.html nombre-apellido.html</div>
-                        <p style="margin-top: 10px;">
-                            Abre tu archivo y personalízalo: cambia el título, escribe sobre ti,
-                            agrega tus redes sociales. <strong>¡Sé creativo/a!</strong>
+                        <h3>REGISTRAR TU PAGINA EN LA GALERIA</h3>
+                        <p>
+                            Abre el archivo <code>team.js</code> y agrega
+                            UNA linea con tus datos dentro del array:
                         </p>
-                        <div class="tip-box">
-                            <span class="tip-icon">💡</span>
-                            <span>Puedes usar el <code>styles.css</code> incluido o escribir tu propio CSS.</span>
+                        <div class="code-block">{ name: "Tu Nombre", page: "nombre-apellido.html", icon: "[?]", desc: "Algo sobre ti" },</div>
+                        <div class="warning-box">
+                            <span class="box-label">[!]</span>
+                            <span>
+                                Varios alumnos editan este mismo archivo. Si hay un
+                                <strong>merge conflict</strong>, es normal.
+                                Solo necesitas conservar tu linea y las de tus
+                                companeros. Ver paso 7.
+                            </span>
                         </div>
                     </div>
                 </div>
@@ -134,23 +131,11 @@ cd Teamwork</div>
                 <div class="step">
                     <div class="step-number">5</div>
                     <div class="step-content">
-                        <h3>Agregar tu tarjeta a la galería</h3>
-                        <p>
-                            Abre <code>index.html</code> y busca la sección <strong>GALERÍA</strong>.
-                            Agrega una nueva tarjeta con tu información:
-                        </p>
-                        <div class="code-block">&lt;a href="nombre-apellido.html" class="gallery-card"&gt;
-    &lt;div class="card-avatar"&gt;🧑‍💻&lt;/div&gt;
-    &lt;h3&gt;Tu Nombre&lt;/h3&gt;
-    &lt;p&gt;Una frase sobre ti&lt;/p&gt;
-&lt;/a&gt;</div>
-                        <div class="warning-box">
-                            <span class="tip-icon">⚠️</span>
-                            <span>
-                                Este paso puede generar un <strong>merge conflict</strong> porque
-                                varios alumnos editan el mismo archivo. ¡Es intencional y parte del aprendizaje!
-                            </span>
-                        </div>
+                        <h3>COMMIT Y PUSH</h3>
+                        <p>Guarda tus cambios y subelos al repositorio:</p>
+                        <div class="code-block">git add .
+git commit -m "Agregar pagina de nombre-apellido"
+git push origin nombre-apellido</div>
                     </div>
                 </div>
 
@@ -158,11 +143,13 @@ cd Teamwork</div>
                 <div class="step">
                     <div class="step-number">6</div>
                     <div class="step-content">
-                        <h3>Hacer commit y push</h3>
-                        <p>Guarda tus cambios y súbelos a tu fork:</p>
-                        <div class="code-block">git add .
-git commit -m "Agregar página de nombre-apellido"
-git push origin nombre-apellido</div>
+                        <h3>CREAR UN PULL REQUEST</h3>
+                        <p>
+                            Ve al repositorio en GitHub. Veras un banner para crear
+                            un Pull Request de tu rama. Haz clic en
+                            <strong>"Compare & pull request"</strong>,
+                            escribe un titulo descriptivo y crealo.
+                        </p>
                     </div>
                 </div>
 
@@ -170,27 +157,17 @@ git push origin nombre-apellido</div>
                 <div class="step">
                     <div class="step-number">7</div>
                     <div class="step-content">
-                        <h3>Crear un Pull Request</h3>
-                        <p>
-                            Ve a <strong>tu fork</strong> en GitHub. Verás un banner para crear un
-                            Pull Request. Haz clic en <strong>"Compare & pull request"</strong>,
-                            escribe un título descriptivo y créalo.
-                        </p>
-                    </div>
-                </div>
-
-                <!-- Paso 8 -->
-                <div class="step">
-                    <div class="step-number">8</div>
-                    <div class="step-content">
-                        <h3>Resolver merge conflicts (si los hay)</h3>
-                        <p>Si GitHub indica conflictos, actualiza tu rama:</p>
+                        <h3>RESOLVER MERGE CONFLICTS</h3>
+                        <p>Si GitHub indica conflictos al hacer merge, actualiza tu rama:</p>
                         <div class="code-block">git checkout main
-git pull upstream main
+git pull origin main
 git checkout nombre-apellido
 git merge main</div>
                         <p style="margin-top: 10px;">
-                            Abre los archivos con conflictos, resuélvelos, y luego:
+                            Abre los archivos con conflictos (probablemente
+                            <code>team.js</code>), resuelvelos conservando todas
+                            las lineas de tus companeros y la tuya, y sube
+                            los cambios:
                         </p>
                         <div class="code-block">git add .
 git commit -m "Resolver merge conflicts"
@@ -198,14 +175,16 @@ git push origin nombre-apellido</div>
                     </div>
                 </div>
 
-                <!-- Paso 9 -->
+                <!-- Paso 8 -->
                 <div class="step">
-                    <div class="step-number">9</div>
+                    <div class="step-number">8</div>
                     <div class="step-content">
-                        <h3>¡Listo! 🎉</h3>
+                        <h3>MISION COMPLETA</h3>
                         <p>
-                            Una vez que tu Pull Request sea aprobado y mergeado, tu página aparecerá
-                            en la galería del equipo. ¡Felicidades, acabas de colaborar en un proyecto real!
+                            Una vez que tu Pull Request sea aprobado y mergeado,
+                            tu pagina aparecera en la galeria del equipo
+                            automaticamente. Acabas de colaborar en un
+                            proyecto real.
                         </p>
                     </div>
                 </div>
@@ -213,31 +192,29 @@ git push origin nombre-apellido</div>
             </div>
         </section>
 
-        <!-- ===========================
-             RECURSOS
-             =========================== -->
-        <section id="recursos" style="padding-bottom: 60px;">
-            <h2 class="section-title">🔗 Recursos útiles</h2>
-            <p class="section-subtitle">Links que te ayudarán durante el ejercicio.</p>
+        <!-- RECURSOS -->
+        <section id="recursos" style="padding-bottom: 50px;">
+            <h2 class="section-title">RECURSOS</h2>
+            <p class="section-subtitle">Links que te ayudaran durante el ejercicio.</p>
 
             <div class="gallery-grid">
                 <a href="https://education.github.com/git-cheat-sheet-education.pdf" target="_blank" class="gallery-card">
-                    <div class="card-avatar">📄</div>
+                    <div class="card-icon">[#]</div>
                     <h3>Git Cheat Sheet</h3>
-                    <p>Referencia rápida de comandos Git</p>
+                    <p>Referencia rapida de comandos</p>
                 </a>
                 <a href="https://docs.github.com/es/pull-requests/collaborating-with-pull-requests/addressing-merge-conflicts" target="_blank" class="gallery-card">
-                    <div class="card-avatar">🔀</div>
+                    <div class="card-icon">[~]</div>
                     <h3>Merge Conflicts</h3>
-                    <p>Cómo resolver conflictos de merge</p>
+                    <p>Como resolver conflictos</p>
                 </a>
                 <a href="https://guides.github.com/features/mastering-markdown/" target="_blank" class="gallery-card">
-                    <div class="card-avatar">✍️</div>
-                    <h3>Guía de Markdown</h3>
-                    <p>Aprende a escribir en Markdown</p>
+                    <div class="card-icon">[@]</div>
+                    <h3>Guia de Markdown</h3>
+                    <p>Aprende a escribir en MD</p>
                 </a>
                 <a href="https://pages.github.com/" target="_blank" class="gallery-card">
-                    <div class="card-avatar">🌐</div>
+                    <div class="card-icon">[>]</div>
                     <h3>GitHub Pages</h3>
                     <p>Publica tu sitio gratis</p>
                 </a>
@@ -248,8 +225,57 @@ git push origin nombre-apellido</div>
 
     <!-- Footer -->
     <footer class="footer">
-        <p>Hecho con ❤️ para el curso de Git & GitHub</p>
+        <p>Hecho para el curso de Git & GitHub // 2026</p>
     </footer>
+
+    <!-- Scripts -->
+    <script src="team.js"></script>
+    <script>
+        // Generate starfield
+        (function() {
+            var field = document.getElementById('starfield');
+            if (!field) return;
+            for (var i = 0; i < 80; i++) {
+                var star = document.createElement('div');
+                star.className = 'star';
+                star.style.left = Math.random() * 100 + '%';
+                star.style.top = Math.random() * 100 + '%';
+                star.style.setProperty('--duration', (2 + Math.random() * 4) + 's');
+                star.style.setProperty('--delay', (Math.random() * 5) + 's');
+                if (Math.random() > 0.7) {
+                    star.style.width = '3px';
+                    star.style.height = '3px';
+                }
+                field.appendChild(star);
+            }
+        })();
+
+        // Build gallery from team.js data
+        (function() {
+            var grid = document.getElementById('galleryGrid');
+            if (!grid || typeof team === 'undefined') return;
+
+            for (var i = 0; i < team.length; i++) {
+                var m = team[i];
+                var card = document.createElement('a');
+                card.href = m.page;
+                card.className = 'gallery-card';
+                card.innerHTML =
+                    '<div class="card-icon">' + m.icon + '</div>' +
+                    '<h3>' + m.name + '</h3>' +
+                    '<p>' + m.desc + '</p>';
+                grid.appendChild(card);
+            }
+
+            // XP bar
+            var max = 20;
+            var pct = Math.min((team.length / max) * 100, 100);
+            setTimeout(function() {
+                var fill = document.getElementById('xpFill');
+                if (fill) fill.style.width = pct + '%';
+            }, 800);
+        })();
+    </script>
 
 </body>
 </html>
