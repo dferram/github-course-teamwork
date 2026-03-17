@@ -45,6 +45,12 @@
         <section id="galeria">
             <h2 class="section-title">GALERIA DEL EQUIPO</h2>
             <p class="section-subtitle">Haz clic en una tarjeta para ver la pagina de cada integrante.</p>
+            
+            <div style="text-align: center; margin-bottom: 30px;">
+                <a href="avatar-builder.html" class="btn" style="display: inline-block; text-decoration: none; background: var(--gold); color: var(--bg); padding: 12px 24px; border: 3px solid var(--gold); font-size: 8px; transition: all 0.2s;">
+                    🎨 CREAR TU AVATAR
+                </a>
+            </div>
 
             <div class="gallery-grid" id="galleryGrid">
                 <!-- Las tarjetas se generan automaticamente desde team.js -->
@@ -291,8 +297,8 @@ git push origin nombre-apellido</div>
                 var avatarDiv = document.createElement('div');
                 avatarDiv.className = 'card-icon';
                 var canvas = document.createElement('canvas');
-                canvas.width = 48;
-                canvas.height = 48;
+                canvas.width = 72;
+                canvas.height = 72;
                 canvas.style.imageRendering = 'pixelated';
 
                 var customColors = null;
@@ -300,7 +306,7 @@ git push origin nombre-apellido</div>
                     var parts = m.colors.split(',');
                     customColors = { primary: parts[0], secondary: parts[1] };
                 }
-                renderAvatar(canvas, m.avatar || 'ghost', 48, customColors);
+                renderAvatar(canvas, m.avatar || 'classic', 72, customColors);
                 avatarDiv.appendChild(canvas);
 
                 var nameEl = document.createElement('h3');

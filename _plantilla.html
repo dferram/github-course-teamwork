@@ -21,13 +21,14 @@
         <section class="profile-hero">
             <!--
                 TU AVATAR
-                Cambia "warrior" por tu preset favorito:
-                warrior, robot, ninja, alien, cat, ghost, mage, astro
+                Cambia "classic" por tu preset favorito:
+                classic, spike, punk, bob, longhair, robot, ninja, alien, cat, wizard,
+                spiderman, pirate, zombie, viking, cyborg, witch, superhero, demon
                 O usa el string custom del avatar-builder.html
                 Cambia los colores primary/secondary por los tuyos.
             -->
-            <div class="profile-avatar">
-                <canvas id="myAvatar" width="80" height="80" style="image-rendering: pixelated;"></canvas>
+            <div class="profile-avatar" style="background: rgba(255, 255, 255, 0.05); border: 3px solid var(--border-color); padding: 20px; border-radius: 8px; display: inline-block; box-shadow: 0 4px 12px rgba(0,0,0,0.3);">
+                <canvas id="myAvatar" width="128" height="128" style="image-rendering: pixelated; display: block;"></canvas>
             </div>
             <!-- Pon tu nombre aqui -->
             <h1>TU NOMBRE COMPLETO</h1>
@@ -107,11 +108,15 @@
             Segundo argumento: nombre del preset o string custom
             Tercer argumento: tamano (no tocar)
             Cuarto argumento: tus colores {primary, secondary}
+            
+            Presets disponibles:
+            classic, spike, punk, bob, longhair, robot, ninja, alien, cat, wizard,
+            spiderman, pirate, zombie, viking, cyborg, witch, superhero, demon
         */
         renderAvatar(
             document.getElementById('myAvatar'),
-            'ghost',    // <-- CAMBIA ESTO por tu preset o string custom
-            80,
+            'classic',    // <-- CAMBIA ESTO por tu preset o string custom
+            128,
             { primary: '#cc0000', secondary: '#0066cc' }  // <-- TUS COLORES
         );
 

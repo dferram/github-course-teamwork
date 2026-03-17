@@ -271,12 +271,31 @@ body::after {
 }
 
 .card-icon {
-    font-size: 28px;
     margin-bottom: 14px;
-    color: var(--green);
-    text-shadow: 0 0 8px var(--green-dim);
-    animation: float-pixel 3s ease-in-out infinite;
-    font-family: 'Press Start 2P', monospace;
+    background: rgba(255, 255, 255, 0.05);
+    border: 3px solid var(--border-color);
+    padding: 12px;
+    border-radius: 8px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 
+        0 4px 12px rgba(0,0,0,0.3),
+        inset 0 0 0 1px rgba(255,255,255,0.1);
+    transition: all 0.3s ease;
+}
+
+.gallery-card:hover .card-icon {
+    border-color: var(--gold);
+    box-shadow: 
+        0 6px 20px rgba(255, 204, 0, 0.3),
+        inset 0 0 0 1px rgba(255, 204, 0, 0.2);
+    transform: scale(1.05);
+}
+
+.card-icon canvas {
+    display: block;
+    image-rendering: pixelated;
 }
 
 .gallery-card h3 {

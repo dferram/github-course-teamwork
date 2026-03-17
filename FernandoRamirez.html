@@ -15,8 +15,8 @@
         <a href="index.html" class="back-link">&lt; VOLVER A LA GALERIA</a>
 
         <section class="profile-hero">
-            <div class="profile-avatar">
-                <canvas id="myAvatar" width="80" height="80" style="image-rendering: pixelated;"></canvas>
+            <div class="profile-avatar" style="background: rgba(255, 255, 255, 0.05); border: 3px solid var(--border-color); padding: 20px; border-radius: 8px; display: inline-block; box-shadow: 0 4px 12px rgba(0,0,0,0.3);">
+                <canvas id="myAvatar" width="128" height="128" style="image-rendering: pixelated; display: block;"></canvas>
             </div>
             <h1>FERNANDO RAMIREZ</h1>
             <p class="tagline">Never give up - Checo Perez</p>
@@ -71,9 +71,9 @@
         // Render avatar
         renderAvatar(
             document.getElementById('myAvatar'),
-            'warrior',
-            80,
-            { primary: '#cc0000', secondary: '#1a6b0a' }
+            'spiderman',
+            128,
+            { primary: '#e74c3c', secondary: '#1a1a2e' }
         );
 
         // Starfield
