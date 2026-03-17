@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Proyecto colaborativo del curso de Git y GitHub — Galería del equipo">
+    <title>Teamwork — Curso de Git & GitHub</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🚀</text></svg>">
+</head>
+<body>
+
+    <!-- Fondo animado -->
+    <div class="ambient-bg"></div>
+
+    <!-- Navegación -->
+    <nav class="nav">
+        <a href="#galeria">Galería</a>
+        <a href="#instrucciones">Instrucciones</a>
+        <a href="#recursos">Recursos</a>
+    </nav>
+
+    <div class="container">
+
+        <!-- ===========================
+             HERO
+             =========================== -->
+        <section class="hero">
+            <span class="hero-badge">📚 Curso de Git & GitHub</span>
+            <h1>Proyecto en Equipo</h1>
+            <p>Cada integrante crea su página personal y la agrega a la galería. ¡Practica Git colaborando de verdad!</p>
+        </section>
+
+        <!-- ===========================
+             GALERÍA DEL EQUIPO
+             =========================== -->
+        <section id="galeria">
+            <h2 class="section-title">🎨 Galería del Equipo</h2>
+            <p class="section-subtitle">Haz clic en una tarjeta para ver la página de cada integrante.</p>
+
+            <div class="gallery-grid">
+
+                <!-- GALERÍA -->
+                <!--
+                    ┌─────────────────────────────────────────────────────────┐
+                    │  👋 AGREGA TU TARJETA AQUÍ ABAJO                       │
+                    │  Copia este bloque, pégalo y cámbialo con tus datos:   │
+                    │                                                         │
+                    │  <a href="nombre-apellido.html" class="gallery-card">   │
+                    │      <div class="card-avatar">🧑‍💻</div>                │
+                    │      <h3>Tu Nombre</h3>                                │
+                    │      <p>Una frase sobre ti</p>                          │
+                    │  </a>                                                   │
+                    └─────────────────────────────────────────────────────────┘
+                -->
+
+                <!-- Ejemplo: Instructor (puedes borrar este o dejarlo) -->
+                <a href="#" class="gallery-card">
+                    <div class="card-avatar">👨‍🏫</div>
+                    <h3>Instructor</h3>
+                    <p>¡Bienvenidos al curso!</p>
+                </a>
+
+                <!-- AGREGA TU TARJETA ARRIBA DE ESTA LÍNEA -->
+
+            </div>
+        </section>
+
+        <!-- ===========================
+             INSTRUCCIONES
+             =========================== -->
+        <section id="instrucciones" class="instructions">
+            <h2 class="section-title">📋 Instrucciones</h2>
+            <p class="section-subtitle">Sigue estos pasos para agregar tu página a la galería.</p>
+
+            <div class="steps">
+
+                <!-- Paso 1 -->
+                <div class="step">
+                    <div class="step-number">1</div>
+                    <div class="step-content">
+                        <h3>Hacer Fork del repositorio</h3>
+                        <p>
+                            Entra al repositorio original en GitHub y haz clic en el botón <strong>Fork</strong>
+                            (esquina superior derecha). Esto crea una copia en tu cuenta personal.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Paso 2 -->
+                <div class="step">
+                    <div class="step-number">2</div>
+                    <div class="step-content">
+                        <h3>Clonar tu Fork</h3>
+                        <p>Abre tu terminal y clona <strong>tu fork</strong> (no el original):</p>
+                        <div class="code-block">git clone https://github.com/TU-USUARIO/Teamwork.git
+cd Teamwork</div>
+                    </div>
+                </div>
+
+                <!-- Paso 3 -->
+                <div class="step">
+                    <div class="step-number">3</div>
+                    <div class="step-content">
+                        <h3>Crear una rama nueva</h3>
+                        <p>Crea una rama con tu nombre para trabajar sin afectar <code>main</code>:</p>
+                        <div class="code-block">git checkout -b nombre-apellido</div>
+                        <div class="tip-box">
+                            <span class="tip-icon">💡</span>
+                            <span>Ejemplo: <code>git checkout -b juan-perez</code></span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Paso 4 -->
+                <div class="step">
+                    <div class="step-number">4</div>
+                    <div class="step-content">
+                        <h3>Crear tu página HTML</h3>
+                        <p>Copia la plantilla y renómbrala con tu nombre:</p>
+                        <div class="code-block">cp _plantilla.html nombre-apellido.html</div>
+                        <p style="margin-top: 10px;">
+                            Abre tu archivo y personalízalo: cambia el título, escribe sobre ti,
+                            agrega tus redes sociales. <strong>¡Sé creativo/a!</strong>
+                        </p>
+                        <div class="tip-box">
+                            <span class="tip-icon">💡</span>
+                            <span>Puedes usar el <code>styles.css</code> incluido o escribir tu propio CSS.</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Paso 5 -->
+                <div class="step">
+                    <div class="step-number">5</div>
+                    <div class="step-content">
+                        <h3>Agregar tu tarjeta a la galería</h3>
+                        <p>
+                            Abre <code>index.html</code> y busca la sección <strong>GALERÍA</strong>.
+                            Agrega una nueva tarjeta con tu información:
+                        </p>
+                        <div class="code-block">&lt;a href="nombre-apellido.html" class="gallery-card"&gt;
+    &lt;div class="card-avatar"&gt;🧑‍💻&lt;/div&gt;
+    &lt;h3&gt;Tu Nombre&lt;/h3&gt;
+    &lt;p&gt;Una frase sobre ti&lt;/p&gt;
+&lt;/a&gt;</div>
+                        <div class="warning-box">
+                            <span class="tip-icon">⚠️</span>
+                            <span>
+                                Este paso puede generar un <strong>merge conflict</strong> porque
+                                varios alumnos editan el mismo archivo. ¡Es intencional y parte del aprendizaje!
+                            </span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Paso 6 -->
+                <div class="step">
+                    <div class="step-number">6</div>
+                    <div class="step-content">
+                        <h3>Hacer commit y push</h3>
+                        <p>Guarda tus cambios y súbelos a tu fork:</p>
+                        <div class="code-block">git add .
+git commit -m "Agregar página de nombre-apellido"
+git push origin nombre-apellido</div>
+                    </div>
+                </div>
+
+                <!-- Paso 7 -->
+                <div class="step">
+                    <div class="step-number">7</div>
+                    <div class="step-content">
+                        <h3>Crear un Pull Request</h3>
+                        <p>
+                            Ve a <strong>tu fork</strong> en GitHub. Verás un banner para crear un
+                            Pull Request. Haz clic en <strong>"Compare & pull request"</strong>,
+                            escribe un título descriptivo y créalo.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Paso 8 -->
+                <div class="step">
+                    <div class="step-number">8</div>
+                    <div class="step-content">
+                        <h3>Resolver merge conflicts (si los hay)</h3>
+                        <p>Si GitHub indica conflictos, actualiza tu rama:</p>
+                        <div class="code-block">git checkout main
+git pull upstream main
+git checkout nombre-apellido
+git merge main</div>
+                        <p style="margin-top: 10px;">
+                            Abre los archivos con conflictos, resuélvelos, y luego:
+                        </p>
+                        <div class="code-block">git add .
+git commit -m "Resolver merge conflicts"
+git push origin nombre-apellido</div>
+                    </div>
+                </div>
+
+                <!-- Paso 9 -->
+                <div class="step">
+                    <div class="step-number">9</div>
+                    <div class="step-content">
+                        <h3>¡Listo! 🎉</h3>
+                        <p>
+                            Una vez que tu Pull Request sea aprobado y mergeado, tu página aparecerá
+                            en la galería del equipo. ¡Felicidades, acabas de colaborar en un proyecto real!
+                        </p>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- ===========================
+             RECURSOS
+             =========================== -->
+        <section id="recursos" style="padding-bottom: 60px;">
+            <h2 class="section-title">🔗 Recursos útiles</h2>
+            <p class="section-subtitle">Links que te ayudarán durante el ejercicio.</p>
+
+            <div class="gallery-grid">
+                <a href="https://education.github.com/git-cheat-sheet-education.pdf" target="_blank" class="gallery-card">
+                    <div class="card-avatar">📄</div>
+                    <h3>Git Cheat Sheet</h3>
+                    <p>Referencia rápida de comandos Git</p>
+                </a>
+                <a href="https://docs.github.com/es/pull-requests/collaborating-with-pull-requests/addressing-merge-conflicts" target="_blank" class="gallery-card">
+                    <div class="card-avatar">🔀</div>
+                    <h3>Merge Conflicts</h3>
+                    <p>Cómo resolver conflictos de merge</p>
+                </a>
+                <a href="https://guides.github.com/features/mastering-markdown/" target="_blank" class="gallery-card">
+                    <div class="card-avatar">✍️</div>
+                    <h3>Guía de Markdown</h3>
+                    <p>Aprende a escribir en Markdown</p>
+                </a>
+                <a href="https://pages.github.com/" target="_blank" class="gallery-card">
+                    <div class="card-avatar">🌐</div>
+                    <h3>GitHub Pages</h3>
+                    <p>Publica tu sitio gratis</p>
+                </a>
+            </div>
+        </section>
+
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <p>Hecho con ❤️ para el curso de Git & GitHub</p>
+    </footer>
+
+</body>
+</html>
