@@ -1,77 +1,105 @@
 /*
-    TEAM.JS — Registro del equipo
-    ==============================
+    ===================================================================
+    INSTRUCCIONES DETALLADAS PARA AGREGAR TU PERFIL
+    ===================================================================
     
-    IMPORTANTE: Cada estudiante edita SOLO SU PROPIA LÍNEA
-    =========================================================
+    OBJETIVO: Agregar tu información en UNA sola línea para evitar conflictos
     
-    ¿CÓMO FUNCIONA?
-    ---------------
-    1. Cada estudiante agrega UNA línea al array de abajo
-    2. Tu línea contiene TODOS tus datos (nombre, avatar, sobre ti, skills, etc.)
-    3. NO modifiques las líneas de otros estudiantes
-    4. La galería en index.html Y tu página individual se generan automáticamente
-    5. Esto EVITA merge conflicts porque cada quien edita solo su línea
+    REGLA DE ORO: 
+    - Edita SOLO tu línea (la que tiene tu nombre)
+    - NO modifiques las líneas de otros estudiantes
+    - Si eres nuevo, agrega una NUEVA línea al final
     
-    ¿CÓMO SÉ QUE ESTOY EDITANDO MI LÍNEA?
-    --------------------------------------
-    - Busca tu nombre en el array
-    - Si NO estás en la lista, agrega una NUEVA línea con TUS datos
-    - Si YA estás en la lista, edita SOLO tu línea (la que tiene tu nombre)
-    - Cada línea es independiente = sin conflictos de Git
+    ===================================================================
+    PASOS PARA AGREGAR TU PERFIL:
+    ===================================================================
     
-    FORMATO DE CADA LÍNEA:
-    ----------------------
+    1. Busca el comentario "AGREGA TU LINEA AQUI ABAJO" (línea 95)
+    
+    2. Copia el TEMPLATE de abajo y modifícalo con tus datos
+    
+    3. Pega tu objeto completo debajo del comentario
+    
+    4. Verifica que tenga la COMA FINAL: },
+    
+    5. Guarda el archivo (Ctrl+S)
+    
+    ===================================================================
+    TEMPLATE (copia desde aquí):
     {
-        name: "Tu Nombre Completo",
-        page: "nombre-apellido.html",
-        tagline: "Una frase corta sobre ti",
-        avatar: "spiderman",
-        colors: "#cc0000,#0066cc",
-        github: "https://github.com/tu-usuario",
-        about: "Texto largo sobre ti. Puedes escribir varias líneas aquí.",
-        skills: ["HTML", "CSS", "JavaScript", "Git"],
-        randomFact: "Un dato curioso o divertido sobre ti"
-    },
+        name: "Tu Nombre Completo",              // Tu nombre real
+        page: "pages/nombre-apellido.html",      // Ruta de tu HTML
+        tagline: "Una frase corta sobre ti",     // Tu lema o frase
+        avatar: "TU_CODIGO_DEL_BUILDER",         // Código del avatar-builder.html
+        colors: "",                              // Déjalo vacío o usa "#color1,#color2"
+        github: "https://github.com/tu-usuario", // Tu GitHub
+        linkedin: "",                            // Tu LinkedIn (opcional)
+        twitter: "",                             // Tu Twitter (opcional)
+        about: "Escribe sobre ti aquí. Puedes escribir varias líneas.",
+        skills: ["Skill1", "Skill2", "Skill3"],  // Tus habilidades
+        randomFact: "Un dato curioso sobre ti"   // Algo interesante
+    },  // <-- NO OLVIDES LA COMA
     
-    CAMPOS OBLIGATORIOS:
-    --------------------
-    - name: Tu nombre completo
-    - page: El nombre de tu archivo HTML (debe terminar en .html)
-    - tagline: Una frase corta que aparece bajo tu nombre
-    - avatar: El código de tu avatar (ver abajo)
-    - about: Texto sobre ti para la sección "SOBRE MI"
-    - skills: Array con tus habilidades (entre corchetes y comillas)
-    - randomFact: Un dato curioso sobre ti
+    ===================================================================
+    EXPLICACIÓN DE CADA CAMPO:
+    ===================================================================
     
-    CAMPOS OPCIONALES:
-    ------------------
-    - colors: Colores de tu avatar (si no lo pones, usa colores por defecto)
-    - github: Tu URL de GitHub (si no tienes, pon "")
-    - linkedin: Tu URL de LinkedIn (si no tienes, pon "")
-    - twitter: Tu URL de Twitter (si no tienes, pon "")
+    name (OBLIGATORIO):
+       - Tu nombre completo como quieres que aparezca
+       - Ejemplo: "Juan Pérez"
     
-    AVATAR:
-    -------
-    Opción 1 - Usar un preset (copia el nombre exacto):
-      steve, alex, herobrine, creeper, zombie, skeleton, enderman,
-      cow, pig, sheep, chicken, spider, slime, blaze, ghast, witch, irongolem
+    page (OBLIGATORIO):
+       - Ruta de tu archivo HTML (debe estar en la carpeta pages/)
+       - Ejemplo: "pages/juan-perez.html"
+       - IMPORTANTE: Debe coincidir EXACTAMENTE con el nombre de tu archivo
     
-    Opción 2 - Crear tu propio avatar:
-      Ve a avatar-builder.html, dibuja tu avatar, y copia el código que genera
+    tagline (OBLIGATORIO):
+       - Una frase corta que aparece bajo tu nombre
+       - Ejemplo: "Code, coffee, repeat"
+       - Máximo recomendado: 50 caracteres
     
-    COLORS (opcional):
-    ------------------
-    Dos colores separados por coma: primario,secundario
-    Ejemplo: "#1a1a2e,#e74c3c"
+    avatar (OBLIGATORIO):
+       - El código de tu avatar del builder
+       - Ejemplo: "5vvvvvv5v5vvvv5v11vvvv11161vv16116655661v11vv11v5vvvvvv555vvvv55"
+       - O usa un preset: "steve", "alex", "zombie", "creeper", etc.
     
-    IMPORTANTE sobre colores:
-    - El PRIMER color (primary) reemplaza el índice 3 de la paleta
-    - El SEGUNDO color (secondary) reemplaza el índice 5 de la paleta
-    - La mayoría de avatares usan el índice 5 como color principal
-    - Si tu avatar se ve con colores incorrectos, invierte el orden
+    colors (OPCIONAL - Recomendado dejarlo vacío):
+       - Déjalo vacío ("") para usar los colores originales del builder
+       - Si personalizas: "#color1,#color2"
+       - El primer color reemplaza el índice 3 de la paleta
+       - El segundo color reemplaza el índice 5 de la paleta
+       - TIP: Si tu avatar se ve diferente al builder, deja colors: ""
     
-    IMPORTANTE: No olvides la coma al final de tu objeto
+    github (OBLIGATORIO):
+       - Tu perfil de GitHub
+       - Ejemplo: "https://github.com/juanperez"
+    
+    linkedin (OPCIONAL):
+       - Tu perfil de LinkedIn o déjalo vacío
+       - Ejemplo: "https://linkedin.com/in/juanperez" o ""
+    
+    twitter (OPCIONAL):
+       - Tu perfil de Twitter/X o déjalo vacío
+       - Ejemplo: "https://twitter.com/juanperez" o ""
+    
+    about (OBLIGATORIO):
+       - Un párrafo sobre ti (puede ser largo)
+       - Ejemplo: "Soy estudiante de ingeniería apasionado por la tecnología..."
+    
+    skills (OBLIGATORIO):
+       - Lista de tus habilidades entre corchetes
+       - Ejemplo: ["HTML", "CSS", "JavaScript", "Python", "Git"]
+       - Mínimo 3, máximo 10 habilidades
+    
+    randomFact (OBLIGATORIO):
+       - Un dato curioso o divertido sobre ti
+       - Ejemplo: "Puedo resolver un cubo Rubik en 2 minutos"
+    
+    ===================================================================
+    IMPORTANTE: NO OLVIDES LA COMA AL FINAL DE TU OBJETO
+    ===================================================================
+    Cada objeto debe terminar con },  <-- Esta coma es OBLIGATORIA
+    Sin la coma, el código no funcionará
 */
 
 var team = [
@@ -82,23 +110,15 @@ var team = [
         tagline: "Never give up - Checo Perez",
         avatar: "5vvvvvv5v5vvvv5v11vvvv11161vv16116655661v11vv11v5vvvvvv555vvvv55",
         colors: "#cc0000,#cc0000",
-        github: "https://github.com//dferram",
+        github: "https://github.com/dferram",
+        linkedin: "",
+        twitter: "",
         about: "Esta es una pagina de ejemplo para que veas como se ve el resultado final. Tu pagina puede ser igual a esta, o puedes modificarla como quieras. Lo importante es que practiques el flujo de Git: clonar, crear rama, hacer cambios, commit, push y pull request.",
         skills: ["Git", "GitHub", "HTML", "CSS", "JavaScript"],
         randomFact: "Este proyecto esta hecho con un tema 8-bit retro. Los estilos estan en styles.css y puedes usarlos o hacer los tuyos desde cero. Para el avatar, abre avatar-builder.html y dibuja el tuyo."
     },
 
     // --- AGREGA TU LINEA AQUI ABAJO ---
-    // {
-    //     name: "Tu Nombre Completo",
-    //     page: "nombre-apellido.html",
-    //     tagline: "Una frase corta sobre ti",
-    //     avatar: "spiderman",
-    //     colors: "#cc0000,#0066cc",
-    //     github: "https://github.com/tu-usuario",
-    //     about: "Texto largo sobre ti, mantenlo sobre la misma línea para evitar el Merge Conflict",
-    //     skills: ["HTML", "CSS", "JavaScript", "Git"],
-    //     randomFact: "Un dato curioso o divertido sobre ti"
-    // },
+
 
 ];

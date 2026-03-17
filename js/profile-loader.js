@@ -81,27 +81,34 @@
         }
         
         // Cargar "Sobre Mi"
-        var aboutSection = document.querySelector('.profile-section:nth-of-type(1) p');
-        if (aboutSection && memberData.about) {
-            aboutSection.textContent = memberData.about;
+        var profileSections = document.querySelectorAll('.profile-section');
+        if (profileSections.length > 0 && memberData.about) {
+            var aboutParagraph = profileSections[0].querySelector('p');
+            if (aboutParagraph) {
+                aboutParagraph.textContent = memberData.about;
+            }
         }
         
         // Cargar Skills
-        var skillsContainer = document.querySelector('.profile-section:nth-of-type(2) .tags');
-        if (skillsContainer && memberData.skills) {
-            skillsContainer.innerHTML = '';
-            for (var i = 0; i < memberData.skills.length; i++) {
-                var tag = document.createElement('span');
-                tag.className = 'tag';
-                tag.textContent = memberData.skills[i];
-                skillsContainer.appendChild(tag);
+        if (profileSections.length > 1 && memberData.skills) {
+            var skillsContainer = profileSections[1].querySelector('.tags');
+            if (skillsContainer) {
+                skillsContainer.innerHTML = '';
+                for (var i = 0; i < memberData.skills.length; i++) {
+                    var tag = document.createElement('span');
+                    tag.className = 'tag';
+                    tag.textContent = memberData.skills[i];
+                    skillsContainer.appendChild(tag);
+                }
             }
         }
         
         // Cargar Dato Random
-        var randomFactSection = document.querySelector('.profile-section:nth-of-type(3) p');
-        if (randomFactSection && memberData.randomFact) {
-            randomFactSection.textContent = memberData.randomFact;
+        if (profileSections.length > 2 && memberData.randomFact) {
+            var randomFactParagraph = profileSections[2].querySelector('p');
+            if (randomFactParagraph) {
+                randomFactParagraph.textContent = memberData.randomFact;
+            }
         }
         
         // Renderizar avatar
