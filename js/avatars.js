@@ -6,7 +6,14 @@
 */
 
 var AVATAR_PALETTE = [
-    'transparent', '#1a1a2e', '#e8c8a0', '#5c3a1e', '#2d2d44', '#cc0000', '#ffffff', '#c9a87c', 
+    'transparent',  // 0
+    '#1a1a2e',      // 1
+    '#e8c8a0',      // 2
+    '#5c3a1e',      // 3 - PRIMARY (personalizable)
+    '#2d2d44',      // 4
+    '#cc0000',      // 5 - SECONDARY (personalizable)
+    '#ffffff',      // 6
+    '#c9a87c',      // 7
     '#333344', '#ff8888', '#4a90e2', '#2ecc71', '#f39c12', '#9b59b6', '#e74c3c', '#34495e', 
     '#ffeb3b', '#00bcd4', '#ff5722', '#795548', '#607d8b', '#8bc34a', '#ff9800', '#3f51b5', 
     '#e91e63', '#009688', '#ffc107', '#673ab7', '#cddc39', '#ff6f00', '#00897b', '#d32f2f',

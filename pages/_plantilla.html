@@ -3,79 +3,63 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Fernando Ramirez // Teamwork</title>
-    <link rel="stylesheet" href="styles.css">
+    <title>Tu Nombre // Teamwork</title>
+    <link rel="stylesheet" href="../css/styles.css">
 </head>
 <body>
 
+    <!-- Starfield (puedes quitarlo si quieres) -->
     <div class="starfield" id="starfield"></div>
 
     <div class="container">
 
-        <a href="index.html" class="back-link">&lt; VOLVER A LA GALERIA</a>
+        <!-- Link para regresar -->
+        <a href="../index.html" class="back-link">&lt; VOLVER A LA GALERIA</a>
 
         <section class="profile-hero" style="text-align: center;">
             <div class="profile-avatar" style="background: rgba(255, 255, 255, 0.05); border: 3px solid var(--border-color); padding: 20px; border-radius: 8px; display: inline-block; box-shadow: 0 4px 12px rgba(0,0,0,0.3);">
-                <canvas id="myAvatar" width="128" height="128" style="image-rendering: pixelated; display: block;"></canvas>
+                <canvas id="myAvatar" width="96" height="96" style="image-rendering: pixelated; display: block;"></canvas>
             </div>
-            <h1>FERNANDO RAMIREZ</h1>
-            <p class="tagline">Never give up - Checo Perez</p>
+            <h1>TU NOMBRE COMPLETO</h1>
+            <p class="tagline">Tu tagline aquí</p>
 
             <div class="social-links">
-                <a href="https://github.com" class="social-link" target="_blank">
-                    GITHUB
-                </a>
+                <!-- Se cargan automáticamente desde team.js -->
             </div>
         </section>
 
         <section class="profile-section">
             <h2>SOBRE MI</h2>
             <p>
-                Esta es una pagina de ejemplo para que veas como
-                se ve el resultado final. Tu pagina puede ser igual
-                a esta, o puedes modificarla como quieras. Lo importante
-                es que practiques el flujo de Git: clonar, crear rama,
-                hacer cambios, commit, push y pull request.
+                Este contenido se carga automáticamente desde team.js
             </p>
         </section>
 
         <section class="profile-section">
             <h2>SKILLS</h2>
             <div class="tags">
-                <span class="tag">Git</span>
-                <span class="tag">GitHub</span>
-                <span class="tag">HTML</span>
-                <span class="tag">CSS</span>
-                <span class="tag">JavaScript</span>
+                <!-- Se cargan automáticamente desde team.js -->
             </div>
         </section>
 
         <section class="profile-section">
             <h2>DATO RANDOM</h2>
             <p>
-                Este proyecto esta hecho con un tema 8-bit retro.
-                Los estilos estan en styles.css y puedes usarlos
-                o hacer los tuyos desde cero. Para el avatar, abre
-                avatar-builder.html y dibuja el tuyo.
+                Este contenido se carga automáticamente desde team.js
             </p>
         </section>
 
     </div>
 
+    <!-- Footer -->
     <footer class="footer">
         <p>Hecho para el curso de Git & GitHub // 2026</p>
     </footer>
 
-    <script src="avatars.js"></script>
+    <script src="../js/avatars.js"></script>
+    <script src="../js/team.js"></script>
+    <script src="../js/profile-loader.js"></script>
     <script>
-        // Render avatar
-        renderAvatar(
-            document.getElementById('myAvatar'),
-            'spiderman',
-            128,
-            { primary: '#e74c3c', secondary: '#1a1a2e' }
-        );
-
         // Starfield
         (function() {
             var field = document.getElementById('starfield');

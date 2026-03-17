@@ -34,16 +34,14 @@ git checkout -b nombre-apellido
 1. Copia la plantilla:
 
 ```bash
-cp _plantilla.html nombre-apellido.html
+cp pages/_plantilla.html pages/nombre-apellido.html
 ```
 
-2. Abre el archivo y personalizalo:
-   - Cambia el titulo con tu nombre
-   - Escribe sobre ti, agrega tus redes
-   - Cambia el avatar (ver paso 4)
-   - Se creativo/a
+2. **IMPORTANTE:** NO edites el contenido de tu archivo HTML. El contenido se carga automáticamente desde `js/team.js` (ver paso 5).
+   - Solo necesitas crear el archivo con el nombre correcto en la carpeta `pages/`
+   - Todo el contenido (nombre, avatar, skills, etc.) se configura en `js/team.js`
 
-> **Tip:** Revisa `FernandoRamirez.html` para ver una pagina terminada.
+> **Tip:** Revisa `pages/FernandoRamirez.html` para ver cómo funciona el sistema dinámico.
 
 ### Paso 4 - Crear tu avatar 8-bit
 
@@ -56,24 +54,48 @@ Abre `avatar-builder.html` en tu navegador. Puedes:
 
 El builder genera el codigo que necesitas para el siguiente paso.
 
-### Paso 5 - Registrar tu pagina en la galeria
+### Paso 5 - Registrar TODOS tus datos en team.js
 
-Abre `team.js` y agrega UNA linea con TUS datos debajo del comentario "AGREGA TU LINEA AQUI ABAJO":
+**🎯 CLAVE PARA EVITAR MERGE CONFLICTS:** Todo tu contenido va en UNA sola línea en `js/team.js`.
+
+Abre `js/team.js` y agrega tu objeto completo debajo del comentario "AGREGA TU LINEA AQUI ABAJO":
 
 ```js
-{ name: "Tu Nombre", page: "nombre-apellido.html", desc: "Tu frase", avatar: "spiderman", colors: "#e74c3c,#1a1a2e" },
+{
+    name: "Tu Nombre Completo",
+    page: "pages/nombre-apellido.html",
+    tagline: "Una frase corta sobre ti",
+    avatar: "spiderman",
+    colors: "#e74c3c,#1a1a2e",
+    github: "https://github.com/tu-usuario",
+    linkedin: "",  // Opcional
+    twitter: "",   // Opcional
+    about: "Texto largo sobre ti. Puedes escribir varias líneas aquí.",
+    skills: ["HTML", "CSS", "JavaScript", "Git"],
+    randomFact: "Un dato curioso o divertido sobre ti"
+},
 ```
 
-En `avatar` pon el nombre del preset o el string del builder.
-En `colors` pon tus dos colores separados por coma.
+**Campos obligatorios:**
+- `name`: Tu nombre completo
+- `page`: La ruta de tu archivo HTML (debe ser `pages/nombre-apellido.html`)
+- `tagline`: Una frase corta que aparece bajo tu nombre
+- `avatar`: El código de tu avatar (nombre del preset o string del builder)
+- `about`: Texto sobre ti para la sección "SOBRE MI"
+- `skills`: Array con tus habilidades (entre corchetes y comillas)
+- `randomFact`: Un dato curioso sobre ti
 
-**¿Cómo sé que estoy editando MI avatar?**
+**Campos opcionales:**
+- `colors`: Colores de tu avatar (si no lo pones, usa colores por defecto)
+- `github`, `linkedin`, `twitter`: Tus URLs (deja vacío "" si no tienes)
+
+**¿Cómo sé que estoy editando MI línea?**
 - Busca tu nombre en el array. Si NO estás en la lista, agrega una NUEVA línea.
 - Si YA estás en la lista, edita SOLO tu línea (la que tiene tu nombre).
 - NO modifiques las líneas de otros estudiantes.
-- Cada línea es independiente = cada estudiante tiene su propio avatar.
+- Cada línea es independiente = sin conflictos de Git.
 
-> **Importante:** Varios alumnos editan `team.js`. Si hay un merge conflict, es normal. Solo conserva tu linea y las de tus companeros.
+> **Ventaja:** Como cada estudiante edita solo su línea, los merge conflicts son mínimos. Si hay conflicto, solo conserva tu línea y las de tus compañeros.
 
 ### Paso 6 - Hacer commit y push
 
@@ -122,14 +144,21 @@ Una vez que tu PR sea aprobado y mergeado, tu pagina y avatar aparecen en la gal
 ```
 Teamwork/
 |-- index.html              <- Pagina principal (galeria automatica)
-|-- styles.css              <- Estilos 8-bit compartidos
-|-- avatars.js              <- Sistema de avatares pixel
 |-- avatar-builder.html     <- Editor de avatares interactivo
-|-- team.js                 <- Registro del equipo (cada quien agrega su linea)
-|-- _plantilla.html         <- Plantilla base para tu pagina
-|-- FernandoRamirez.html    <- Ejemplo de pagina terminada
 |-- README.md               <- Este archivo
-|-- nombre-apellido.html    <- Tu pagina personal
+|
+|-- css/
+|   |-- styles.css          <- Estilos 8-bit compartidos
+|
+|-- js/
+|   |-- avatars.js          <- Sistema de avatares pixel
+|   |-- team.js             <- Registro del equipo (AQUI editas TUS datos)
+|   |-- profile-loader.js   <- Carga automatica de datos (no tocar)
+|
+|-- pages/
+    |-- _plantilla.html     <- Plantilla base para tu pagina
+    |-- FernandoRamirez.html <- Ejemplo de pagina terminada
+    |-- nombre-apellido.html <- Tu pagina personal (la que creas)
 ```
 
 ## Recursos utiles
