@@ -15,11 +15,9 @@ Crear una **pagina personal en HTML** con tu avatar 8-bit y agregarla a la galer
 Abre tu terminal y clona el repositorio del curso:
 
 ```bash
-git clone https://github.com/USUARIO/Teamwork.git
+git clone https://github.com/dferram/Teamwork.git
 cd Teamwork
 ```
-
-> Cambia `USUARIO` por la URL que te de tu instructor.
 
 ### Paso 2 - Crear una rama nueva
 
@@ -45,7 +43,7 @@ cp _plantilla.html nombre-apellido.html
    - Cambia el avatar (ver paso 4)
    - Se creativo/a
 
-> **Tip:** Revisa `ejemplo-instructor.html` para ver una pagina terminada.
+> **Tip:** Revisa `FernandoRamirez.html` para ver una pagina terminada.
 
 ### Paso 4 - Crear tu avatar 8-bit
 
@@ -121,7 +119,7 @@ Teamwork/
 |-- avatar-builder.html     <- Editor de avatares interactivo
 |-- team.js                 <- Registro del equipo (cada quien agrega su linea)
 |-- _plantilla.html         <- Plantilla base para tu pagina
-|-- ejemplo-instructor.html <- Ejemplo de pagina terminada
+|-- FernandoRamirez.html    <- Ejemplo de pagina terminada
 |-- README.md               <- Este archivo
 |-- nombre-apellido.html    <- Tu pagina personal
 ```

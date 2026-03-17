@@ -33,7 +33,7 @@
         /* Drawing grid */
         .draw-grid {
             display: grid;
-            grid-template-columns: repeat(8, 1fr);
+            grid-template-columns: repeat(12, 1fr);
             gap: 1px;
             background: rgba(255,255,255,0.05);
             border: 2px solid var(--border-color);
@@ -340,20 +340,21 @@
 
     <script src="avatars.js"></script>
     <script>
-        var gridData = new Array(64).fill(0);
-        var currentColor = 4; // default: primario
+        var gridData = new Array(144).fill(0);
+        var currentColor = 3; // default: primario
         var isDrawing = false;
 
         var DRAW_COLORS = [
             { index: 0, hex: 'transparent', label: 'Borrar' },
             { index: 1, hex: '#1a1a2e', label: 'Negro' },
             { index: 2, hex: '#e8c8a0', label: 'Piel' },
-            { index: 3, hex: '#5c3a1e', label: 'Cabello' },
-            { index: 4, hex: '#cc0000', label: 'Primario' },
-            { index: 5, hex: '#0066cc', label: 'Secundario' },
+            { index: 3, hex: '#5c3a1e', label: 'Primario (Pelo)' },
+            { index: 4, hex: '#2d2d44', label: 'Ropa' },
+            { index: 5, hex: '#cc0000', label: 'Secundario' },
             { index: 6, hex: '#ffffff', label: 'Blanco' },
-            { index: 7, hex: '#ff4444', label: 'Rojo' },
-            { index: 8, hex: '#ffcc00', label: 'Dorado' },
+            { index: 7, hex: '#c9a87c', label: 'Sombra' },
+            { index: 8, hex: '#333344', label: 'Zapatos' },
+            { index: 9, hex: '#ff8888', label: 'Labios/Detalle' }
         ];
 
         // Build color palette
@@ -381,7 +382,7 @@
             grid.addEventListener('mousedown', function(e) { isDrawing = true; });
             document.addEventListener('mouseup', function() { isDrawing = false; });
 
-            for (var i = 0; i < 64; i++) {
+            for (var i = 0; i < 144; i++) {
                 var cell = document.createElement('div');
                 cell.className = 'draw-cell';
                 cell.setAttribute('data-i', i);
@@ -410,9 +411,9 @@
             if (currentColor === 0) {
                 cell.style.background = 'var(--bg)';
             } else {
-                // Use the actual custom color for indices 4 and 5
+                // Use the actual custom color for indices 3 and 5
                 var hex = DRAW_COLORS.find(function(c) { return c.index === currentColor; });
-                if (currentColor === 4) {
+                if (currentColor === 3) {
                     cell.style.background = document.getElementById('primaryColor').value;
                 } else if (currentColor === 5) {
                     cell.style.background = document.getElementById('secondaryColor').value;
@@ -443,7 +444,7 @@
             var cells = document.querySelectorAll('.draw-cell');
             cells.forEach(function(cell) {
                 var i = parseInt(cell.getAttribute('data-i'));
-                if (gridData[i] === 4) cell.style.background = colors.primary;
+                if (gridData[i] === 3) cell.style.background = colors.primary;
                 if (gridData[i] === 5) cell.style.background = colors.secondary;
             });
 
@@ -454,7 +455,7 @@
         }
 
         function clearGrid() {
-            gridData = new Array(64).fill(0);
+            gridData = new Array(144).fill(0);
             document.querySelectorAll('.draw-cell').forEach(function(cell) {
                 cell.style.background = 'var(--bg)';
             });
@@ -463,9 +464,9 @@
 
         function flipH() {
             var newData = [];
-            for (var row = 0; row < 8; row++) {
-                for (var col = 7; col >= 0; col--) {
-                    newData.push(gridData[row * 8 + col]);
+            for (var row = 0; row < 12; row++) {
+                for (var col = 11; col >= 0; col--) {
+                    newData.push(gridData[row * 12 + col]);
                 }
             }
             gridData = newData;
@@ -474,9 +475,9 @@
 
         function flipV() {
             var newData = [];
-            for (var row = 7; row >= 0; row--) {
-                for (var col = 0; col < 8; col++) {
-                    newData.push(gridData[row * 8 + col]);
+            for (var row = 11; row >= 0; row--) {
+                for (var col = 0; col < 12; col++) {
+                    newData.push(gridData[row * 12 + col]);
                 }
             }
             gridData = newData;
@@ -494,7 +495,7 @@
                 var val = gridData[i];
                 if (val === 0) {
                     cell.style.background = 'var(--bg)';
-                } else if (val === 4) {
+                } else if (val === 3) {
                     cell.style.background = colors.primary;
                 } else if (val === 5) {
                     cell.style.background = colors.secondary;
@@ -510,7 +511,7 @@
             var preset = AVATAR_PRESETS[presetName];
             if (!preset) return;
             var data = preset.data.replace(/\s/g, '');
-            for (var i = 0; i < 64; i++) {
+            for (var i = 0; i < 144; i++) {
                 gridData[i] = parseInt(data[i] || '0', 16);
             }
             refreshGrid();

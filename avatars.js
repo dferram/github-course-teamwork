@@ -21,7 +21,8 @@
     avatar: "classic"
 
     Presets disponibles:
-    classic, spike, punk, bob, longhair, robot, ninja, alien, cat, wizard
+    classic, spike, punk, bob, longhair, robot, ninja, alien, cat, wizard,
+    spiderman, pirate, zombie, viking, cyborg, witch, superhero, demon
 */
 
 var AVATAR_PALETTE = [
@@ -35,6 +36,12 @@ var AVATAR_PALETTE = [
     '#c9a87c',      // 7 piel sombra
     '#333344',      // 8 zapatos
     '#ff8888',      // 9 labios
+    '#4a90e2',      // A azul brillante
+    '#2ecc71',      // B verde brillante
+    '#f39c12',      // C naranja
+    '#9b59b6',      // D morado
+    '#e74c3c',      // E rojo brillante
+    '#34495e',      // F gris oscuro
 ];
 
 var AVATAR_GRID = 12;
@@ -199,6 +206,134 @@ var AVATAR_PRESETS = {
             '000550055000' +
             '000110011000',
         name: 'Wizard'
+    },
+    spiderman: {
+        data:
+            '000EEE000000' +
+            '00EEEEE00000' +
+            '0EEEEEEE0000' +
+            '0E1661E10000' +
+            '0E1661E10000' +
+            '0EEEEEEE0000' +
+            '00E1E1E00000' +
+            '000EEEE00000' +
+            '000EEEE00000' +
+            '00EEEEEE0000' +
+            '00EE00EE0000' +
+            '00110011000',
+        name: 'Spiderman'
+    },
+    pirate: {
+        data:
+            '000111100000' +
+            '001111111000' +
+            '011222221100' +
+            '002222222200' +
+            '002612111200' +
+            '002222222200' +
+            '000229920000' +
+            '000022220000' +
+            '000445544000' +
+            '004444444400' +
+            '000440044000' +
+            '000110011000',
+        name: 'Pirate'
+    },
+    zombie: {
+        data:
+            '000BBB000000' +
+            '00BBBBBBB000' +
+            '0BBBBBBBB000' +
+            '0BB2B2BB0000' +
+            '0BB161BB0000' +
+            '0BBBBBBBB000' +
+            '00BB99BB0000' +
+            '000BBBB00000' +
+            '000F4F4F0000' +
+            '00F4F4F4F000' +
+            '00F400F40000' +
+            '00110011000',
+        name: 'Zombie'
+    },
+    viking: {
+        data:
+            'F00333300F00' +
+            'FF03333330FF' +
+            '0F3322233F00' +
+            '002222222200' +
+            '002612261200' +
+            '002222222200' +
+            '033399933300' +
+            '000022220000' +
+            '000445544000' +
+            '004444444400' +
+            '000440044000' +
+            '000110011000',
+        name: 'Viking'
+    },
+    cyborg: {
+        data:
+            '00044F440000' +
+            '004FFFFF4000' +
+            '04F226622F40' +
+            '04F222222F40' +
+            '04FA12A12F40' +
+            '04F222222F40' +
+            '00F229922F00' +
+            '000F2222F000' +
+            '000F4554F000' +
+            '00F4444444F0' +
+            '00F4400F440F' +
+            '00110011000',
+        name: 'Cyborg'
+    },
+    witch: {
+        data:
+            '000001100000' +
+            '000011110000' +
+            '000D111D0000' +
+            '00D222222D00' +
+            '00D261261D00' +
+            '00D222222D00' +
+            '000D2992D000' +
+            '0000222D0000' +
+            '000D555D0000' +
+            '00D5555550D0' +
+            '00D550D550D0' +
+            '00110011000',
+        name: 'Witch'
+    },
+    superhero: {
+        data:
+            '000AAA000000' +
+            '00AAAAA00000' +
+            '0AA222AA0000' +
+            '0A2222222A00' +
+            '0A2612261A00' +
+            '0A2222222A00' +
+            '00A22992A000' +
+            '000A222A0000' +
+            '000AAAAA0000' +
+            '00AAAAAAA000' +
+            '00AA00AA0000' +
+            '00110011000',
+        name: 'Hero'
+    },
+    demon: {
+        data:
+            'E00000000E00' +
+            'EE0000000EE0' +
+            '0EE1111EE000' +
+            '00E111111E00' +
+            '00E616161E00' +
+            '00E111111E00' +
+            '000E1991E000' +
+            '0000EEEE0000' +
+            '000E444E0000' +
+            '00E44444E000' +
+            '00E440E440E0' +
+            '00110011000',
+        name: 'Demon'
     }
 };
 
