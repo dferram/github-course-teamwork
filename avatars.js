@@ -14,13 +14,14 @@ var AVATAR_PALETTE = [
 
 var AVATAR_PRESETS = {
     // Caras principales y Mobs
-    steve:      { data: '"3333333333333333322222232222222226a22a62222jj2222237732222333322"', name: 'Steve' },
+    steve:      { data: '3333333333333333322222232222222226a22a62222jj2222237732222333322', name: 'Steve' },
     alex:       { data: 'ccccccccccccccccc222222c2222222226b22b62222772222229922222222222', name: 'Alex' },
-    creeper:    { data: 'bbbbbbbbbbbbbbbbb11bb11bb11bb11bbbb11bbbbb1111bbbb1111bbbb1bb1bb', name: 'Creeper' },
+    herobrine:  { data: '3333333333333333322222232222222226622662222jj2222237732222333322', name: 'Herobrine' },
+    creeper:    { data: '6ubb6bbbubbbubb6b11bu116b11ub11bbbu11bubbb1111b66b1111buub1bb1ub', name: 'Creeper' },
     zombie:     { data: 'bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb11bb11bbbbbbbbbbbbbbbbbbbbbbbbb', name: 'Zombie' },
-    skeleton:   { data: '6666666666666666666666666116611661166116666886666f1111f666666666', name: 'Skeleton' },
-    enderman:   { data: '1111111111111111111111111111111111111111199119911dd11dd111111111', name: 'Enderman' },
-    cow:        { data: 'jjjjjjjjj666666jj616616jj666666jjj6666jjj668866jj611116jjjjjjjjj', name: 'Cow' },
+    skeleton:   { data: '6666666666666666666666666116611666666666666886666f1111f666666666', name: 'Skeleton' },
+    enderman:   { data: '11111111111111111111111111111111drd11drd111111111111111111111111', name: 'Enderman' },
+    cow:        { data: 'jjjkkffjjjjkkjjj66jkkj6616jfjj61jjjjjjjjjj6666jjj618816jj68ff86j', name: 'Cow' },
     pig:        { data: '99999999999999999999999991699619916996199999999999o11o9999o11o99', name: 'Pig' },
     sheep:      { data: '6666666666666666662222666212212662222226622992266622226666666666', name: 'Sheep' },
     chicken:    { data: '66666666666666666666666666166166666gg666666ee6666666666666666666', name: 'Chicken' },
