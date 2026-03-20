@@ -200,34 +200,6 @@
             color: var(--red);
         }
 
-        .custom-colors {
-            display: flex;
-            gap: 12px;
-            align-items: center;
-            margin-bottom: 12px;
-            flex-wrap: wrap;
-        }
-
-        .color-input-group {
-            display: flex;
-            align-items: center;
-            gap: 6px;
-        }
-
-        .color-input-group label {
-            font-size: 7px;
-            color: var(--text-dim);
-            text-transform: uppercase;
-        }
-
-        .color-input-group input[type="color"] {
-            width: 32px;
-            height: 32px;
-            border: 2px solid var(--border-color);
-            background: var(--surface);
-            cursor: pointer;
-            padding: 0;
-        }
 
         .copy-msg {
             color: var(--gold);
@@ -277,7 +249,6 @@
                     <ol style="margin-left: 20px; margin-bottom: 10px;">
                         <li style="margin-bottom: 6px;"><strong>Opción 1 - Usar un preset:</strong> Haz clic en un avatar de arriba para cargarlo</li>
                         <li style="margin-bottom: 6px;"><strong>Opción 2 - Crear desde cero:</strong> Selecciona un color de la paleta y dibuja en la cuadrícula 8x8</li>
-                        <li style="margin-bottom: 6px;"><strong>Ajustar tono:</strong> Selecciona un color y usa el selector para cambiar su tono. Usa RESTAURAR para volver al color original</li>
                         <li style="margin-bottom: 6px;"><strong>Herramientas:</strong> Usa LIMPIAR para borrar todo, VOLTEAR H/V para reflejar el diseño</li>
                         <li style="margin-bottom: 6px;"><strong>Copiar código:</strong> Haz clic en COPIAR para obtener el código de tu avatar</li>
                         <li style="margin-bottom: 6px;">Pega el código en <code>team.js</code> en tu línea personal</li>
@@ -328,15 +299,6 @@
                     <canvas id="preview128" width="128" height="128" class="preview-canvas" style="display: block; margin: 0 auto;"></canvas>
                 </div>
 
-                <div class="panel-title" style="margin-top: 20px;">AJUSTAR TONO</div>
-                <div class="custom-colors">
-                    <div class="color-input-group">
-                        <label id="colorLabel">Selecciona un color de la paleta</label>
-                        <input type="color" id="colorPicker" oninput="updateColorTone()" style="display: none;">
-                        <button class="btn" onclick="resetColorTone()" id="resetBtn" style="display: none; margin-left: 8px;">Restaurar</button>
-                    </div>
-                </div>
-
                 <div class="panel-title" style="margin-top: 20px;">TU CODIGO</div>
                 <p style="font-size: 7px; color: var(--text-dim); margin-bottom: 8px; line-height: 2;">
                     Copia esta linea y pegala en <code>team.js</code>:
@@ -356,10 +318,8 @@
     <script src="js/avatars.js"></script>
     <script>
         var gridData = new Array(64).fill(0);
-        var gridColors = new Array(64).fill(null);
         var currentColor = 3;
         var isDrawing = false;
-        var customColorTones = {};
 
         var DRAW_COLORS = [
             { index: 0, hex: 'transparent', label: 'Borrar' },
@@ -409,21 +369,6 @@
                     currentColor = c.index;
                     document.querySelectorAll('.color-swatch').forEach(function(s) { s.classList.remove('active'); });
                     swatch.classList.add('active');
-                    
-                    var picker = document.getElementById('colorPicker');
-                    var label = document.getElementById('colorLabel');
-                    var resetBtn = document.getElementById('resetBtn');
-                    
-                    if (c.index > 0) {
-                        picker.style.display = 'inline-block';
-                        resetBtn.style.display = 'inline-block';
-                        picker.value = customColorTones[c.index] || c.hex;
-                        label.textContent = c.label + ':';
-                    } else {
-                        picker.style.display = 'none';
-                        resetBtn.style.display = 'none';
-                        label.textContent = 'Selecciona un color de la paleta';
-                    }
                 };
                 pal.appendChild(swatch);
             });
@@ -464,18 +409,10 @@
 
             if (currentColor === 0) {
                 cell.style.background = 'var(--bg)';
-                gridColors[i] = null;
             } else {
-                var customTone = customColorTones[currentColor];
-                var finalColor;
-                if (customTone) {
-                    finalColor = customTone;
-                } else {
-                    var hex = DRAW_COLORS.find(function(c) { return c.index === currentColor; });
-                    finalColor = hex ? hex.hex : '#ff00ff';
-                }
+                var hex = DRAW_COLORS.find(function(c) { return c.index === currentColor; });
+                var finalColor = hex ? hex.hex : '#ff00ff';
                 cell.style.background = finalColor;
-                gridColors[i] = finalColor;
             }
 
             updatePreview();
@@ -501,11 +438,8 @@
             for (var i = 0; i < 64; i++) {
                 if (gridData[i] === 0) continue;
                 
-                var color = gridColors[i];
-                if (!color) {
-                    var c = DRAW_COLORS.find(function(dc) { return dc.index === gridData[i]; });
-                    color = c ? c.hex : '#ff00ff';
-                }
+                var c = DRAW_COLORS.find(function(dc) { return dc.index === gridData[i]; });
+                var color = c ? c.hex : '#ff00ff';
                 
                 var x = Math.floor((i % gridSize) * pixelSize);
                 var y = Math.floor(Math.floor(i / gridSize) * pixelSize);
@@ -522,22 +456,8 @@
                 '{name: "TU NOMBRE", page: "tu-archivo.html", desc: "Tu frase", avatar: "' + data + '" },';
         }
         
-        function updateColorTone() {
-            var picker = document.getElementById('colorPicker');
-            customColorTones[currentColor] = picker.value;
-        }
-        
-        function resetColorTone() {
-            delete customColorTones[currentColor];
-            var colorInfo = DRAW_COLORS.find(function(c) { return c.index === currentColor; });
-            if (colorInfo) {
-                document.getElementById('colorPicker').value = colorInfo.hex;
-            }
-        }
-
         function clearGrid() {
             gridData = new Array(64).fill(0);
-            gridColors = new Array(64).fill(null);
             document.querySelectorAll('.draw-cell').forEach(function(cell) {
                 cell.style.background = 'var(--bg)';
             });
@@ -574,12 +494,8 @@
                 if (val === 0) {
                     cell.style.background = 'var(--bg)';
                 } else {
-                    if (gridColors[i]) {
-                        cell.style.background = gridColors[i];
-                    } else {
-                        var c = DRAW_COLORS.find(function(dc) { return dc.index === val; });
-                        cell.style.background = c ? c.hex : '#ff00ff';
-                    }
+                    var c = DRAW_COLORS.find(function(dc) { return dc.index === val; });
+                    cell.style.background = c ? c.hex : '#ff00ff';
                 }
             });
             updatePreview();
@@ -591,7 +507,6 @@
             var data = preset.data.replace(/\s/g, '');
             for (var i = 0; i < 64; i++) {
                 gridData[i] = parseInt(data[i] || '0', 36);
-                gridColors[i] = null;
             }
             refreshGrid();
         }
