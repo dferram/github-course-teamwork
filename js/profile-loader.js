@@ -3,7 +3,7 @@
     =========================================================
     Este script detecta qué página se está viendo y carga los datos
     correspondientes desde team.js. Esto evita merge conflicts porque
-    cada estudiante solo edita su línea en team.js.
+    cada persona solo edita su línea en team.js.
 */
 
 (function() {
@@ -115,15 +115,17 @@
         var avatarCanvas = document.getElementById('myAvatar');
         
         if (avatarCanvas && memberData.avatar && typeof renderAvatar === 'function') {
-            var colors = { primary: '#cc0000', secondary: '#0066cc' };
+            var customColors = null;
             if (memberData.colors) {
                 var colorParts = memberData.colors.split(',');
                 if (colorParts.length === 2) {
-                    colors.primary = colorParts[0].trim();
-                    colors.secondary = colorParts[1].trim();
+                    customColors = { 
+                        primary: colorParts[0].trim(), 
+                        secondary: colorParts[1].trim() 
+                    };
                 }
             }
-            renderAvatar(avatarCanvas, memberData.avatar, 96, colors);
+            renderAvatar(avatarCanvas, memberData.avatar, 96, customColors);
         }
     }
     

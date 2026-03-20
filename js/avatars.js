@@ -1,8 +1,5 @@
 /*
     AVATARS.JS — Sistema de avatares estilo MINECRAFT (Pixel Perfect 8x8)
-    ======================================================================
-    Estilo "Blocky" referenciado directamente de las texturas del juego.
-    Sistema inteligente 8x8 (64 caracteres) con codificación base36.
 */
 
 var AVATAR_PALETTE = [
