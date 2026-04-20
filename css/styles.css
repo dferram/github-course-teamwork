@@ -79,7 +79,7 @@ html {
 }
 
 body {
-    font-family: 'Manrope', 'Space Grotesk', sans-serif;
+    font-family: 'Press Start 2P', monospace;
     background-color: var(--bg);
     color: var(--on-surface);
     line-height: 1.6;
@@ -609,7 +609,7 @@ body {
 
 .hud-hearts {
     width: 100%;
-    max-width: 600px; /* Incremento MASIVO del lienzo */
+    max-width: 600px;   
     display: flex;
     justify-content: flex-start; /* Alineados a la izquierda */
     gap: 0; 
@@ -623,7 +623,8 @@ body {
     height: 48px;
     image-rendering: crisp-edges; 
     image-rendering: pixelated; 
-    margin-left: -25px; /* Superposición proporcional al nuevo tamaño enorme */
+    margin-left: -25px;
+    margin-bottom: -10px;
 }
 .static-heart:first-child { margin-left: 0; }
 
@@ -636,11 +637,11 @@ body {
 
 .xp-level {
     position: absolute;
-    top: -34px; /* Ajustado porque el nivel creció */
+    top: -20px; /* Ajustado porque el nivel creció */
     left: 50%;
     transform: translateX(-50%);
     font-family: 'Press Start 2P', monospace;
-    font-size: 28px; /* Nivel Gigante */
+    font-size: 20px; /* Nivel Gigante */
     color: #80FF20;
     text-shadow: 3px 3px 0 #000;
     z-index: 5;
@@ -649,9 +650,9 @@ body {
 /* Base de la barra */
 .xp-bar {
     width: 100%;
-    height: 28px; /* Barra super gruesa */
-    background-color: #000; /* Fondo negro */
-    border: 3px solid #666; /* Borde de marco */
+    height: 20px;
+    background-color: #000; 
+    border: 3px solid #666; 
     border-top-color: #888;
     border-left-color: #888;
     border-bottom-color: #444;
