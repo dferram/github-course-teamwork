@@ -69,7 +69,7 @@
     skills     (OBLIGATORIO) — Array de tus habilidades (min. 3)
                                Ejemplo: ["HTML", "CSS", "JavaScript", "Git"]
 
-    randomFact (OBLIGATORIO) — Un dato curioso o divertido sobre ti
+    randomFact (OPCIONAL) — Un dato curioso o divertido sobre ti
                                Ejemplo: "Puedo resolver un cubo Rubik en 2 min"
 
     biome      (OBLIGATORIO)    — El fondo de tu pagina. 
@@ -94,12 +94,12 @@ var team = [
     {
         name: "Fernando Ramírez",
         page: "pages/FernandoRamirez.html",
-        tagline: "Never give up - Checo Perez",
+        tagline: "Idk man, life is beautiful",
         avatar: "5555555555555555115555111615516116655661511551155555555555555555",
         github: "https://github.com/dferram",
-        about: "Soy estudiante de ingeniería de Software en la UAQ, miembro de Centro de Desarrollo y del equipo de basketball de la facultad",
-        skills: ["Git", "GitHub", "HTML", "CSS", "JavaScript"],
-        randomFact: "Mi deporte favorito es la F1 y mi piloto favorito es Checo Pérez",
+        about: "Estudiante de 6to semestre de ingenieria de software en la UAQ, miembro de Centro de desarrollo y del equipo de basketball de la facultad",
+        skills: [ "Node.js", "MongoDB","PostgreSQL", "Docker", "Git", "GitHub", "HTML", "CSS", "JavaScript", "Python"],
+        randomFact: "",
         biome: "night"
     },
 

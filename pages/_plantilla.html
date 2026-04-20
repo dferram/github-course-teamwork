@@ -125,27 +125,21 @@
                     </div>
                 </section>
 
-                <!-- Stats Grid (Vertical en el sidebar) -->
                 <section class="vertical-stats">
                     <div class="stat-card">
                         <span class="stat-icon"></span>
-                        <span class="stat-value">—</span>
-                        <span class="stat-label">BLOQUES</span>
+                        <span class="stat-value" id="statBloques">—</span>
+                        <span class="stat-label">TOTAL CONTRIBUTIONS</span>
                     </div>
                     <div class="stat-card">
                         <span class="stat-icon"></span>
-                        <span class="stat-value">—</span>
-                        <span class="stat-label">DIAS</span>
+                        <span class="stat-value" id="statDias">—</span>
+                        <span class="stat-label">STREAK</span>
                     </div>
                     <div class="stat-card">
                         <span class="stat-icon"></span>
-                        <span class="stat-value">—</span>
-                        <span class="stat-label">COMMITS</span>
-                    </div>
-                    <div class="stat-card">
-                        <span class="stat-icon"></span>
-                        <span class="stat-value">—</span>
-                        <span class="stat-label">BRANCHES</span>
+                        <span class="stat-value" id="statRepos">—</span>
+                        <span class="stat-label">REPOS</span>
                     </div>
                 </section>
             </aside>
@@ -167,8 +161,6 @@
                     </div>
                 </section>
 
-
-
                 <!-- GitHub Section -->
                 <section class="profile-section github-section" id="githubSection" style="display: none;">
                     <h2>GITHUB STATS</h2>
@@ -177,13 +169,12 @@
                             <img id="githubAvatar" src="" alt="GitHub Avatar" class="gh-avatar">
                             <div class="gh-info">
                                 <h3 id="githubName">Cargando...</h3>
-                                <p id="githubBio"></p>
                             </div>
                         </div>
                         <div class="github-stats-grid">
                             <div class="gh-stat">
-                                <span class="gh-stat-value" id="ghRepos">-</span>
-                                <span class="gh-stat-label">REPOS</span>
+                                <span class="gh-stat-value" id="ghBadges">-</span>
+                                <span class="gh-stat-label">BADGES</span>
                             </div>
                             <div class="gh-stat">
                                 <span class="gh-stat-value" id="ghFollowers">-</span>
@@ -194,7 +185,9 @@
                                 <span class="gh-stat-label">FOLLOWING</span>
                             </div>
                         </div>
-                        <div class="github-contributions" style="position: relative; z-index: 2;">
+
+                        <!-- Muro de contribuciones -->
+                        <div class="contributions-container">
                             <img id="ghContributions" src="" alt="GitHub Contributions" style="width: 100%; margin-top: 15px; filter: invert(1) hue-rotate(180deg) brightness(1.2) contrast(1.1);">
                         </div>
                     </div>
