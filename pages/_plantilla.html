@@ -75,13 +75,28 @@
 </head>
 <body>
 
-    <!-- Starfield (decorativo — no tocar) -->
-    <div class="starfield" id="starfield"></div>
+    <!-- Biome Background (decorativo — no tocar) -->
+    <div class="biome-background" id="biomeBackground"></div>
 
-    <div class="container">
+    <!-- Scanline overlay -->
+    <div class="scanlines"></div>
 
-        <!-- Link para regresar a la galeria -->
-        <a href="../index.html" class="back-link">&lt; VOLVER A LA GALERIA</a>
+    <!-- Top Bar -->
+    <header class="top-bar">
+        <a href="../dashboard.html" class="back-menu-btn">&lt; GALERIA</a>
+        <div class="biome-selector">
+            <span class="biome-label">BIOMA:</span>
+            <button class="biome-btn" data-biome="forest"></button>
+            <button class="biome-btn" data-biome="desert"></button>
+            <button class="biome-btn" data-biome="jungle"></button>
+            <button class="biome-btn" data-biome="taiga"></button>
+            <button class="biome-btn" data-biome="plains"></button>
+            <button class="biome-btn" data-biome="nether"></button>
+            <button class="biome-btn" data-biome="end"></button>
+        </div>
+    </header>
+
+    <div class="dashboard-container">
 
         <!-- =====================================================================
              NO EDITES NADA DE AQUI PARA ABAJO
@@ -100,6 +115,30 @@
 
             <div class="social-links">
                 <!-- Los links sociales se cargan automaticamente desde team.js -->
+            </div>
+        </section>
+
+        <!-- Stats Grid -->
+        <section class="stats-grid">
+            <div class="stat-card">
+                <span class="stat-icon">⛏️</span>
+                <span class="stat-value">—</span>
+                <span class="stat-label">BLOQUES</span>
+            </div>
+            <div class="stat-card">
+                <span class="stat-icon">☀️</span>
+                <span class="stat-value">—</span>
+                <span class="stat-label">DIAS</span>
+            </div>
+            <div class="stat-card">
+                <span class="stat-icon">🗡️</span>
+                <span class="stat-value">—</span>
+                <span class="stat-label">COMMITS</span>
+            </div>
+            <div class="stat-card">
+                <span class="stat-icon">🌿</span>
+                <span class="stat-value">—</span>
+                <span class="stat-label">BRANCHES</span>
             </div>
         </section>
 
@@ -137,23 +176,7 @@
     <script src="../js/avatars.js?v=3"></script>
     <script src="../js/team.js?v=3"></script>
     <script src="../js/profile-loader.js?v=3"></script>
-    <script>
-        // Starfield (decorativo)
-        (function() {
-            var field = document.getElementById('starfield');
-            if (!field) return;
-            for (var i = 0; i < 80; i++) {
-                var star = document.createElement('div');
-                star.className = 'star';
-                star.style.left = Math.random() * 100 + '%';
-                star.style.top = Math.random() * 100 + '%';
-                star.style.setProperty('--duration', (2 + Math.random() * 4) + 's');
-                star.style.setProperty('--delay', (Math.random() * 5) + 's');
-                if (Math.random() > 0.7) { star.style.width = '3px'; star.style.height = '3px'; }
-                field.appendChild(star);
-            }
-        })();
-    </script>
+    <script src="../js/biome-engine.js?v=3"></script>
 
 </body>
 </html>
