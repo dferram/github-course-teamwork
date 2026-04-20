@@ -46,6 +46,11 @@ var BiomeEngine = (function() {
             name: 'The End',
             icon: '',
             bg: 'assets/biomes/end.png'
+        },
+        night: {
+            name: 'Noche Estrellada',
+            icon: '',
+            bg: 'assets/biomes/night.png'
         }
     };
 

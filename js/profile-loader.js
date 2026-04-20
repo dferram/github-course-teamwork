@@ -157,7 +157,8 @@
             taiga: 'Taiga',
             plains: 'Praderas',
             nether: 'Nether',
-            end: 'The End'
+            end: 'The End',
+            night: 'Noche'
         };
         var biomeLabel = document.getElementById('profileBiomeName');
         if (biomeLabel && memberData.biome && biomeNames[memberData.biome]) {

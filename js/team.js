@@ -73,8 +73,8 @@
                                Ejemplo: "Puedo resolver un cubo Rubik en 2 min"
 
     biome      (OBLIGATORIO)    — El fondo de tu pagina. 
-                               Opciones: "forest", "desert", "jungle", "taiga", 
-                               "plains", "nether", "end".
+                                Opciones: "forest", "desert", "jungle", "taiga", 
+                                "plains", "nether", "end", "night".
 
     =====================================================================
     RECORDATORIO: NO OLVIDES LA COMA AL FINAL DE TU OBJETO
@@ -100,7 +100,7 @@ var team = [
         about: "Soy estudiante de ingeniería de Software en la UAQ, miembro de Centro de Desarrollo y del equipo de basketball de la facultad",
         skills: ["Git", "GitHub", "HTML", "CSS", "JavaScript"],
         randomFact: "Mi deporte favorito es la F1 y mi piloto favorito es Checo Pérez",
-        biome: "jungle"
+        biome: "night"
     },
 
     // =====================================================================
@@ -120,7 +120,7 @@ var team = [
     //     about: "Escribe un parrafo sobre ti.",
     //     skills: ["Skill1", "Skill2", "Skill3"],
     //     randomFact: "Un dato curioso sobre ti",
-    //     biome: "forest"
+    //     biome: "forest" (opciones: forest, desert, jungle, taiga, plains, nether, end, night)
     // },
     //
     // NO BORRES ESTE COMENTARIO — dejalo para tus companeros

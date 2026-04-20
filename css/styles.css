@@ -79,6 +79,7 @@ body[data-biome="jungle"] { --biome-bg: url('../assets/biomes/jungle.png'); --pr
 body[data-biome="taiga"] { --biome-bg: url('../assets/biomes/taiga.png'); --primary: #55FFFF; }
 body[data-biome="plains"] { --biome-bg: url('../assets/biomes/plains.png'); --primary: #FF5555; }
 body[data-biome="nether"] { --biome-bg: url('../assets/biomes/nether.png'); --primary: #AA0000; }
+body[data-biome="night"] { --biome-bg: url('../assets/biomes/night.png'); --primary: #D48FFF; }
 body[data-biome="end"] { --biome-bg: url('../assets/biomes/end.png'); --primary: #AA00AA; }
 
 html {
@@ -136,8 +137,8 @@ body {
 }
 
 @keyframes lateral-drift-transform {
-    0% { transform: scale(1.15) translateX(3%); }
-    100% { transform: scale(1.15) translateX(-3%); }
+    0% { transform: scale(1.2) translateX(6%); }
+    100% { transform: scale(1.2) translateX(-6%); }
 }
 
 /* --- Logo --- */
