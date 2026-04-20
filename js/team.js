@@ -72,7 +72,7 @@
     randomFact (OBLIGATORIO) — Un dato curioso o divertido sobre ti
                                Ejemplo: "Puedo resolver un cubo Rubik en 2 min"
 
-    biome      (OPCIONAL)    — El fondo de tu pagina. 
+    biome      (OBLIGATORIO)    — El fondo de tu pagina. 
                                Opciones: "forest", "desert", "jungle", "taiga", 
                                "plains", "nether", "end".
 
@@ -100,7 +100,7 @@ var team = [
         about: "Soy estudiante de ingeniería de Software en la UAQ, miembro de Centro de Desarrollo y del equipo de basketball de la facultad",
         skills: ["Git", "GitHub", "HTML", "CSS", "JavaScript"],
         randomFact: "Mi deporte favorito es la F1 y mi piloto favorito es Checo Pérez",
-        biome: "forest"
+        biome: "jungle"
     },
 
     // =====================================================================

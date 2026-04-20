@@ -73,6 +73,14 @@
     --dirt-5: #4a3019;
 }
 
+body[data-biome="forest"] { --biome-bg: url('../assets/biomes/forest.png'); --primary: #FFFF55; }
+body[data-biome="desert"] { --biome-bg: url('../assets/biomes/desert.png'); --primary: #f2cb05; }
+body[data-biome="jungle"] { --biome-bg: url('../assets/biomes/jungle.png'); --primary: #55FF55; }
+body[data-biome="taiga"] { --biome-bg: url('../assets/biomes/taiga.png'); --primary: #55FFFF; }
+body[data-biome="plains"] { --biome-bg: url('../assets/biomes/plains.png'); --primary: #FF5555; }
+body[data-biome="nether"] { --biome-bg: url('../assets/biomes/nether.png'); --primary: #AA0000; }
+body[data-biome="end"] { --biome-bg: url('../assets/biomes/end.png'); --primary: #AA00AA; }
+
 html {
     scroll-behavior: smooth;
     image-rendering: auto;
@@ -350,7 +358,7 @@ body {
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
-    animation: lateral-drift-transform 55s ease-in-out infinite alternate;
+    animation: lateral-drift-transform 35s ease-in-out infinite alternate;
     filter: brightness(0.35) saturate(1.2);
 }
 .biome-background::after {
