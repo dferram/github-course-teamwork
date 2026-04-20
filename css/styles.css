@@ -113,7 +113,7 @@ body {
     background-image: url('../assets/panorama.png');
     background-size: cover;
     background-position: center;
-    animation: panorama-drift 60s ease-in-out infinite alternate;
+    animation: lateral-drift 600s ease-in-out infinite alternate;
     filter: blur(1px) brightness(0.85);
 }
 .mc-panorama::after {
@@ -126,10 +126,9 @@ body {
     background: radial-gradient(ellipse at center, transparent 30%, rgba(0,0,0,0.6) 100%);
 }
 
-@keyframes panorama-drift {
-    0% { background-position: 0% 50%; transform: scale(1.1); }
-    50% { background-position: 100% 30%; transform: scale(1.15); }
-    100% { background-position: 50% 60%; transform: scale(1.1); }
+@keyframes lateral-drift {
+    0% { background-position: 0% center; transform: scale(1.05); }
+    100% { background-position: 100% center; transform: scale(1.05); }
 }
 
 /* --- Logo --- */
@@ -138,17 +137,18 @@ body {
     z-index: 2;
     text-align: center;
     margin-bottom: var(--sp-7);
+    display: inline-block;
     animation: logo-drop 0.8s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
 }
 
 .mc-logo {
     font-family: 'Press Start 2P', monospace;
-    font-size: clamp(28px, 6vw, 56px);
-    color: #ffffff;
+    font-size: clamp(40px, 8vw, 84px);
+    color: #e0e0e0;
     text-shadow:
         4px 4px 0 #3d3d3d,
         8px 8px 0 #2a2a2a,
-        0 0 20px var(--glow);
+        0 0 20px rgba(224, 224, 224, 0.2);
     letter-spacing: 4px;
     line-height: 1.2;
     display: block;
@@ -157,8 +157,8 @@ body {
 .mc-logo-sub {
     font-family: 'Press Start 2P', monospace;
     font-size: clamp(6px, 1.2vw, 10px);
-    color: var(--tertiary);
-    text-shadow: 2px 2px 0 #5a4400;
+    color: var(--secondary);
+    text-shadow: 2px 2px 0 #333333;
     letter-spacing: 3px;
     margin-top: var(--sp-2);
     display: block;
@@ -172,11 +172,11 @@ body {
 /* --- Splash Text --- */
 .splash-text {
     position: absolute;
-    top: 28%;
-    right: 12%;
+    top: 60px;
+    right: -150px;
     z-index: 3;
     font-family: 'Press Start 2P', monospace;
-    font-size: clamp(7px, 1.2vw, 11px);
+    font-size: clamp(10px, 1.8vw, 16px);
     color: var(--tertiary);
     text-shadow: 2px 2px 0 #5a4400;
     transform: rotate(-15deg);
@@ -347,10 +347,17 @@ body {
     z-index: 0;
     background-image: var(--biome-bg);
     background-size: cover;
-    background-position: center bottom;
+    background-position: left bottom;
     background-attachment: fixed;
+    background-repeat: repeat-x;
     transition: background-image 0.6s ease;
+    animation: lateral-drift-slow 900s ease-in-out infinite alternate;
     filter: brightness(0.35) saturate(1.2);
+}
+
+@keyframes lateral-drift-slow {
+    0% { background-position: 0% bottom; transform: scale(1.05); }
+    100% { background-position: 100% bottom; transform: scale(1.05); }
 }
 .biome-background::after {
     content: '';
@@ -517,10 +524,10 @@ body {
 .hero h1 {
     font-family: 'Press Start 2P', monospace;
     font-size: clamp(18px, 4vw, 32px);
-    color: var(--tertiary);
+    color: var(--on-surface);
     text-shadow:
-        4px 4px 0 #5a4400,
-        0 0 20px rgba(250, 211, 0, 0.3);
+        4px 4px 0 #1a1a1a,
+        0 0 20px rgba(224, 224, 224, 0.1);
     margin-bottom: var(--sp-5);
     line-height: 1.6;
     animation: float-pixel 4s ease-in-out infinite;
@@ -1470,31 +1477,14 @@ body {
     justify-content: center;
     gap: 32px;
     background-color: var(--dirt-1);
-    background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAAEnQAABJ0Ad5mH3gAAAGsSURBVDhPrZFLT8JAEIbnDzTe9GZivHrxD/BqNCZe9WZM1ESjiaAgAgIiih6EClbZ7vYBSqGtlNJu+36zKw1BExOfZN7MzreTndkASf4TTC4rE6P+I1sS+8fWq81PcxkS22Kx+GvO4I43R5uDjX3BviR2cHyw2R80j0bM2o+P1+fHF+tXg9S9T78zN9vN+dHmQ2ZfEuu164+n2wH/eHn4eLkP7wI112Rj45084lCjBvJmZk9U2xV1A9ZpU+i5C7xI1A2r0x67L/70vE0FMg/Pz184b2v8g6A2Oq42Qy+eM8r04Wbj/J2H8sRz8N+uX1/fvv8xU7zWjD2+L6hJ/tC0I46Lww1YyO3Yl8T0kGnvP/mH1qN9SUxXk71/lWvHviSmx79B/n+wL4np+f/A/v//xL4kpqeq+g42N4B9SUxPV1N9l26m75G/xL4kpqen9z5sbgD7kpieE+l7sLk/sC+J6Xmyv/dgc39gXxLTk1+678Hm/sC+JKbn9/Q92Nwf2JfE9Jw3ug+b+wP7cjk/AQm8Z34tV5e/AAAAAElFTkSuQmCC');
-    background-size: 64px 64px;
-    image-rendering: pixelated;
-}
-
-.loading-screen::after {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: radial-gradient(ellipse at center, transparent 30%, rgba(0,0,0,0.85) 100%);
-    pointer-events: none;
-    z-index: 0;
+    background-image: url('../assets/loading_screen/End_Poem_background.jpg');
+    background-size: 100px 100px; /* Scaled to look pixelated correctly */
+    image-rendering: auto; /* Since the uploaded jpg might already be pixelated/high-res */
+    box-shadow: inset 0 0 200px 50px rgba(0,0,0,0.85);
 }
 
 .loading-screen.active {
     display: flex;
-}
-
-.loading-screen .loading-text,
-.loading-screen .loading-bar-container {
-    position: relative;
-    z-index: 1;
 }
 
 .loading-text {
