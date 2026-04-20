@@ -1,121 +1,128 @@
 <!--
-    INSTRUCCIONES PARA CREAR TU PÁGINA PERSONAL                           
-    Esta es tu plantilla para crear tu página personal del equipo.
-    
-    PASO 1: COPIAR ESTE ARCHIVO
-    
-    En la carpeta "pages/", copia este archivo y renómbralo con tu nombre:
-    
-        Ejemplo: juan-perez.html
-        
-    IMPORTANTE: Usa minúsculas y guiones, sin espacios ni acentos.
-    
-    PASO 2: EDITAR EL TÍTULO DE LA PÁGINA (línea 23)
-    
-    Cambia <title>Tu Nombre</title> por tu nombre real:
-    
-        <title>Juan Pérez</title>
-    
-    PASO 3: REGISTRAR TU INFORMACIÓN EN team.js
-    
-    Abre el archivo "js/team.js" y agrega TU información al final del array.
-    Copia el template que está en ese archivo y llena TODOS los campos:
-    
-        - name: Tu nombre completo
-        - page: "pages/tu-archivo.html" (debe coincidir con el nombre de ESTE archivo)
-        - tagline: Una frase corta sobre ti
-        - avatar: El código de tu avatar del builder (ver PASO 4)
-        - github: Tu perfil de GitHub
-        - about: Un párrafo sobre ti
-        - skills: ["Skill1", "Skill2", "Skill3"]
-        - randomFact: Un dato curioso sobre ti
-    
-    PASO 4: CREAR TU AVATAR
-    
-    Abre "avatar-builder.html" en tu navegador y:
-    
-        1. Elige un preset (steve, zombie, creeper, etc.) O dibuja tu propio avatar
-        2. Personaliza los colores primario y secundario
-        3. Copia el CÓDIGO que aparece en "Avatar Code" (64 caracteres)
-        4. Pega el código en el campo "avatar" de tu objeto en team.js
-        
-    Los colores se guardan automáticamente en el código del avatar.
-    
-    PASO 5: ¡LISTO!
-    
-    NO necesitas editar NADA más en este archivo HTML.
-    Todo el contenido (nombre, foto, skills, etc.) se carga AUTOMÁTICAMENTE
-    desde team.js cuando abres tu página.
-    
-    Esto evita conflictos de Git porque cada estudiante solo edita SU línea
-    en team.js, no todo el archivo HTML.
-    
-    EJEMPLO DE CÓMO SE VE UNA ENTRADA EN team.js:
-    
+    =====================================================================
+    PLANTILLA DE PAGINA PERSONAL
+    =====================================================================
+
+    QUE HAGO CON ESTE ARCHIVO?
+
+    PASO 1: COPIAR Y RENOMBRAR
+       Copia este archivo y renombralo con tu nombre:
+       Ejemplo: juan-perez.html
+       IMPORTANTE: Usa minusculas, guiones, SIN espacios ni acentos.
+
+    PASO 2: (OPCIONAL) CAMBIAR EL <title>
+       En la linea del <title>, cambia "Tu Nombre" por tu nombre real.
+       Esto solo afecta el titulo de la pestana del navegador.
+
+    PASO 3: LISTO! NO EDITES NADA MAS
+       NO necesitas escribir tu nombre, skills, ni nada en el HTML.
+       Todo se carga AUTOMATICAMENTE desde js/team.js.
+
+    =====================================================================
+    POR QUE NO EDITO EL HTML?
+    =====================================================================
+
+    Porque si 20 personas editan el mismo archivo HTML, habra merge
+    conflicts por todos lados. En cambio, cada persona edita SOLO su
+    propia linea en team.js — un archivo centralizado donde cada
+    estudiante tiene su propio objeto independiente.
+
+    El sistema (profile-loader.js) detecta que pagina se esta viendo
+    y carga los datos correspondientes de team.js automaticamente.
+
+    =====================================================================
+    DONDE VAN MIS DATOS ENTONCES?
+    =====================================================================
+
+    En el archivo js/team.js. Abre ese archivo y agrega un objeto
+    con tus datos debajo del comentario "AGREGA TU LINEA AQUI ABAJO".
+
+    Ejemplo de como se ve una entrada en team.js:
+
     {
-        name: "Juan Pérez",
-        page: "pages/juan-perez.html",
+        name: "Juan Perez",
+        page: "pages/juan-perez.html",   <-- DEBE coincidir con ESTE archivo
         tagline: "Code, coffee, repeat",
-        avatar: "5555555555555555115555111615516116655661511551155555555555555555",
+        avatar: "5555555555555555115555111615516116655661...",
         github: "https://github.com/juanperez",
-        about: "Soy estudiante de ingeniería apasionado por la tecnología...",
+        about: "Soy estudiante de ingenieria...",
         skills: ["HTML", "CSS", "JavaScript", "Python", "Git"],
         randomFact: "Puedo resolver un cubo Rubik en 2 minutos"
     },
-    
-    ¿Tienes dudas? Revisa FernandoRamirez.html como ejemplo de una página
-    terminada, o consulta las instrucciones completas en index.html
-    
+
+    =====================================================================
+    ERRORES COMUNES:
+    =====================================================================
+
+    - El campo "page" en team.js NO coincide con el nombre de este archivo
+      -> Tu pagina aparecera en blanco
+    - Olvidar la coma al final del objeto en team.js
+      -> JavaScript falla para TODOS
+    - Escribir contenido directamente en este HTML
+      -> Se sobreescribe por el auto-loader, es trabajo perdido
+
+    Tienes dudas? Revisa FernandoRamirez.html como ejemplo terminado.
 -->
 <!DOCTYPE html>
 <html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- OPCIONAL: Cambia "Tu Nombre" por tu nombre real (solo afecta la pestana del navegador) -->
     <title>Tu Nombre</title>
     <link rel="stylesheet" href="../css/styles.css">
     <link rel="icon" href="../assets/computer.png">
 </head>
 <body>
 
-    <!-- Starfield (puedes quitarlo si quieres) -->
+    <!-- Starfield (decorativo — no tocar) -->
     <div class="starfield" id="starfield"></div>
 
     <div class="container">
 
-        <!-- Link para regresar -->
+        <!-- Link para regresar a la galeria -->
         <a href="../index.html" class="back-link">&lt; VOLVER A LA GALERIA</a>
+
+        <!-- =====================================================================
+             NO EDITES NADA DE AQUI PARA ABAJO
+             Todo el contenido se carga automaticamente desde js/team.js
+             ===================================================================== -->
 
         <section class="profile-hero">
             <div class="profile-avatar">
+                <!-- El avatar se renderiza automaticamente desde team.js -->
                 <canvas id="myAvatar" width="96" height="96"></canvas>
             </div>
+            <!-- El nombre se carga automaticamente desde team.js -->
             <h1>TU NOMBRE COMPLETO</h1>
-            <p class="tagline">Tu tagline aquí</p>
+            <!-- El tagline se carga automaticamente desde team.js -->
+            <p class="tagline">Tu tagline aqui</p>
 
             <div class="social-links">
-                <!-- Se cargan automáticamente desde team.js -->
+                <!-- Los links sociales se cargan automaticamente desde team.js -->
             </div>
         </section>
 
         <section class="profile-section">
             <h2>SOBRE MI</h2>
+            <!-- El texto "about" se carga automaticamente desde team.js -->
             <p>
-                Este contenido se carga automáticamente desde team.js
+                Este contenido se carga automaticamente desde team.js
             </p>
         </section>
 
         <section class="profile-section">
             <h2>SKILLS</h2>
             <div class="tags">
-                <!-- Se cargan automáticamente desde team.js -->
+                <!-- Los skills se cargan automaticamente desde team.js -->
             </div>
         </section>
 
         <section class="profile-section">
             <h2>DATO RANDOM</h2>
+            <!-- El randomFact se carga automaticamente desde team.js -->
             <p>
-                Este contenido se carga automáticamente desde team.js
+                Este contenido se carga automaticamente desde team.js
             </p>
         </section>
 
@@ -123,14 +130,15 @@
 
     <!-- Footer -->
     <footer class="footer">
-        <p>Hecho para el curso de Git & GitHub // 2026</p>
+        <p>Hecho para el curso de Git &amp; GitHub // 2026</p>
     </footer>
 
+    <!-- Scripts del sistema — NO EDITAR -->
     <script src="../js/avatars.js?v=3"></script>
     <script src="../js/team.js?v=3"></script>
     <script src="../js/profile-loader.js?v=3"></script>
     <script>
-        // Starfield
+        // Starfield (decorativo)
         (function() {
             var field = document.getElementById('starfield');
             if (!field) return;
