@@ -192,18 +192,18 @@
                 document.getElementById('ghFollowers').textContent = data.followers;
                 document.getElementById('ghFollowing').textContent = data.following;
                 
-                // Cargar gráfico de contribuciones (usando un servicio externo gratuito)
+                // Cargar gráfico de contribuciones con el color clásico de GitHub (Verde)
                 var contributionsImg = document.getElementById('ghContributions');
                 if (contributionsImg) {
-                    // Usamos github-chart-api o similar
-                    contributionsImg.src = 'https://ghchart.rshah.org/4AEDD9/' + username;
+                    var githubGreenHex = "39d353"; // GitHub classic green
+                    contributionsImg.src = 'https://ghchart.rshah.org/' + githubGreenHex + '/' + username;
                 }
                 
                 // Actualizar los stats de la cabecera (opcional, para que coincida con GitHub)
-                var statValues = document.querySelectorAll('.stat-value');
+                var statValues = document.querySelectorAll('.vertical-stats .stat-value, .stats-grid .stat-value');
                 if (statValues.length >= 4) {
-                    // Solo como ejemplo, podríamos mapear algunos datos
-                    // statValues[2].textContent = data.public_repos; // En lugar de commits
+                    statValues[2].textContent = data.public_repos; // Commits -> Repos
+                    statValues[3].textContent = data.followers; // Branches -> Followers
                 }
             })
             .catch(function(err) {
