@@ -84,11 +84,11 @@ cd Teamwork</div>
                     <div class="step-number">2</div>
                     <div class="step-content">
                         <h3>CREAR TU RAMA</h3>
-                        <p>Crea una rama con tu nombre (minusculas, con guiones). NUNCA trabajes en <code>main</code>:</p>
-                        <div class="code-block">git checkout -b nombre-apellido</div>
+                        <p>Crea una rama siguiendo el formato <code>feature/pagina-nombre-apellido</code>. NUNCA trabajes en <code>main</code>:</p>
+                        <div class="code-block">git checkout -b feature/pagina-nombre-apellido</div>
                         <div class="tip-box">
                             <span class="box-label">[TIP]</span>
-                            <span>Ejemplo: <code>git checkout -b juan-perez</code></span>
+                            <span>Ejemplo: <code>git checkout -b feature/pagina-juan-perez</code>. Lee CONVENTIONS.md para mas formatos.</span>
                         </div>
                     </div>
                 </div>
@@ -179,10 +179,10 @@ cd Teamwork</div>
                     <div class="step-number">7</div>
                     <div class="step-content">
                         <h3>COMMIT Y PUSH</h3>
-                        <p>Guarda tus cambios y subelos a GitHub:</p>
+                        <p>Guarda tus cambios y subelos a GitHub usando el formato convencional:</p>
                         <div class="code-block">git add .
-git commit -m "Agregar pagina de nombre-apellido"
-git push origin nombre-apellido</div>
+git commit -m "feat: agregar pagina de nombre-apellido"
+git push origin feature/pagina-nombre-apellido</div>
                     </div>
                 </div>
 
@@ -208,7 +208,7 @@ git push origin nombre-apellido</div>
                         <p>Si GitHub indica conflictos, actualiza tu rama:</p>
                         <div class="code-block">git checkout main
 git pull origin main
-git checkout nombre-apellido
+git checkout feature/pagina-nombre-apellido
 git merge main</div>
                         <p style="margin-top: 10px;">
                             Abre <code>team.js</code>, busca las marcas
@@ -218,8 +218,8 @@ git merge main</div>
                             (tu linea y la de tu companero):
                         </p>
                         <div class="code-block">git add .
-git commit -m "Resolver merge conflicts"
-git push origin nombre-apellido</div>
+git commit -m "merge: resolver conflictos en team.js"
+git push origin feature/pagina-nombre-apellido</div>
                     </div>
                 </div>
 

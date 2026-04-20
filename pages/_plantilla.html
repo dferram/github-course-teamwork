@@ -1,74 +1,74 @@
 <!--
     =====================================================================
-    📋 PLANTILLA DE PÁGINA PERSONAL
+    PLANTILLA DE PAGINA PERSONAL
     =====================================================================
 
-    ¿QUÉ HAGO CON ESTE ARCHIVO?
+    QUE HAGO CON ESTE ARCHIVO?
 
     PASO 1: COPIAR Y RENOMBRAR
-       Copia este archivo y renómbralo con tu nombre:
+       Copia este archivo y renombralo con tu nombre:
        Ejemplo: juan-perez.html
-       ⚠️ Usa minúsculas, guiones, SIN espacios ni acentos.
+       IMPORTANTE: Usa minusculas, guiones, SIN espacios ni acentos.
 
     PASO 2: (OPCIONAL) CAMBIAR EL <title>
-       En la línea del <title>, cambia "Tu Nombre" por tu nombre real.
-       Esto solo afecta el título de la pestaña del navegador.
+       En la linea del <title>, cambia "Tu Nombre" por tu nombre real.
+       Esto solo afecta el titulo de la pestana del navegador.
 
-    PASO 3: ¡LISTO! NO EDITES NADA MÁS
+    PASO 3: LISTO! NO EDITES NADA MAS
        NO necesitas escribir tu nombre, skills, ni nada en el HTML.
-       Todo se carga AUTOMÁTICAMENTE desde js/team.js.
+       Todo se carga AUTOMATICAMENTE desde js/team.js.
 
     =====================================================================
-    🛡️ ¿POR QUÉ NO EDITO EL HTML?
+    POR QUE NO EDITO EL HTML?
     =====================================================================
 
-    Porque si 20 personas editan el mismo archivo HTML, habrá merge
+    Porque si 20 personas editan el mismo archivo HTML, habra merge
     conflicts por todos lados. En cambio, cada persona edita SOLO su
-    propia línea en team.js — un archivo centralizado donde cada
+    propia linea en team.js — un archivo centralizado donde cada
     estudiante tiene su propio objeto independiente.
 
-    El sistema (profile-loader.js) detecta qué página se está viendo
-    y carga los datos correspondientes de team.js automáticamente.
+    El sistema (profile-loader.js) detecta que pagina se esta viendo
+    y carga los datos correspondientes de team.js automaticamente.
 
     =====================================================================
-    📖 ¿DÓNDE VAN MIS DATOS ENTONCES?
+    DONDE VAN MIS DATOS ENTONCES?
     =====================================================================
 
     En el archivo js/team.js. Abre ese archivo y agrega un objeto
     con tus datos debajo del comentario "AGREGA TU LINEA AQUI ABAJO".
 
-    Ejemplo de cómo se ve una entrada en team.js:
+    Ejemplo de como se ve una entrada en team.js:
 
     {
-        name: "Juan Pérez",
-        page: "pages/juan-perez.html",   ← ⚠️ DEBE coincidir con ESTE archivo
+        name: "Juan Perez",
+        page: "pages/juan-perez.html",   <-- DEBE coincidir con ESTE archivo
         tagline: "Code, coffee, repeat",
         avatar: "5555555555555555115555111615516116655661...",
         github: "https://github.com/juanperez",
-        about: "Soy estudiante de ingeniería...",
+        about: "Soy estudiante de ingenieria...",
         skills: ["HTML", "CSS", "JavaScript", "Python", "Git"],
         randomFact: "Puedo resolver un cubo Rubik en 2 minutos"
     },
 
     =====================================================================
-    ❌ ERRORES COMUNES:
+    ERRORES COMUNES:
     =====================================================================
 
     - El campo "page" en team.js NO coincide con el nombre de este archivo
-      → Tu página aparecerá en blanco
+      -> Tu pagina aparecera en blanco
     - Olvidar la coma al final del objeto en team.js
-      → JavaScript falla para TODOS
+      -> JavaScript falla para TODOS
     - Escribir contenido directamente en este HTML
-      → Se sobreescribe por el auto-loader, es trabajo perdido
+      -> Se sobreescribe por el auto-loader, es trabajo perdido
 
-    ¿Tienes dudas? Revisa FernandoRamirez.html como ejemplo terminado.
+    Tienes dudas? Revisa FernandoRamirez.html como ejemplo terminado.
 -->
 <!DOCTYPE html>
 <html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- ⬇️ OPCIONAL: Cambia "Tu Nombre" por tu nombre real (solo afecta la pestaña del navegador) -->
+    <!-- OPCIONAL: Cambia "Tu Nombre" por tu nombre real (solo afecta la pestana del navegador) -->
     <title>Tu Nombre</title>
     <link rel="stylesheet" href="../css/styles.css">
     <link rel="icon" href="../assets/computer.png">
@@ -80,49 +80,49 @@
 
     <div class="container">
 
-        <!-- Link para regresar a la galería -->
+        <!-- Link para regresar a la galeria -->
         <a href="../index.html" class="back-link">&lt; VOLVER A LA GALERIA</a>
 
         <!-- =====================================================================
-             ⚠️ NO EDITES NADA DE AQUÍ PARA ABAJO
-             Todo el contenido se carga automáticamente desde js/team.js
+             NO EDITES NADA DE AQUI PARA ABAJO
+             Todo el contenido se carga automaticamente desde js/team.js
              ===================================================================== -->
 
         <section class="profile-hero">
             <div class="profile-avatar">
-                <!-- El avatar se renderiza automáticamente desde team.js -->
+                <!-- El avatar se renderiza automaticamente desde team.js -->
                 <canvas id="myAvatar" width="96" height="96"></canvas>
             </div>
-            <!-- El nombre se carga automáticamente desde team.js -->
+            <!-- El nombre se carga automaticamente desde team.js -->
             <h1>TU NOMBRE COMPLETO</h1>
-            <!-- El tagline se carga automáticamente desde team.js -->
-            <p class="tagline">Tu tagline aquí</p>
+            <!-- El tagline se carga automaticamente desde team.js -->
+            <p class="tagline">Tu tagline aqui</p>
 
             <div class="social-links">
-                <!-- Los links sociales se cargan automáticamente desde team.js -->
+                <!-- Los links sociales se cargan automaticamente desde team.js -->
             </div>
         </section>
 
         <section class="profile-section">
             <h2>SOBRE MI</h2>
-            <!-- El texto "about" se carga automáticamente desde team.js -->
+            <!-- El texto "about" se carga automaticamente desde team.js -->
             <p>
-                Este contenido se carga automáticamente desde team.js
+                Este contenido se carga automaticamente desde team.js
             </p>
         </section>
 
         <section class="profile-section">
             <h2>SKILLS</h2>
             <div class="tags">
-                <!-- Los skills se cargan automáticamente desde team.js -->
+                <!-- Los skills se cargan automaticamente desde team.js -->
             </div>
         </section>
 
         <section class="profile-section">
             <h2>DATO RANDOM</h2>
-            <!-- El randomFact se carga automáticamente desde team.js -->
+            <!-- El randomFact se carga automaticamente desde team.js -->
             <p>
-                Este contenido se carga automáticamente desde team.js
+                Este contenido se carga automaticamente desde team.js
             </p>
         </section>
 

@@ -1,15 +1,15 @@
 /*
     =====================================================================
-    ⛔ NO EDITAR ESTE ARCHIVO — Es parte del sistema
+    NO EDITAR ESTE ARCHIVO — Es parte del sistema
     =====================================================================
     
-    PROFILE-LOADER.JS — Carga automática de datos del perfil
+    PROFILE-LOADER.JS — Carga automatica de datos del perfil
     
-    Este script detecta qué página se está viendo y carga los datos
+    Este script detecta que pagina se esta viendo y carga los datos
     correspondientes desde team.js. Esto evita merge conflicts porque
-    cada persona solo edita su línea en team.js, NO este archivo.
+    cada persona solo edita su linea en team.js, NO este archivo.
     
-    Si editas este archivo, podrías causar merge conflicts innecesarios
+    Si editas este archivo, podrias causar merge conflicts innecesarios
     para todo el equipo.
 */
 
