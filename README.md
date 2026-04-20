@@ -1,287 +1,243 @@
 # Proyecto en Equipo — Curso de Git & GitHub
 
-Bienvenido/a al proyecto colaborativo del curso. En este ejercicio vas a practicar el flujo completo de trabajo en equipo con Git y GitHub.
+Bienvenido/a al proyecto colaborativo del curso. Aquí vas a practicar el flujo completo de trabajo en equipo con Git y GitHub.
 
 ## Objetivo
 
-Crear una **pagina personal en HTML** con tu avatar 8-bit y agregarla a la galeria del equipo. Al final, tendremos un sitio web publicado donde cada integrante tiene su propia pagina.
+Crear tu **página personal en HTML** con un avatar 8-bit y agregarla a la galería del equipo. Al final, tendremos un sitio web publicado donde cada integrante tiene su propia página.
+
+## ANTES DE EMPEZAR — Lee esto
+
+Este proyecto está diseñado para que **NO haya merge conflicts** si sigues las instrucciones. La clave es:
+
+| Debes hacer                            | NO debes hacer                                         |
+| -------------------------------------- | ------------------------------------------------------ |
+| Copiar la plantilla HTML y renombrarla | Editar el contenido del HTML                           |
+| Agregar **tu línea** en `js/team.js`   | Modificar líneas de otros compañeros                   |
+| Crear tu avatar en el builder          | Editar `index.html`, `avatars.js`, `profile-loader.js` |
+
+> **¿Por qué?** Toda tu información (nombre, avatar, skills, etc.) se carga **automáticamente** desde `js/team.js`. El HTML es solo una plantilla vacía que el sistema llena por ti.
 
 ---
 
 ## Instrucciones paso a paso
 
-### Paso 1 - Clonar el repositorio
+### Paso 1 — Clonar el repositorio
 
-Abre tu terminal y clona el repositorio del curso:
+Abre tu terminal y clona el repositorio:
 
 ```bash
-git clone https://github.com/dferram/Teamwork.git
+git clone <URL_DEL_REPOSITORIO>
 cd Teamwork
 ```
 
-### Paso 2 - Crear una rama nueva
+---
 
-Crea una rama con tu nombre para trabajar sin afectar `main`:
+### Paso 2 — Crear tu rama
+
+Crea una rama con tu nombre (minúsculas, con guiones):
 
 ```bash
 git checkout -b nombre-apellido
 ```
 
-> Ejemplo: `git checkout -b juan-perez`
+**Ejemplo:**
 
-### Paso 3 - Crear tu pagina HTML
+```bash
+git checkout -b juan-perez
+```
 
-**¿Qué voy a hacer?** Crear tu archivo HTML personal copiando la plantilla.
+> **IMPORTANTE:** Nunca trabajes directamente en `main`. Siempre crea tu propia rama.
 
-**Pasos detallados:**
+---
 
-1. **Copia la plantilla** (usa tu nombre real en lugar de "nombre-apellido"):
+### Paso 3 — Crear tu archivo HTML
 
-   **En Windows (PowerShell):**
-   ```powershell
-   Copy-Item pages\_plantilla.html pages\nombre-apellido.html
-   ```
-   
-   **En Mac/Linux:**
-   ```bash
-   cp pages/_plantilla.html pages/nombre-apellido.html
-   ```
-   
-   **Ejemplo:** Si te llamas Juan Pérez:
-   ```powershell
-   Copy-Item pages\_plantilla.html pages\juan-perez.html
-   ```
+Copia la plantilla y renómbrala con tu nombre. **NO edites el contenido del HTML.**
 
-2. **Verifica que se creó el archivo:**
-   - Abre la carpeta `pages/` y busca tu archivo
-   - Debe aparecer como `nombre-apellido.html`
+**En Windows (PowerShell):**
 
-3. **IMPORTANTE - NO edites el HTML:**
-   - ❌ NO cambies el contenido del archivo HTML
-   - ❌ NO agregues tu nombre, avatar o información en el HTML
-   - ✅ El contenido se carga automáticamente desde `js/team.js` (paso 5)
-   - ✅ Solo necesitas que el archivo exista con el nombre correcto
+```powershell
+Copy-Item pages\_plantilla.html pages\nombre-apellido.html
+```
 
-**¿Por qué no edito el HTML?**
-- El sistema carga tu información dinámicamente desde `js/team.js`
-- Esto evita que todos editen el mismo archivo HTML
-- Reduce conflictos de Git al 99%
+**En Mac/Linux:**
 
-> **Tip:** Abre `pages/FernandoRamirez.html` para ver cómo se ve la plantilla.
+```bash
+cp pages/_plantilla.html pages/nombre-apellido.html
+```
 
-### Paso 4 - Crear tu avatar 8-bit
+**Ejemplo:** Si te llamas Juan Pérez:
 
-**¿Qué voy a hacer?** Diseñar tu avatar pixelado estilo retro.
+```powershell
+Copy-Item pages\_plantilla.html pages\juan-perez.html
+```
 
-**Pasos detallados:**
+#### ¿Qué hago con el HTML?
 
-1. **Abre el Avatar Builder:**
-   - Haz doble clic en `avatar-builder.html`
-   - Se abrirá en tu navegador
+| Sí                                          | No                                                        |
+| ------------------------------------------- | --------------------------------------------------------- |
+| Copiar la plantilla y renombrarla           | Escribir tu nombre en el HTML                             |
+| (Opcional) cambiar el `<title>` a tu nombre | Agregar contenido, skills, avatar directamente en el HTML |
+| Verificar que el archivo existe en `pages/` | Borrar el comentario de instrucciones del HTML            |
 
-2. **Elige tu método:**
-   
-   **Opción A - Usar un preset (más rápido):**
-   - Haz clic en cualquier preset de la galería
-   - Presets disponibles: steve, alex, herobrine, creeper, zombie, skeleton, enderman, cow, pig, sheep, chicken, spider, slime, blaze, ghast, witch, irongolem
-   - El avatar aparecerá en la cuadrícula de dibujo
-   
-   **Opción B - Dibujar desde cero:**
-   - Selecciona un color de la paleta
-   - Haz clic en las celdas de la cuadrícula para pintar
-   - Usa "Borrar" para eliminar píxeles
-   - Puedes personalizar cualquier color con el selector
+> **¿Por qué no edito el HTML?** Porque el sistema carga tu información automáticamente desde `js/team.js`. Esto elimina conflictos de Git.
 
-3. **Personaliza los colores (opcional):**
-   - Selecciona un color de la paleta
-   - Haz clic en "Personalizar color"
-   - Elige tu tono favorito
-   - Haz clic en "Aplicar"
+---
 
-4. **IMPORTANTE - Solo dibuja la cabeza:**
-   - Usa las **8 filas SUPERIORES** de la cuadrícula (64 píxeles totales)
-   - Deja las 4 filas inferiores vacías
-   - Los avatares son solo cabezas estilo Minecraft
+### Paso 4 — Crear tu avatar 8-bit
 
-5. **Copia el código generado:**
-   - En la sección "OUTPUT", verás un código largo
-   - Haz clic en "COPIAR" para copiarlo al portapapeles
-   - Este código lo usarás en el paso 5
-   - Ejemplo: `"5vvvvvv5v5vvvv5v11vvvv11161vv16116655661v11vv11v5vvvvvv555vvvv55"`
+1. Abre `avatar-builder.html` haciendo doble clic (se abre en tu navegador)
+2. **Elige un método:**
+   - **Opción A — Preset:** Haz clic en un avatar de la galería (steve, alex, zombie, creeper, etc.)
+   - **Opción B — Dibujar:** Selecciona un color de la paleta y pinta en la cuadrícula 8×8
+3. **Personaliza** los colores si quieres (es opcional)
+4. **Copia el código** que aparece en la sección "TU CODIGO" → haz clic en **COPIAR**
 
-**Tip:** Guarda el código en un archivo de texto temporal por si lo necesitas después.
+El código se ve así:
 
-### Paso 5 - Registrar TODOS tus datos en team.js
+```
+5555555555555555115555111615516116655661511551155555555555555555
+```
 
-**¿Qué voy a hacer?** Agregar toda mi información en UN solo lugar para que aparezca en mi página.
+> **Tip:** Guarda el código en un bloc de notas por si lo necesitas después.
 
-**🎯 CLAVE PARA EVITAR MERGE CONFLICTS:** Todo tu contenido va en UNA sola línea en `js/team.js`.
+---
 
-**Pasos detallados:**
+### Paso 5 — Registrar tus datos en `team.js`
 
-1. **Abre el archivo `js/team.js`** en tu editor de código
+** ESTE ES EL PASO MÁS IMPORTANTE.** Aquí es donde va TODA tu información.
 
-2. **Busca el comentario:**
-   ```js
-   // --- AGREGA TU LINEA AQUI ABAJO ---
-   ```
+#### 5.1 — Abre el archivo `js/team.js`
 
-3. **Agrega tu objeto completo** (copia y modifica este template):
+#### 5.2 — Busca este comentario:
+
+```js
+// --- AGREGA TU LINEA AQUI ABAJO ---
+```
+
+#### 5.3 — Agrega tu objeto DEBAJO de ese comentario
+
+Copia este template, pégalo debajo del comentario, y modifica cada campo con tus datos:
 
 ```js
 {
     name: "Tu Nombre Completo",
     page: "pages/nombre-apellido.html",
     tagline: "Una frase corta sobre ti",
-    avatar: "TU_CODIGO_DEL_BUILDER_AQUI",
-    colors: "#cc0000,#cc0000",
+    avatar: "PEGA_TU_CODIGO_DEL_BUILDER_AQUI",
     github: "https://github.com/tu-usuario",
-    linkedin: "",
-    twitter: "",
-    about: "Escribe un párrafo sobre ti. Puedes hablar de tus intereses, experiencia, o lo que quieras compartir con el equipo.",
+    about: "Un párrafo sobre ti. Habla de tus intereses, experiencia o lo que quieras.",
     skills: ["HTML", "CSS", "JavaScript", "Git"],
     randomFact: "Un dato curioso o divertido sobre ti"
 },
 ```
 
-4. **Completa cada campo:**
+#### 5.4 — Guía de cada campo
 
-   - **name**: Tu nombre completo (ejemplo: `"Juan Pérez"`)
-   - **page**: La ruta de tu HTML (ejemplo: `"pages/juan-perez.html"`)
-   - **tagline**: Una frase corta (ejemplo: `"Code, coffee, repeat"`)
-   - **avatar**: Pega el código que copiaste del builder en el paso 4
-   - **colors**: Déjalo como está o personaliza (ver nota abajo)
-   - **github**: Tu perfil de GitHub (ejemplo: `"https://github.com/juanperez"`)
-   - **linkedin/twitter**: Tus redes sociales o déjalos vacíos (`""`)
-   - **about**: Un párrafo sobre ti (puede ser largo)
-   - **skills**: Lista de habilidades entre corchetes (ejemplo: `["Python", "React", "Git"]`)
-   - **randomFact**: Un dato curioso (ejemplo: `"Puedo resolver un cubo Rubik en 2 minutos"`)
+| Campo        | ¿Obligatorio? | Qué poner                                                  | Ejemplo                                   |
+| ------------ | ------------- | ---------------------------------------------------------- | ----------------------------------------- |
+| `name`       | Sí            | Tu nombre completo                                         | `"Juan Pérez"`                            |
+| `page`       | Sí            | Ruta de tu HTML (debe coincidir con el archivo del paso 3) | `"pages/juan-perez.html"`                 |
+| `tagline`    | Sí            | Una frase corta (máx. 50 caracteres)                       | `"Code, coffee, repeat"`                  |
+| `avatar`     | Sí            | El código que copiaste del builder (paso 4)                | `"5555555555555555..."`                   |
+| `github`     | Sí            | Tu perfil de GitHub                                        | `"https://github.com/juanperez"`          |
+| `about`      | Sí            | Un párrafo sobre ti                                        | `"Soy estudiante de ingeniería..."`       |
+| `skills`     | Sí            | Lista de habilidades (mín. 3)                              | `["Python", "React", "Git"]`              |
+| `randomFact` | Sí            | Un dato curioso                                            | `"Puedo resolver un cubo Rubik en 2 min"` |
 
-5. **IMPORTANTE - No olvides la coma final:**
-   ```js
-   },  // <-- Esta coma es OBLIGATORIA
-   ```
+#### 5.5 — Verificaciones ANTES de guardar
 
-**Sobre el campo `colors`:**
-- Si tu avatar se ve bien en el builder, usa: `colors: ""`
-- Si quieres personalizar colores, usa formato: `"#color1,#color2"`
-- El primer color reemplaza el índice 3 de la paleta
-- El segundo color reemplaza el índice 5 de la paleta
-- **Recomendación:** Deja `colors: ""` para usar los colores originales del builder
+- [ ] ¿Tu objeto termina con `},` (coma después de la llave)?
+- [ ] ¿El valor de `page` coincide EXACTAMENTE con el nombre de tu archivo HTML?
+- [ ] ¿Todos los textos están entre comillas `""`?
+- [ ] ¿El array de `skills` usa corchetes `[]` y comillas `""` en cada skill?
+- [ ] ¿NO modificaste la línea de ningún compañero?
 
-**Campos obligatorios:**
-- `name`: Tu nombre completo
-- `page`: La ruta de tu archivo HTML (debe ser `pages/nombre-apellido.html`)
-- `tagline`: Una frase corta que aparece bajo tu nombre
-- `avatar`: El código de tu avatar (nombre del preset o string del builder)
-- `about`: Texto sobre ti para la sección "SOBRE MI"
-- `skills`: Array con tus habilidades (entre corchetes y comillas)
-- `randomFact`: Un dato curioso sobre ti
+> **LA COMA AL FINAL ES OBLIGATORIA.** Sin ella, el código falla para todos:
+>
+> ```js
+> },  // ← Esta coma es OBLIGATORIA
+> ```
 
-**Campos opcionales:**
-- `colors`: Colores de tu avatar (si no lo pones, usa colores por defecto)
-- `github`, `linkedin`, `twitter`: Tus URLs (deja vacío "" si no tienes)
+#### Reglas para evitar merge conflicts
 
-**¿Cómo sé que estoy editando MI línea?**
-- Busca tu nombre en el array. Si NO estás en la lista, agrega una NUEVA línea.
-- Si YA estás en la lista, edita SOLO tu línea (la que tiene tu nombre).
-- NO modifiques las líneas de otros estudiantes.
-- Cada línea es independiente = sin conflictos de Git.
+1. **Edita SOLO tu línea** — nunca toques las líneas de otros
+2. **Agrega tu objeto al final** — justo debajo del comentario `AGREGA TU LINEA AQUI ABAJO`
+3. **No borres el comentario guía** — déjalo para los demás
+4. **No reformatees el archivo** — no cambies espacios, tabs o líneas en blanco que ya existan
 
-> **Ventaja:** Como cada estudiante edita solo su línea, los merge conflicts son mínimos. Si hay conflicto, solo conserva tu línea y las de tus compañeros.
+---
 
-### Paso 6 - Verificar tu página localmente (opcional pero recomendado)
+### Paso 6 — Verificar localmente (recomendado)
 
-**¿Qué voy a hacer?** Probar que mi página funciona antes de hacer push.
+Antes de subir tus cambios, verifica que todo funcione:
 
-**Pasos detallados:**
+**Opción A — VS Code (más fácil):**
 
-1. **Inicia un servidor local:**
-   
-   **Opción A - Python (si lo tienes instalado):**
-   ```bash
-   python -m http.server 8000
-   ```
-   
-   **Opción B - Node.js (si tienes npx):**
-   ```bash
-   npx http-server -p 8000
-   ```
-   
-   **Opción C - VS Code:**
-   - Instala la extensión "Live Server"
-   - Haz clic derecho en `index.html` → "Open with Live Server"
+- Instala la extensión "Live Server"
+- Haz clic derecho en `index.html` → "Open with Live Server"
 
-2. **Abre tu navegador:**
-   - Ve a: `http://localhost:8000`
-   - Deberías ver la galería principal
+**Opción B — Python:**
 
-3. **Verifica tu tarjeta:**
-   - Busca tu nombre en la galería
-   - Tu avatar debe aparecer correctamente
-   - Haz clic en tu tarjeta
+```bash
+python -m http.server 8000
+```
 
-4. **Revisa tu página personal:**
-   - Verifica que tu avatar se vea centrado
-   - Verifica que los colores coincidan con el builder
-   - Revisa que toda tu información aparezca correctamente
-   - Prueba los enlaces de redes sociales
+**Opción C — Node.js:**
 
-5. **Si algo no funciona:**
-   - Presiona `Ctrl+Shift+R` (Windows) o `Cmd+Shift+R` (Mac) para recargar sin caché
-   - Revisa la consola del navegador (F12) para ver errores
-   - Verifica que tu entrada en `js/team.js` tenga la coma final
-   - Verifica que el nombre del archivo en `page` coincida con tu HTML
+```bash
+npx http-server -p 8000
+```
 
-### Paso 7 - Hacer commit y push
+Luego abre `http://localhost:8000` y verifica:
 
-**¿Qué voy a hacer?** Guardar mis cambios y subirlos a GitHub.
+- [ ] Tu tarjeta aparece en la galería
+- [ ] Tu avatar se ve correctamente
+- [ ] Al hacer clic en tu tarjeta, tu página personal carga bien
+- [ ] Tu nombre, about, skills y dato random se muestran correctamente
 
-**Pasos detallados:**
+> Si algo no funciona, abre la consola del navegador (F12) y revisa los errores. El problema más común es una coma faltante en `team.js`.
 
-1. **Agrega todos los archivos modificados:**
-   ```bash
-   git add .
-   ```
-   Esto prepara todos tus cambios para el commit.
+---
 
-2. **Haz commit con un mensaje descriptivo:**
-   ```bash
-   git commit -m "Agregar pagina de nombre-apellido"
-   ```
-   Reemplaza "nombre-apellido" con tu nombre real.
-   
-   **Ejemplo:**
-   ```bash
-   git commit -m "Agregar pagina de juan-perez"
-   ```
+### Paso 7 — Commit y Push
 
-3. **Sube tus cambios a GitHub:**
-   ```bash
-   git push origin nombre-apellido
-   ```
-   Usa el nombre de tu rama (el mismo del Paso 2).
-   
-   **Ejemplo:**
-   ```bash
-   git push origin juan-perez
-   ```
+Guarda tus cambios y súbelos a GitHub:
 
-4. **Verifica que se subió correctamente:**
-   - Deberías ver un mensaje de éxito en la terminal
-   - Si hay errores, lee el mensaje y pide ayuda
+```bash
+git add .
+git commit -m "Agregar pagina de nombre-apellido"
+git push origin nombre-apellido
+```
 
-### Paso 8 - Crear un Pull Request
+**Ejemplo:**
 
-1. Ve al repositorio en GitHub.
-2. Veras un banner para crear un Pull Request de tu rama. Haz clic en **"Compare & pull request"**.
-3. Escribe un titulo descriptivo y crealo.
+```bash
+git add .
+git commit -m "Agregar pagina de juan-perez"
+git push origin juan-perez
+```
 
-### Paso 8 - Resolver merge conflicts (si los hay)
+> Usa el mismo nombre de rama que creaste en el paso 2.
 
-Si GitHub indica conflictos:
+---
 
-1. Actualiza tu rama:
+### Paso 8 — Crear un Pull Request
+
+1. Ve al repositorio en GitHub
+2. Verás un banner amarillo para crear un Pull Request de tu rama
+3. Haz clic en **"Compare & pull request"**
+4. Escribe un título descriptivo (ejemplo: `Agregar página de Juan Pérez`)
+5. Haz clic en **"Create pull request"**
+
+---
+
+### Paso 9 — Resolver merge conflicts (si los hay)
+
+Si GitHub indica que hay conflictos, sigue estos pasos:
+
+#### 9.1 — Actualiza tu rama con los últimos cambios de main:
 
 ```bash
 git checkout main
@@ -290,8 +246,26 @@ git checkout nombre-apellido
 git merge main
 ```
 
-2. Abre los archivos con conflictos (probablemente `team.js`), resuelvelos conservando todas las lineas.
-3. Commit y push:
+#### 9.2 — Resuelve el conflicto en `team.js`
+
+Git marcará el conflicto así:
+
+```
+<<<<<<< HEAD
+    { name: "Tu Nombre", ... },
+=======
+    { name: "Otro Compañero", ... },
+>>>>>>> main
+```
+
+**La solución es simple:** conserva AMBAS líneas y elimina las marcas de conflicto:
+
+```js
+    { name: "Otro Compañero", ... },
+    { name: "Tu Nombre", ... },
+```
+
+#### 9.3 — Sube la resolución:
 
 ```bash
 git add .
@@ -299,9 +273,13 @@ git commit -m "Resolver merge conflicts"
 git push origin nombre-apellido
 ```
 
-### Paso 9 - Mision completa
+> 💡 **¿Cómo identifico las marcas de conflicto?** Busca `<<<<<<<`, `=======` y `>>>>>>>` en el archivo. Todo lo que esté entre esas marcas es el conflicto. Debes borrar las 3 líneas de marcas y dejar el contenido de ambos lados.
 
-Una vez que tu PR sea aprobado y mergeado, tu pagina y avatar aparecen en la galeria automaticamente.
+---
+
+### Paso 10 — ¡Misión completa! 🎉
+
+Una vez que tu PR sea aprobado y mergeado, tu página y avatar aparecerán en la galería automáticamente.
 
 ---
 
@@ -309,31 +287,62 @@ Una vez que tu PR sea aprobado y mergeado, tu pagina y avatar aparecen en la gal
 
 ```
 Teamwork/
-|-- index.html              <- Pagina principal (galeria automatica)
-|-- avatar-builder.html     <- Editor de avatares interactivo
-|-- README.md               <- Este archivo
-|
-|-- css/
-|   |-- styles.css          <- Estilos 8-bit compartidos
-|
-|-- js/
-|   |-- avatars.js          <- Sistema de avatares pixel
-|   |-- team.js             <- Registro del equipo (AQUI editas TUS datos)
-|   |-- profile-loader.js   <- Carga automatica de datos (no tocar)
-|
-|-- pages/
-    |-- _plantilla.html     <- Plantilla base para tu pagina
-    |-- FernandoRamirez.html <- Ejemplo de pagina terminada
-    |-- nombre-apellido.html <- Tu pagina personal (la que creas)
+├── index.html              ← Página principal (galería automática) — NO EDITAR
+├── avatar-builder.html     ← Editor de avatares interactivo — NO EDITAR
+├── README.md               ← Este archivo
+│
+├── css/
+│   └── styles.css          ← Estilos compartidos — NO EDITAR
+│
+├── js/
+│   ├── avatars.js          ← Sistema de avatares pixel — NO EDITAR
+│   ├── team.js             ← AQUÍ EDITAS TUS DATOS (solo tu línea)
+│   └── profile-loader.js   ← Carga automática de datos — NO EDITAR
+│
+└── pages/
+    ├── _plantilla.html     ← Plantilla base (la copias y renombras)
+    ├── FernandoRamirez.html← Ejemplo de página terminada
+    └── tu-nombre.html      ← TU PÁGINA (la que creas en el paso 3)
 ```
 
-## Recursos utiles
+### Archivos que TÚ tocas:
+
+| Archivo                      | Acción                                            |
+| ---------------------------- | ------------------------------------------------- |
+| `pages/nombre-apellido.html` | Lo creas copiando `_plantilla.html`               |
+| `js/team.js`                 | Agregas tu objeto con tus datos (una línea nueva) |
+
+### Archivos que NO debes tocar:
+
+| Archivo                | Razón                                     |
+| ---------------------- | ----------------------------------------- |
+| `index.html`           | Se genera automáticamente desde `team.js` |
+| `avatar-builder.html`  | Solo es una herramienta, no se modifica   |
+| `css/styles.css`       | Estilos compartidos del equipo            |
+| `js/avatars.js`        | Motor de renderizado de avatares          |
+| `js/profile-loader.js` | Carga automática de perfiles              |
+
+---
+
+## Errores comunes
+
+| Error                               | Causa                                           | Solución                            |
+| ----------------------------------- | ----------------------------------------------- | ----------------------------------- |
+| Mi tarjeta no aparece en la galería | No agregaste tu objeto en `team.js`             | Revisa el paso 5                    |
+| Mi página aparece en blanco         | El campo `page` no coincide con tu archivo HTML | Verifica que el nombre sea idéntico |
+| Error de JavaScript en consola      | Falta la coma `,` al final de tu objeto         | Agrega `},` al final                |
+| Merge conflict al hacer PR          | Otro compañero editó `team.js` antes que tú     | Sigue el paso 9                     |
+| Mi avatar no se ve                  | El código del avatar está mal copiado           | Regenera el avatar en el builder    |
+
+---
+
+## Recursos útiles
 
 - [Git Cheat Sheet](https://education.github.com/git-cheat-sheet-education.pdf)
-- [Como resolver merge conflicts](https://docs.github.com/es/pull-requests/collaborating-with-pull-requests/addressing-merge-conflicts)
-- [Guia de Markdown](https://guides.github.com/features/mastering-markdown/)
+- [Cómo resolver merge conflicts](https://docs.github.com/es/pull-requests/collaborating-with-pull-requests/addressing-merge-conflicts)
+- [Guía de Markdown](https://guides.github.com/features/mastering-markdown/)
 - [GitHub Pages](https://pages.github.com/)
 
 ---
 
-> Tienes dudas? Pregunta al instructor o abre un **Issue** en el repositorio.
+> ¿Tienes dudas? Pregunta o abre un **Issue** en el repositorio.
