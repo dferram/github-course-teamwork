@@ -37,15 +37,31 @@
 
         <!-- ========== HERO SECTION ========== -->
         <section class="hero block-reveal" id="heroSection">
-            <div class="hero-label">Git // v1.0</div>
+            <div class="hero-label">Centro de desarrollo // SAC 2026</div>
             <h1>GALERIA DEL<br>EQUIPO<span class="cursor-blink"></span></h1>
         </section>
 
-        <!-- ========== XP BAR ========== -->
-        <div class="xp-bar-container block-reveal" id="xpBarSection">
-            <div class="xp-label">PROGRESO DEL EQUIPO</div>
-            <div class="xp-bar">
-                <div class="xp-fill" id="xpFill" style="width: 0%;"></div>
+        <!-- ========== HUD (Hearts + XP) ========== -->
+        <div class="hud-container block-reveal" id="hudSection">
+            <div class="hud-hearts" id="hudHearts">
+                <img class="static-heart" src="assets/heart.png" alt="heart">
+                <img class="static-heart" src="assets/heart.png" alt="heart">
+                <img class="static-heart" src="assets/heart.png" alt="heart">
+                <img class="static-heart" src="assets/heart.png" alt="heart">
+                <img class="static-heart" src="assets/heart.png" alt="heart">
+                <img class="static-heart" src="assets/heart.png" alt="heart">
+                <img class="static-heart" src="assets/heart.png" alt="heart">
+                <img class="static-heart" src="assets/heart.png" alt="heart">
+                <img class="static-heart" src="assets/heart.png" alt="heart">
+                <img class="static-heart" src="assets/heart.png" alt="heart">
+            </div>
+            
+            <!-- Barra de XP y Nivel -->
+            <div class="xp-wrapper">
+                <div class="xp-level" id="xpLevel">0</div>
+                <div class="xp-bar">
+                    <div class="xp-fill" id="xpFill" style="width: 0%;"></div>
+                </div>
             </div>
         </div>
 
@@ -196,12 +212,12 @@ cd Teamwork</code>
                             define el fondo de tu página personal. Las opciones son:
                         </p>
                         <code class="code-block">biome: "forest"   // Bosque (default)
-biome: "desert"   // Desierto
-biome: "jungle"   // Selva tropical
-biome: "taiga"    // Taiga / Invierno
-biome: "plains"   // Praderas / Otoño
-biome: "nether"   // El Nether
-biome: "end"      // The End</code>
+                                                biome: "desert"   // Desierto
+                                                biome: "jungle"   // Selva tropical
+                                                biome: "taiga"    // Taiga / Invierno
+                                                biome: "plains"   // Praderas / Otoño
+                                                biome: "nether"   // El Nether
+                                                biome: "end"      // The End</code>
                     </div>
                 </div>
 
@@ -330,7 +346,7 @@ git commit -m "feat: agregar pagina de Juan Perez"</code>
                             Lee <code>CONVENTIONS.md</code> para entender el formato de
                             branches y commits que usamos en este proyecto.
                         </p>
-                        <p><a href="CONVENTIONS.md" style="color: var(--primary); text-decoration: none;">Ver CONVENTIONS.md →</a></p>
+                        <p><a href="https://github.com/dferram/github-course-teamwork/blob/main/CONVENTIONS.md" style="color: var(--primary); text-decoration: none;">Ver CONVENTIONS.md →</a></p>
                     </div>
                 </div>
                 <div class="step block-child">
@@ -355,7 +371,7 @@ git commit -m "feat: agregar pagina de Juan Perez"</code>
         <p>
             Hecho para el curso de Git &amp; GitHub // 2026<br>
             <a href="https://github.com" target="_blank">GitHub</a> · 
-            <a href="CONVENTIONS.md">Convenciones</a> · 
+            <a href="https://github.com/dferram/github-course-teamwork/blob/main/CONVENTIONS.md">Convenciones</a> · 
             <a href="index.html">Menu Principal</a>
         </p>
     </footer>
@@ -434,14 +450,23 @@ git commit -m "feat: agregar pagina de Juan Perez"</code>
                 animateXPBar();
             }
 
-            // XP bar animation
+            // XP bar animation using single fill
             function animateXPBar() {
+                var totalMembers = team.length;
+                var maxMembers = 21; // 20 alumnos + 1
+                
+                var xpLevel = document.getElementById('xpLevel');
+                if (xpLevel) {
+                    xpLevel.textContent = totalMembers;
+                }
+
                 var xpFill = document.getElementById('xpFill');
-                if (!xpFill) return;
-                var pct = Math.min((team.length / 30) * 100, 100);
-                setTimeout(function() {
-                    xpFill.style.width = pct + '%';
-                }, 600);
+                if (xpFill) {
+                    var pct = Math.min((totalMembers / maxMembers) * 100, 100);
+                    setTimeout(function() {
+                        xpFill.style.width = pct + '%';
+                    }, 600);
+                }
             }
 
             // Navigation active state
