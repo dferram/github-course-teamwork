@@ -3,348 +3,156 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Proyecto colaborativo del curso de Git y GitHub">
+    <meta name="description" content="Teamwork — Proyecto colaborativo del curso de Git y GitHub. Estilo Minecraft.">
     <title>Teamwork</title>
     <link rel="stylesheet" href="css/styles.css">
     <link rel="icon" href="assets/computer.png">
 </head>
 <body>
 
-    <!-- Starfield -->
-    <div class="starfield" id="starfield"></div>
-
-    <!-- Nav -->
-    <nav class="nav">
-        <a href="#galeria">GALERIA</a>
-        <a href="#instrucciones">INSTRUCCIONES</a>
-        <a href="#recursos">RECURSOS</a>
-    </nav>
-
-    <div class="container">
-
-        <!-- HERO -->
-        <section class="hero">
-            <span class="hero-label">Curso de Git & GitHub</span>
-            <h1>PROYECTO EN EQUIPO</h1>
-            <p class="cursor-blink">
-                Cada integrante crea su pagina personal
-                y la agrega a la galeria del equipo.
-                Practica Git colaborando de verdad
-            </p>
-        </section>
-
-        <!-- XP Bar -->
-        <div class="xp-bar-container">
-            <div class="xp-label">PROGRESO DEL EQUIPO</div>
-            <div class="xp-bar">
-                <div class="xp-fill" id="xpFill"></div>
+    <!-- ============================================
+         LOADING SCREEN — Minecraft World Generation
+         ============================================ -->
+    <div class="loading-screen" id="loadingScreen">
+        <div class="loading-text" id="loadingText">Generating world</div>
+        <div class="loading-bar-container">
+            <span class="loading-bar-label" id="loadingLabel">Building terrain</span>
+            <div class="loading-bar">
+                <div class="loading-bar-fill" id="loadingBarFill"></div>
             </div>
         </div>
-
-        <!-- GALERIA -->
-        <section id="galeria">
-            <h2 class="section-title">GALERIA DEL EQUIPO</h2>
-            <p class="section-subtitle">Haz clic en una tarjeta para ver la pagina de cada integrante.</p>
-            
-            <div style="text-align: center; margin-bottom: 30px;">
-                <a href="avatar-builder.html" class="btn" style="display: inline-block; text-decoration: none; background: var(--gold); color: var(--bg); padding: 12px 24px; border: 3px solid var(--gold); font-size: 8px; transition: all 0.2s;">
-                    CREAR TU AVATAR
-                </a>
-            </div>
-
-            <div class="gallery-grid" id="galleryGrid">
-                <!-- Las tarjetas se generan automaticamente desde team.js -->
-            </div>
-        </section>
-
-        <!-- INSTRUCCIONES -->
-        <section id="instrucciones" class="instructions">
-            <h2 class="section-title">INSTRUCCIONES</h2>
-            <p class="section-subtitle">Sigue estos pasos para agregar tu pagina a la galeria. Lee el README.md para instrucciones detalladas.</p>
-
-            <div class="steps">
-
-                <!-- Paso 1 -->
-                <div class="step">
-                    <div class="step-number">1</div>
-                    <div class="step-content">
-                        <h3>CLONAR EL REPOSITORIO</h3>
-                        <p>Abre tu terminal y clona el repositorio del curso:</p>
-                        <div class="code-block">git clone &lt;URL_DEL_REPOSITORIO&gt;
-cd Teamwork</div>
-                        <div class="tip-box">
-                            <span class="box-label">[TIP]</span>
-                            <span>Tu instructor te dara la URL del repositorio.</span>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Paso 2 -->
-                <div class="step">
-                    <div class="step-number">2</div>
-                    <div class="step-content">
-                        <h3>CREAR TU RAMA</h3>
-                        <p>Crea una rama siguiendo el formato <code>feature/pagina-nombre-apellido</code>. NUNCA trabajes en <code>main</code>:</p>
-                        <div class="code-block">git checkout -b feature/pagina-nombre-apellido</div>
-                        <div class="tip-box">
-                            <span class="box-label">[TIP]</span>
-                            <span>Ejemplo: <code>git checkout -b feature/pagina-juan-perez</code>. Lee CONVENTIONS.md para mas formatos.</span>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Paso 3 -->
-                <div class="step">
-                    <div class="step-number">3</div>
-                    <div class="step-content">
-                        <h3>COPIAR LA PLANTILLA HTML</h3>
-                        <p>Copia la plantilla y renombrala con tu nombre. NO edites el contenido del HTML:</p>
-                        <div class="code-block">Copy-Item pages\_plantilla.html pages\nombre-apellido.html</div>
-                        <div class="warning-box">
-                            <span class="box-label">[!]</span>
-                            <span>
-                                NO escribas tu nombre, avatar ni skills en el HTML.
-                                Todo se carga automaticamente desde <code>team.js</code>.
-                                Solo necesitas que el archivo exista con el nombre correcto.
-                            </span>
-                        </div>
-                        <div class="tip-box">
-                            <span class="box-label">[TIP]</span>
-                            <span>En Mac/Linux usa: <code>cp pages/_plantilla.html pages/nombre-apellido.html</code></span>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Paso 4 -->
-                <div class="step">
-                    <div class="step-number">4</div>
-                    <div class="step-content">
-                        <h3>CREAR TU AVATAR 8-BIT</h3>
-                        <p>
-                            Abre <code>avatar-builder.html</code> en tu navegador.
-                            Elige un preset de la galeria o dibuja tu propio avatar pixel por pixel.
-                            Cuando termines, haz clic en COPIAR para obtener el codigo.
-                        </p>
-                        <div class="tip-box">
-                            <span class="box-label">[TIP]</span>
-                            <span>Guarda el codigo en un bloc de notas por si lo necesitas despues. El codigo se ve asi: <code>555555555555555511555511...</code></span>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Paso 5 -->
-                <div class="step">
-                    <div class="step-number">5</div>
-                    <div class="step-content">
-                        <h3>REGISTRAR TUS DATOS EN TEAM.JS</h3>
-                        <p>
-                            Abre <code>js/team.js</code>, busca el comentario
-                            <strong>"AGREGA TU LINEA AQUI ABAJO"</strong> y agrega
-                            tu objeto con TODOS tus datos:
-                        </p>
-                        <div class="code-block">{ name: "Tu Nombre", page: "pages/nombre-apellido.html", tagline: "Tu frase", avatar: "TU_CODIGO", github: "https://github.com/tu-usuario", about: "Sobre ti", skills: ["HTML", "CSS"], randomFact: "Dato curioso" },</div>
-                        <p style="margin-top: 10px;">
-                            <strong>Reglas para evitar merge conflicts:</strong><br>
-                            - Edita SOLO tu linea, nunca toques las de otros.<br>
-                            - Agrega tu objeto al final, debajo del comentario guia.<br>
-                            - NO borres el comentario "AGREGA TU LINEA AQUI ABAJO".<br>
-                            - Verifica que tu objeto termine con <code>},</code> (coma obligatoria).
-                        </p>
-                        <div class="warning-box">
-                            <span class="box-label">[!]</span>
-                            <span>
-                                El campo <code>page</code> debe coincidir EXACTAMENTE
-                                con el nombre de tu archivo HTML del paso 3.
-                                Si no coincide, tu pagina aparecera en blanco.
-                            </span>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Paso 6 -->
-                <div class="step">
-                    <div class="step-number">6</div>
-                    <div class="step-content">
-                        <h3>VERIFICAR LOCALMENTE</h3>
-                        <p>Abre <code>index.html</code> con Live Server o un servidor local y verifica que tu tarjeta aparezca en la galeria y tu pagina cargue bien.</p>
-                        <div class="tip-box">
-                            <span class="box-label">[TIP]</span>
-                            <span>Si algo no funciona, abre la consola (F12) y revisa los errores. El problema mas comun es una coma faltante en <code>team.js</code>.</span>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Paso 7 -->
-                <div class="step">
-                    <div class="step-number">7</div>
-                    <div class="step-content">
-                        <h3>COMMIT Y PUSH</h3>
-                        <p>Guarda tus cambios y subelos a GitHub usando el formato convencional:</p>
-                        <div class="code-block">git add .
-git commit -m "feat: agregar pagina de nombre-apellido"
-git push origin feature/pagina-nombre-apellido</div>
-                    </div>
-                </div>
-
-                <!-- Paso 8 -->
-                <div class="step">
-                    <div class="step-number">8</div>
-                    <div class="step-content">
-                        <h3>CREAR UN PULL REQUEST</h3>
-                        <p>
-                            Ve al repositorio en GitHub. Veras un banner amarillo para crear
-                            un Pull Request. Haz clic en
-                            <strong>"Compare & pull request"</strong>,
-                            escribe un titulo descriptivo y crealo.
-                        </p>
-                    </div>
-                </div>
-
-                <!-- Paso 9 -->
-                <div class="step">
-                    <div class="step-number">9</div>
-                    <div class="step-content">
-                        <h3>RESOLVER MERGE CONFLICTS (SI LOS HAY)</h3>
-                        <p>Si GitHub indica conflictos, actualiza tu rama:</p>
-                        <div class="code-block">git checkout main
-git pull origin main
-git checkout feature/pagina-nombre-apellido
-git merge main</div>
-                        <p style="margin-top: 10px;">
-                            Abre <code>team.js</code>, busca las marcas
-                            <code>&lt;&lt;&lt;&lt;&lt;&lt;&lt;</code>, <code>=======</code> y
-                            <code>&gt;&gt;&gt;&gt;&gt;&gt;&gt;</code>.
-                            Borra esas 3 lineas y conserva AMBOS bloques de codigo
-                            (tu linea y la de tu companero):
-                        </p>
-                        <div class="code-block">git add .
-git commit -m "merge: resolver conflictos en team.js"
-git push origin feature/pagina-nombre-apellido</div>
-                    </div>
-                </div>
-
-                <!-- Paso 10 -->
-                <div class="step">
-                    <div class="step-number">10</div>
-                    <div class="step-content">
-                        <h3>MISION COMPLETA</h3>
-                        <p>
-                            Una vez que tu PR sea aprobado y mergeado,
-                            tu pagina aparecera en la galeria del equipo
-                            automaticamente. Acabas de colaborar en un
-                            proyecto real con Git.
-                        </p>
-                    </div>
-                </div>
-
-            </div>
-        </section>
-
-        <!-- RECURSOS -->
-        <section id="recursos" style="padding-bottom: 50px;">
-            <h2 class="section-title">RECURSOS</h2>
-            <p class="section-subtitle">Links que te ayudaran durante el ejercicio.</p>
-
-            <div class="gallery-grid">
-                <a href="https://education.github.com/git-cheat-sheet-education.pdf" target="_blank" class="gallery-card">
-                    <div class="card-icon">[#]</div>
-                    <h3>Git Cheat Sheet</h3>
-                    <p>Referencia rapida de comandos</p>
-                </a>
-                <a href="https://docs.github.com/es/pull-requests/collaborating-with-pull-requests/addressing-merge-conflicts" target="_blank" class="gallery-card">
-                    <div class="card-icon">[~]</div>
-                    <h3>Merge Conflicts</h3>
-                    <p>Como resolver conflictos</p>
-                </a>
-                <a href="https://guides.github.com/features/mastering-markdown/" target="_blank" class="gallery-card">
-                    <div class="card-icon">[@]</div>
-                    <h3>Guia de Markdown</h3>
-                    <p>Aprende a escribir en MD</p>
-                </a>
-                <a href="https://pages.github.com/" target="_blank" class="gallery-card">
-                    <div class="card-icon">[>]</div>
-                    <h3>GitHub Pages</h3>
-                    <p>Publica tu sitio gratis</p>
-                </a>
-            </div>
-        </section>
-
     </div>
 
-    <!-- Footer -->
-    <footer class="footer">
-        <p>Hecho para el curso de Git & GitHub // 2026</p>
-    </footer>
+    <!-- ============================================
+         TITLE SCREEN — Minecraft Menu Clone
+         ============================================ -->
+    <div class="title-screen" id="titleScreen">
+
+        <!-- Panorama Background -->
+        <div class="mc-panorama"></div>
+
+        <!-- Scanline overlay -->
+        <div class="scanlines"></div>
+
+        <!-- Logo -->
+        <div class="mc-logo-container">
+            <span class="mc-logo">TEAMWORK</span>
+            <span class="mc-logo-sub">GIT &amp; GITHUB EDITION</span>
+            <div class="splash-text" id="splashText">Also try Git!</div>
+        </div>
+
+        <!-- Menu Buttons -->
+        <div class="mc-menu">
+            <button class="mc-button" id="btnGallery" onclick="showLoadingScreen('dashboard.html')">
+                GALERIA DEL EQUIPO
+            </button>
+            <button class="mc-button" id="btnInstructions" onclick="showLoadingScreen('dashboard.html#instrucciones')">
+                INSTRUCCIONES
+            </button>
+            <a href="avatar-builder.html" class="mc-button" id="btnAvatar">
+                CREAR TU AVATAR
+            </a>
+
+            <div class="mc-button-row">
+                <button class="mc-button mc-button-half" id="btnResources" onclick="showLoadingScreen('dashboard.html#recursos')">
+                    Recursos
+                </button>
+                <a href="https://github.com" target="_blank" class="mc-button mc-button-half" id="btnGithub">
+                    GitHub
+                </a>
+            </div>
+        </div>
+    </div>
+    <!-- Version & Copyright -->
+    <div class="mc-version">Teamwork v1.0</div>
+    <div class="mc-copyright">
+        Curso de Git &amp; GitHub // 2026<br>
+    </div>
 
     <!-- Scripts -->
-    <script src="js/avatars.js"></script>
-    <script src="js/team.js"></script>
     <script>
-        // Generate starfield
+        // Splash text randomizer
         (function() {
-            var field = document.getElementById('starfield');
-            if (!field) return;
-            for (var i = 0; i < 80; i++) {
-                var star = document.createElement('div');
-                star.className = 'star';
-                star.style.left = Math.random() * 100 + '%';
-                star.style.top = Math.random() * 100 + '%';
-                star.style.setProperty('--duration', (2 + Math.random() * 4) + 's');
-                star.style.setProperty('--delay', (Math.random() * 5) + 's');
-                if (Math.random() > 0.7) {
-                    star.style.width = '3px';
-                    star.style.height = '3px';
-                }
-                field.appendChild(star);
+            var splashes = [
+                "Also try Git!",
+                "git push --force!",
+                "Merge conflicts ahead!",
+                "100% Redstone powered!",
+                "Now with more commits!",
+                "Ctrl+S saves lives!",
+                "Don't mine at night!",
+                "Branch and conquer!",
+                "Forked!",
+                "sudo make me a sandwich!",
+                "Hello, World!",
+                "It works on my machine!",
+                "Powered by caffeine!",
+                "git good!",
+                "404: Sleep not found",
+                "Committing crimes!",
+                "NullPointerException!",
+                "rm -rf / (DON'T!)",
+                "while(alive) { code(); }",
+                "Cherry-pick this!",
+                "I don´t need to think, I got AI"
+            ];
+            var el = document.getElementById('splashText');
+            if (el) {
+                el.textContent = splashes[Math.floor(Math.random() * splashes.length)];
             }
         })();
 
-        // Build gallery from team.js data with pixel avatars
-        (function() {
-            var grid = document.getElementById('galleryGrid');
-            if (!grid || typeof team === 'undefined') return;
+        // Button press 8-bit tactile feedback
+        document.querySelectorAll('.mc-button').forEach(function(btn) {
+            btn.addEventListener('mousedown', function() {
+                this.classList.add('mc-button-pressed');
+            });
+            btn.addEventListener('mouseup', function() {
+                this.classList.remove('mc-button-pressed');
+            });
+            btn.addEventListener('mouseleave', function() {
+                this.classList.remove('mc-button-pressed');
+            });
+        });
 
-            for (var i = 0; i < team.length; i++) {
-                var m = team[i];
-                var card = document.createElement('a');
-                card.href = m.page;
-                card.className = 'gallery-card';
+        // Loading screen — Minecraft world generation animation
+        function showLoadingScreen(targetUrl) {
+            var screen = document.getElementById('loadingScreen');
+            var fill = document.getElementById('loadingBarFill');
+            var label = document.getElementById('loadingLabel');
+            var text = document.getElementById('loadingText');
 
-                // Avatar canvas
-                var avatarDiv = document.createElement('div');
-                avatarDiv.className = 'card-icon';
-                var canvas = document.createElement('canvas');
-                canvas.width = 72;
-                canvas.height = 72;
-                canvas.style.imageRendering = 'pixelated';
-
-                var customColors = null;
-                if (m.colors) {
-                    var parts = m.colors.split(',');
-                    customColors = { primary: parts[0], secondary: parts[1] };
-                }
-                renderAvatar(canvas, m.avatar || 'classic', 72, customColors);
-                avatarDiv.appendChild(canvas);
-
-                var nameEl = document.createElement('h3');
-                nameEl.textContent = m.name;
-                var descEl = document.createElement('p');
-                descEl.textContent = m.desc;
-
-                card.appendChild(avatarDiv);
-                card.appendChild(nameEl);
-                card.appendChild(descEl);
-                grid.appendChild(card);
+            if (!screen || !fill) {
+                window.location.href = targetUrl;
+                return;
             }
 
-            // XP bar
-            var max = 20;
-            var pct = Math.min((team.length / max) * 100, 100);
-            setTimeout(function() {
-                var fill = document.getElementById('xpFill');
-                if (fill) fill.style.width = pct + '%';
+            screen.classList.add('active');
+
+            var stages = [
+                { pct: 14, label: 'Building terrain' },
+                { pct: 30, label: 'Preparing spawn area' },
+                { pct: 48, label: 'Loading team data' },
+                { pct: 64, label: 'Placing blocks' },
+                { pct: 80, label: 'Spawning players' },
+                { pct: 93, label: 'Almost done' },
+                { pct: 100, label: 'Done!' }
+            ];
+
+            var i = 0;
+            var interval = setInterval(function() {
+                if (i >= stages.length) {
+                    clearInterval(interval);
+                    setTimeout(function() {
+                        window.location.href = targetUrl;
+                    }, 1000);
+                    return;
+                }
+                fill.style.width = stages[i].pct + '%';
+                if (label) label.textContent = stages[i].label;
+                i++;
             }, 800);
-        })();
+        }
     </script>
 
 </body>

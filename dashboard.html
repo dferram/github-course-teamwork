@@ -1,0 +1,536 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Teamwork Dashboard — Galería del equipo, instrucciones y recursos del curso de Git y GitHub.">
+    <title>Teamwork — Dashboard</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="icon" href="assets/computer.png">
+</head>
+<body>
+
+    <!-- ============================================
+         BIOME BACKGROUND — Fixed forest biome
+         ============================================ -->
+    <div class="biome-background" id="biomeBackground"></div>
+
+    <!-- Scanline overlay -->
+    <div class="scanlines"></div>
+
+    <!-- ============================================
+         TOP APP BAR (sin biome selector)
+         ============================================ -->
+    <header class="top-bar" id="topBar">
+        <a href="index.html" class="back-menu-btn" id="btnBackMenu">&lt; MENU</a>
+        <nav class="top-bar-nav">
+            <a href="#galeria" class="active" id="navGallery">GALERIA</a>
+            <a href="#instrucciones" id="navInstructions">INSTRUCCIONES</a>
+            <a href="#recursos" id="navResources">RECURSOS</a>
+        </nav>
+    </header>
+
+    <!-- ============================================
+         MAIN CONTENT
+    ============================================ -->
+    <main class="dashboard-container" id="dashboardMain">
+
+        <!-- ========== HERO SECTION ========== -->
+        <section class="hero block-reveal" id="heroSection">
+            <div class="hero-label">Centro de desarrollo // SAC 2026</div>
+            <h1>GALERIA DEL<br>EQUIPO<span class="cursor-blink"></span></h1>
+        </section>
+
+        <!-- ========== HUD (Hearts + XP) ========== -->
+        <div class="hud-container block-reveal" id="hudSection">
+            <div class="hud-hearts" id="hudHearts">
+                <img class="static-heart" src="assets/heart.png" alt="heart">
+                <img class="static-heart" src="assets/heart.png" alt="heart">
+                <img class="static-heart" src="assets/heart.png" alt="heart">
+                <img class="static-heart" src="assets/heart.png" alt="heart">
+                <img class="static-heart" src="assets/heart.png" alt="heart">
+                <img class="static-heart" src="assets/heart.png" alt="heart">
+                <img class="static-heart" src="assets/heart.png" alt="heart">
+                <img class="static-heart" src="assets/heart.png" alt="heart">
+                <img class="static-heart" src="assets/heart.png" alt="heart">
+                <img class="static-heart" src="assets/heart.png" alt="heart">
+            </div>
+            
+            <!-- Barra de XP y Nivel -->
+            <div class="xp-wrapper">
+                <div class="xp-level" id="xpLevel">0</div>
+                <div class="xp-bar">
+                    <div class="xp-fill" id="xpFill" style="width: 0%;"></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ========== GALLERY ========== -->
+        <section class="gallery-section block-reveal" id="galeria">
+            <h2 class="section-title">INTEGRANTES DEL EQUIPO</h2>
+            <p class="section-subtitle">
+                Cada tarjeta se genera automáticamente desde <code>team.js</code>.
+                Haz clic en una tarjeta para ver el perfil completo.
+            </p>
+
+            <!-- Gallery grid — populated by JS from team.js -->
+            <div class="gallery-grid" id="galleryGrid">
+                <!-- Cards se generan dinámicamente -->
+            </div>
+
+            <div style="text-align: center; margin-top: var(--sp-5);">
+                <a href="avatar-builder.html" class="create-avatar-btn" id="btnCreateAvatar">⛏️ CREA TU AVATAR</a>
+            </div>
+        </section>
+
+        <!-- ========== INSTRUCTIONS ========== -->
+        <section class="instructions block-reveal" id="instrucciones">
+            <h2 class="section-title">INSTRUCCIONES</h2>
+            <p class="section-subtitle">
+                Sigue estos 10 pasos para unirte al proyecto. Todos trabajan
+                sobre el mismo repositorio — cada quien en su propio branch.
+            </p>
+
+            <div class="steps" id="stepsContainer">
+
+                <!-- PASO 1 -->
+                <div class="step block-child">
+                    <div class="step-number">01</div>
+                    <div class="step-content">
+                        <h3>CLONA EL REPOSITORIO</h3>
+                        <p>
+                            El instructor te dará acceso al repositorio en GitHub.
+                            Una vez que tengas acceso, clónalo a tu computadora:
+                        </p>
+                        <code class="code-block">git clone https://github.com/USUARIO/Teamwork.git
+cd Teamwork</code>
+                        <div class="tip-box">
+                            <span class="box-label">TIP:</span>
+                            Todos trabajan sobre el MISMO repositorio. No es necesario
+                            hacer fork — solo clonar directamente.
+                        </div>
+                    </div>
+                </div>
+
+                <!-- PASO 2 -->
+                <div class="step block-child">
+                    <div class="step-number">02</div>
+                    <div class="step-content">
+                        <h3>CREA TU BRANCH</h3>
+                        <p>
+                            Antes de hacer cambios, crea una rama nueva con el formato:
+                        </p>
+                        <code class="code-block">git checkout -b feature/pagina-nombre-apellido</code>
+                        <div class="warning-box">
+                            <span class="box-label">IMPORTANTE:</span>
+                            Usa minúsculas, guiones en vez de espacios, sin acentos.
+                            Ejemplo: <code>feature/pagina-juan-perez</code>
+                        </div>
+                        <div class="tip-box">
+                            <span class="box-label">TIP:</span>
+                            Tu branch es tu espacio de trabajo personal. Puedes hacer todos
+                            los commits que quieras sin afectar a los demás.
+                        </div>
+                    </div>
+                </div>
+
+                <!-- PASO 3 -->
+                <div class="step block-child">
+                    <div class="step-number">03</div>
+                    <div class="step-content">
+                        <h3>CREA TU AVATAR</h3>
+                        <p>
+                            Abre <code>avatar-builder.html</code> en tu navegador o haz clic en
+                            "CREA TU AVATAR" arriba. Diseña tu skin pixel-art y copia el
+                            código de 64 caracteres que genera.
+                        </p>
+                        <div class="tip-box">
+                            <span class="box-label">TIP:</span>
+                            También puedes usar un preset: "steve", "alex", "creeper", etc.
+                        </div>
+                    </div>
+                </div>
+
+                <!-- PASO 4 -->
+                <div class="step block-child">
+                    <div class="step-number">04</div>
+                    <div class="step-content">
+                        <h3>EDITA TEAM.JS</h3>
+                        <p>
+                            Abre <code>js/team.js</code> y busca el comentario
+                            "AGREGA TU LINEA AQUI ABAJO". Copia el template y llena
+                            todos los campos con tus datos.
+                        </p>
+                        <code class="code-block">{
+    name: "Tu Nombre",
+    page: "pages/nombre-apellido.html",
+    tagline: "Una frase sobre ti",
+    avatar: "TU_CODIGO_DE_64_CHARS",
+    github: "https://github.com/tu-user",
+    about: "Un parrafo sobre ti.",
+    skills: ["Skill1", "Skill2", "Skill3"],
+    randomFact: "Dato curioso",
+    biome: "forest"
+},</code>
+                        <div class="warning-box">
+                            <span class="box-label">IMPORTANTE:</span>
+                            NO olvides la coma al final del objeto. Sin ella,
+                            el código falla para TODOS.
+                        </div>
+                    </div>
+                </div>
+
+                <!-- PASO 5 -->
+                <div class="step block-child">
+                    <div class="step-number">05</div>
+                    <div class="step-content">
+                        <h3>CREA TU PAGINA PERSONAL</h3>
+                        <p>
+                            Copia el archivo <code>pages/_plantilla.html</code> y renómbralo 
+                            con tu nombre. Ejemplo: <code>pages/juan-perez.html</code>.
+                        </p>
+                        <div class="warning-box">
+                            <span class="box-label">IMPORTANTE:</span>
+                            El nombre del archivo DEBE coincidir EXACTAMENTE con el campo
+                            <code>page</code> que pusiste en <code>team.js</code>.
+                        </div>
+                        <div class="tip-box">
+                            <span class="box-label">TIP:</span>
+                            No necesitas editar nada dentro del HTML — todo se carga
+                            automáticamente desde team.js.
+                        </div>
+                    </div>
+                </div>
+
+                <!-- PASO 6 -->
+                <div class="step block-child">
+                    <div class="step-number">06</div>
+                    <div class="step-content">
+                        <h3>(OPCIONAL) ELIGE TU BIOMA</h3>
+                        <p>
+                            En tu objeto de <code>team.js</code>, el campo <code>biome</code>
+                            define el fondo de tu página personal. Las opciones son:
+                        </p>
+                        <code class="code-block">biome: "forest"   // Bosque (default)
+                                                biome: "desert"   // Desierto
+                                                biome: "jungle"   // Selva tropical
+                                                biome: "taiga"    // Taiga / Invierno
+                                                biome: "plains"   // Praderas / Otoño
+                                                biome: "nether"   // El Nether
+                                                biome: "end"      // The End</code>
+                    </div>
+                </div>
+
+                <!-- PASO 7 -->
+                <div class="step block-child">
+                    <div class="step-number">07</div>
+                    <div class="step-content">
+                        <h3>VERIFICA EN TU NAVEGADOR</h3>
+                        <p>
+                            Abre <code>dashboard.html</code> en tu navegador y verifica que
+                            tu tarjeta aparece en la galería. Luego abre tu página
+                            personal y revisa que todos tus datos se muestran correctamente.
+                        </p>
+                        <div class="tip-box">
+                            <span class="box-label">TIP:</span>
+                            Si ves "datos no encontrados", revisa que el campo
+                            <code>page</code> en team.js coincida exactamente con
+                            el nombre de tu archivo HTML.
+                        </div>
+                    </div>
+                </div>
+
+                <!-- PASO 8 -->
+                <div class="step block-child">
+                    <div class="step-number">08</div>
+                    <div class="step-content">
+                        <h3>HAZ COMMIT</h3>
+                        <p>
+                            Guarda tus cambios con un commit descriptivo:
+                        </p>
+                        <code class="code-block">git add .
+git commit -m "feat: agregar pagina de Juan Perez"</code>
+                        <div class="warning-box">
+                            <span class="box-label">FORMATO:</span>
+                            Usa el formato <code>feat: descripcion</code> en tus mensajes
+                            de commit. Lee CONVENTIONS.md para más detalles.
+                        </div>
+                    </div>
+                </div>
+
+                <!-- PASO 9 -->
+                <div class="step block-child">
+                    <div class="step-number">09</div>
+                    <div class="step-content">
+                        <h3>PUSH TU BRANCH</h3>
+                        <p>
+                            Sube tu branch al repositorio en GitHub:
+                        </p>
+                        <code class="code-block">git push origin feature/pagina-nombre-apellido</code>
+                        <div class="tip-box">
+                            <span class="box-label">TIP:</span>
+                            Si es la primera vez que subes tu branch, Git te pedirá
+                            que la crees en el remoto. Solo confirma y listo.
+                        </div>
+                    </div>
+                </div>
+
+                <!-- PASO 10 -->
+                <div class="step block-child">
+                    <div class="step-number">10</div>
+                    <div class="step-content">
+                        <h3>CREA TU PULL REQUEST</h3>
+                        <p>
+                            Ve al repositorio en GitHub. Verás un banner con tu branch
+                            reciente y un botón <strong>"Compare &amp; pull request"</strong>.
+                            Haz clic y envía tu PR para que el instructor lo revise.
+                        </p>
+                        <div class="tip-box">
+                            <span class="box-label">TIP:</span>
+                            Agrega un título como "feat: agregar página de Juan Pérez"
+                            y una descripción breve de lo que hiciste. Espera la
+                            aprobación antes de mergear.
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- ========== RESOURCES ========== -->
+        <section class="instructions block-reveal" id="recursos">
+            <h2 class="section-title">RECURSOS</h2>
+            <p class="section-subtitle">
+                Links útiles para completar el proyecto y aprender Git &amp; GitHub.
+            </p>
+
+            <div class="steps">
+                <div class="step block-child">
+                    <div class="step-number">📖</div>
+                    <div class="step-content">
+                        <h3>DOCUMENTACION OFICIAL DE GIT</h3>
+                        <p>
+                            La guía completa de referencia de Git. Incluye todos los
+                            comandos y opciones disponibles.
+                        </p>
+                        <p><a href="https://git-scm.com/doc" target="_blank" style="color: var(--primary); text-decoration: none;">git-scm.com/doc →</a></p>
+                    </div>
+                </div>
+                <div class="step block-child">
+                    <div class="step-number">🐙</div>
+                    <div class="step-content">
+                        <h3>GITHUB DOCS</h3>
+                        <p>
+                            Documentación oficial de GitHub. Aprende sobre pull requests,
+                            issues y más.
+                        </p>
+                        <p><a href="https://docs.github.com" target="_blank" style="color: var(--primary); text-decoration: none;">docs.github.com →</a></p>
+                    </div>
+                </div>
+                <div class="step block-child">
+                    <div class="step-number">🎮</div>
+                    <div class="step-content">
+                        <h3>LEARN GIT BRANCHING</h3>
+                        <p>
+                            Tutorial interactivo visual para aprender branching y merging
+                            de manera práctica y divertida.
+                        </p>
+                        <p><a href="https://learngitbranching.js.org/" target="_blank" style="color: var(--primary); text-decoration: none;">learngitbranching.js.org →</a></p>
+                    </div>
+                </div>
+                <div class="step block-child">
+                    <div class="step-number">📋</div>
+                    <div class="step-content">
+                        <h3>CONVENCIONES DEL PROYECTO</h3>
+                        <p>
+                            Lee <code>CONVENTIONS.md</code> para entender el formato de
+                            branches y commits que usamos en este proyecto.
+                        </p>
+                        <p><a href="https://github.com/dferram/github-course-teamwork/blob/main/CONVENTIONS.md" style="color: var(--primary); text-decoration: none;">Ver CONVENTIONS.md →</a></p>
+                    </div>
+                </div>
+                <div class="step block-child">
+                    <div class="step-number">🔧</div>
+                    <div class="step-content">
+                        <h3>AVATAR BUILDER</h3>
+                        <p>
+                            Diseña tu avatar pixelado estilo Minecraft para tu tarjeta
+                            y perfil del equipo.
+                        </p>
+                        <p><a href="avatar-builder.html" style="color: var(--primary); text-decoration: none;">Abrir Avatar Builder →</a></p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+    <!-- ========== FOOTER ========== -->
+    <footer class="footer" id="dashboardFooter">
+        <p>
+            Centro de desarrollo &amp; Facultad de infórmatica // SAC 2026<br>
+        </p>
+        <p>
+            Hecho para el curso de Git &amp; GitHub // 2026<br>
+            <a href="https://github.com" target="_blank">GitHub</a> · 
+            <a href="https://github.com/dferram/github-course-teamwork/blob/main/CONVENTIONS.md">Convenciones</a> · 
+            <a href="index.html">Menu Principal</a>
+        </p>
+    </footer>
+
+    <!-- ============================================
+         SCRIPTS
+         ============================================ -->
+    <script src="js/avatars.js?v=3"></script>
+    <script src="js/team.js?v=3"></script>
+    <script src="js/biome-engine.js?v=3"></script>
+
+    <script>
+        // ===================================================
+        // GALLERY RENDERER — Genera tarjetas desde team.js
+        // ===================================================
+        (function() {
+            function renderGallery() {
+                var grid = document.getElementById('galleryGrid');
+                if (!grid || typeof team === 'undefined') return;
+
+                grid.innerHTML = '';
+
+                // Update member count
+                var statMembers = document.getElementById('statMembers');
+                if (statMembers) {
+                    statMembers.textContent = team.length;
+                }
+
+                for (var i = 0; i < team.length; i++) {
+                    var member = team[i];
+
+                    var card = document.createElement('a');
+                    card.className = 'gallery-card block-child';
+                    card.href = member.page;
+                    card.id = 'card-' + i;
+
+                    // Avatar container
+                    var iconDiv = document.createElement('div');
+                    iconDiv.className = 'card-icon';
+
+                    var canvas = document.createElement('canvas');
+                    canvas.width = 48;
+                    canvas.height = 48;
+                    iconDiv.appendChild(canvas);
+
+                    // Render avatar
+                    if (typeof renderAvatar === 'function' && member.avatar) {
+                        var customColors = null;
+                        if (member.colors) {
+                            var colorParts = member.colors.split(',');
+                            if (colorParts.length === 2) {
+                                customColors = {
+                                    primary: colorParts[0].trim(),
+                                    secondary: colorParts[1].trim()
+                                };
+                            }
+                        }
+                        renderAvatar(canvas, member.avatar, 48, customColors);
+                    }
+
+                    // Name
+                    var h3 = document.createElement('h3');
+                    h3.textContent = member.name;
+
+                    // Tagline
+                    var p = document.createElement('p');
+                    p.textContent = member.tagline || '';
+
+                    card.appendChild(iconDiv);
+                    card.appendChild(h3);
+                    card.appendChild(p);
+                    grid.appendChild(card);
+                }
+
+                // Animate XP bar
+                animateXPBar();
+            }
+
+            // XP bar animation using single fill
+            function animateXPBar() {
+                var totalMembers = team.length;
+                var maxMembers = 21; // 20 alumnos + 1
+                
+                var xpLevel = document.getElementById('xpLevel');
+                if (xpLevel) {
+                    xpLevel.textContent = totalMembers;
+                }
+
+                var xpFill = document.getElementById('xpFill');
+                if (xpFill) {
+                    var pct = Math.min((totalMembers / maxMembers) * 100, 100);
+                    setTimeout(function() {
+                        xpFill.style.width = pct + '%';
+                    }, 600);
+                }
+            }
+
+            // Navigation active state
+            function setupNavHighlight() {
+                var sections = ['galeria', 'instrucciones', 'recursos'];
+                var links = {
+                    galeria: document.getElementById('navGallery'),
+                    instrucciones: document.getElementById('navInstructions'),
+                    recursos: document.getElementById('navResources')
+                };
+
+                if (!('IntersectionObserver' in window)) return;
+
+                var observer = new IntersectionObserver(function(entries) {
+                    entries.forEach(function(entry) {
+                        if (entry.isIntersecting) {
+                            Object.keys(links).forEach(function(key) {
+                                if (links[key]) links[key].classList.remove('active');
+                            });
+                            if (links[entry.target.id]) {
+                                links[entry.target.id].classList.add('active');
+                            }
+                        }
+                    });
+                }, {
+                    threshold: 0.2,
+                    rootMargin: '-80px 0px -50% 0px'
+                });
+
+                sections.forEach(function(id) {
+                    var el = document.getElementById(id);
+                    if (el) observer.observe(el);
+                });
+            }
+
+            // Loadout slot selection
+            function setupLoadout() {
+                var slots = document.querySelectorAll('.loadout-slot');
+                slots.forEach(function(slot) {
+                    slot.addEventListener('click', function() {
+                        slots.forEach(function(s) { s.classList.remove('active'); });
+                        this.classList.add('active');
+                    });
+                });
+            }
+
+            // Init
+            function init() {
+                if (typeof renderAvatar !== 'function' || typeof team === 'undefined') {
+                    setTimeout(init, 50);
+                    return;
+                }
+                renderGallery();
+                setupNavHighlight();
+                setupLoadout();
+            }
+
+            if (document.readyState === 'loading') {
+                document.addEventListener('DOMContentLoaded', init);
+            } else {
+                init();
+            }
+        })();
+    </script>
+
+</body>
+</html>

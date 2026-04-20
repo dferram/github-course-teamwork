@@ -47,8 +47,18 @@
         github: "https://github.com/juanperez",
         about: "Soy estudiante de ingenieria...",
         skills: ["HTML", "CSS", "JavaScript", "Python", "Git"],
-        randomFact: "Puedo resolver un cubo Rubik en 2 minutos"
+        randomFact: "Puedo resolver un cubo Rubik en 2 minutos",
+        biome: "forest"
     },
+
+    BIOMAS DISPONIBLES:
+        "forest"  — Bosque (default)
+        "desert"  — Desierto
+        "jungle"  — Selva tropical
+        "taiga"   — Taiga / Invierno
+        "plains"  — Praderas / Otono
+        "nether"  — El Nether
+        "end"     — The End
 
     =====================================================================
     ERRORES COMUNES:
@@ -75,13 +85,18 @@
 </head>
 <body>
 
-    <!-- Starfield (decorativo — no tocar) -->
-    <div class="starfield" id="starfield"></div>
+    <!-- Biome Background — se aplica automaticamente desde team.js -->
+    <div class="biome-background" id="biomeBackground"></div>
 
-    <div class="container">
+    <!-- Scanline overlay -->
+    <div class="scanlines"></div>
 
-        <!-- Link para regresar a la galeria -->
-        <a href="../index.html" class="back-link">&lt; VOLVER A LA GALERIA</a>
+    <!-- Top Bar -->
+    <header class="top-bar">
+        <a href="../dashboard.html" class="back-menu-btn">&lt; GALERIA</a>
+    </header>
+
+    <div class="dashboard-container">
 
         <!-- =====================================================================
              NO EDITES NADA DE AQUI PARA ABAJO
@@ -93,13 +108,40 @@
                 <!-- El avatar se renderiza automaticamente desde team.js -->
                 <canvas id="myAvatar" width="96" height="96"></canvas>
             </div>
-            <!-- El nombre se carga automaticamente desde team.js -->
-            <h1>TU NOMBRE COMPLETO</h1>
+            <div class="mc-logo-container" style="margin-bottom: var(--sp-2);">
+                <!-- El nombre se carga automaticamente desde team.js -->
+                <h1 id="profileName" style="font-size: clamp(24px, 5vw, 48px); margin-bottom: 0;">TU NOMBRE COMPLETO</h1>
+                <div class="splash-text" id="profileSplash">Player joined!</div>
+            </div>
             <!-- El tagline se carga automaticamente desde team.js -->
             <p class="tagline">Tu tagline aqui</p>
 
             <div class="social-links">
                 <!-- Los links sociales se cargan automaticamente desde team.js -->
+            </div>
+        </section>
+
+        <!-- Stats Grid -->
+        <section class="stats-grid">
+            <div class="stat-card">
+                <span class="stat-icon">⛏️</span>
+                <span class="stat-value">—</span>
+                <span class="stat-label">BLOQUES</span>
+            </div>
+            <div class="stat-card">
+                <span class="stat-icon">☀️</span>
+                <span class="stat-value">—</span>
+                <span class="stat-label">DIAS</span>
+            </div>
+            <div class="stat-card">
+                <span class="stat-icon">🗡️</span>
+                <span class="stat-value">—</span>
+                <span class="stat-label">COMMITS</span>
+            </div>
+            <div class="stat-card">
+                <span class="stat-icon">🌿</span>
+                <span class="stat-value">—</span>
+                <span class="stat-label">BRANCHES</span>
             </div>
         </section>
 
@@ -126,6 +168,37 @@
             </p>
         </section>
 
+        <!-- GitHub Section -->
+        <section class="profile-section github-section" id="githubSection" style="display: none;">
+            <h2>GITHUB STATS</h2>
+            <div class="github-card">
+                <div class="github-header">
+                    <img id="githubAvatar" src="" alt="GitHub Avatar" class="gh-avatar">
+                    <div class="gh-info">
+                        <h3 id="githubName">Cargando...</h3>
+                        <p id="githubBio"></p>
+                    </div>
+                </div>
+                <div class="github-stats-grid">
+                    <div class="gh-stat">
+                        <span class="gh-stat-value" id="ghRepos">-</span>
+                        <span class="gh-stat-label">REPOS</span>
+                    </div>
+                    <div class="gh-stat">
+                        <span class="gh-stat-value" id="ghFollowers">-</span>
+                        <span class="gh-stat-label">FOLLOWERS</span>
+                    </div>
+                    <div class="gh-stat">
+                        <span class="gh-stat-value" id="ghFollowing">-</span>
+                        <span class="gh-stat-label">FOLLOWING</span>
+                    </div>
+                </div>
+                <div class="github-contributions">
+                    <img id="ghContributions" src="" alt="GitHub Contributions" style="width: 100%; margin-top: 15px; filter: contrast(1.1) brightness(1.2);">
+                </div>
+            </div>
+        </section>
+
     </div>
 
     <!-- Footer -->
@@ -137,23 +210,6 @@
     <script src="../js/avatars.js?v=3"></script>
     <script src="../js/team.js?v=3"></script>
     <script src="../js/profile-loader.js?v=3"></script>
-    <script>
-        // Starfield (decorativo)
-        (function() {
-            var field = document.getElementById('starfield');
-            if (!field) return;
-            for (var i = 0; i < 80; i++) {
-                var star = document.createElement('div');
-                star.className = 'star';
-                star.style.left = Math.random() * 100 + '%';
-                star.style.top = Math.random() * 100 + '%';
-                star.style.setProperty('--duration', (2 + Math.random() * 4) + 's');
-                star.style.setProperty('--delay', (Math.random() * 5) + 's');
-                if (Math.random() > 0.7) { star.style.width = '3px'; star.style.height = '3px'; }
-                field.appendChild(star);
-            }
-        })();
-    </script>
 
 </body>
 </html>

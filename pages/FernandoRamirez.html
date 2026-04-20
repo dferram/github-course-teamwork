@@ -9,11 +9,18 @@
 </head>
 <body>
 
-    <div class="starfield" id="starfield"></div>
+    <!-- Biome Background — se aplica automaticamente desde team.js -->
+    <div class="biome-background" id="biomeBackground"></div>
 
-    <div class="container">
+    <!-- Scanline overlay -->
+    <div class="scanlines"></div>
 
-        <a href="../index.html" class="back-link">&lt; VOLVER A LA GALERIA</a>
+    <!-- Top Bar -->
+    <header class="top-bar">
+        <a href="../dashboard.html" class="back-menu-btn">&lt; GALERIA</a>
+    </header>
+
+    <div class="dashboard-container">
 
         <section class="profile-hero">
             <div class="profile-avatar">
@@ -23,57 +30,64 @@
             <p class="tagline">Never give up - Checo Perez</p>
 
             <div class="social-links">
-                <!-- Se cargan automáticamente desde team.js -->
+                <!-- Se cargan automaticamente desde team.js -->
+            </div>
+        </section>
+
+        <!-- Stats Grid -->
+        <section class="stats-grid">
+            <div class="stat-card">
+                <span class="stat-icon">⛏️</span>
+                <span class="stat-value">—</span>
+                <span class="stat-label">BLOQUES</span>
+            </div>
+            <div class="stat-card">
+                <span class="stat-icon">☀️</span>
+                <span class="stat-value">—</span>
+                <span class="stat-label">DIAS</span>
+            </div>
+            <div class="stat-card">
+                <span class="stat-icon">🗡️</span>
+                <span class="stat-value">—</span>
+                <span class="stat-label">COMMITS</span>
+            </div>
+            <div class="stat-card">
+                <span class="stat-icon">🌿</span>
+                <span class="stat-value">—</span>
+                <span class="stat-label">BRANCHES</span>
             </div>
         </section>
 
         <section class="profile-section">
             <h2>SOBRE MI</h2>
             <p>
-                Este contenido se carga automáticamente desde team.js
+                Este contenido se carga automaticamente desde team.js
             </p>
         </section>
 
         <section class="profile-section">
             <h2>SKILLS</h2>
             <div class="tags">
-                <!-- Se cargan automáticamente desde team.js -->
+                <!-- Se cargan automaticamente desde team.js -->
             </div>
         </section>
 
         <section class="profile-section">
             <h2>DATO RANDOM</h2>
             <p>
-                Este contenido se carga automáticamente desde team.js
+                Este contenido se carga automaticamente desde team.js
             </p>
         </section>
 
     </div>
 
     <footer class="footer">
-        <p>Hecho para el curso de Git & GitHub // 2026</p>
+        <p>Hecho para el curso de Git &amp; GitHub // 2026</p>
     </footer>
 
     <script src="../js/avatars.js?v=3"></script>
     <script src="../js/team.js?v=3"></script>
     <script src="../js/profile-loader.js?v=3"></script>
-    <script>
-        // Starfield
-        (function() {
-            var field = document.getElementById('starfield');
-            if (!field) return;
-            for (var i = 0; i < 80; i++) {
-                var star = document.createElement('div');
-                star.className = 'star';
-                star.style.left = Math.random() * 100 + '%';
-                star.style.top = Math.random() * 100 + '%';
-                star.style.setProperty('--duration', (2 + Math.random() * 4) + 's');
-                star.style.setProperty('--delay', (Math.random() * 5) + 's');
-                if (Math.random() > 0.7) { star.style.width = '3px'; star.style.height = '3px'; }
-                field.appendChild(star);
-            }
-        })();
-    </script>
 
 </body>
 </html>
