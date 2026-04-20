@@ -24,21 +24,21 @@
     --surface-high: #32281d;
     --surface-highest: #3d3327;
     --surface-low: #140d04;
-    --primary: #4AEDD9;
-    --primary-dim: #31ddca;
-    --secondary: #a2d66e;
-    --secondary-container: #345f00;
-    --tertiary: #fad300;
-    --on-bg: #f1e0ce;
-    --on-surface: #f1e0ce;
-    --on-primary: #003731;
-    --outline: #859490;
-    --outline-variant: #3b4a47;
-    --error: #ff4444;
+    --primary: #FFFF55;
+    --primary-dim: #FFAA00;
+    --secondary: #AAAAAA;
+    --secondary-container: #555555;
+    --tertiary: #FFFF55;
+    --on-bg: #e0e0e0;
+    --on-surface: #e0e0e0;
+    --on-primary: #3d3d3d;
+    --outline: #888888;
+    --outline-variant: #444444;
+    --error: #ff5555;
 
     /* --- Accent glow (biome-dependent) --- */
-    --glow: rgba(74, 237, 217, 0.3);
-    --glow-strong: rgba(74, 237, 217, 0.6);
+    --glow: rgba(255, 255, 85, 0.3);
+    --glow-strong: rgba(255, 255, 85, 0.6);
 
     /* --- Biome background --- */
     --biome-bg: url('../assets/biomes/forest.png');
@@ -148,7 +148,7 @@ body {
     text-shadow:
         4px 4px 0 #3d3d3d,
         8px 8px 0 #2a2a2a,
-        0 0 20px rgba(74, 237, 217, 0.3);
+        0 0 20px var(--glow);
     letter-spacing: 4px;
     line-height: 1.2;
     display: block;
@@ -553,22 +553,20 @@ body {
 
 .stat-card {
     background: var(--surface);
-    border: var(--pixel) solid var(--outline-variant);
+    border: 4px solid;
+    border-color: #555555 #1a1a1a #1a1a1a #555555;
     padding: var(--sp-4);
     text-align: center;
     position: relative;
-    transition: border-color 0.2s, transform 0.2s;
-    box-shadow:
-        inset calc(var(--pixel) * -1) calc(var(--pixel) * -1) 0 0 rgba(0,0,0,0.3),
-        inset var(--pixel) var(--pixel) 0 0 rgba(255,255,255,0.04);
+    transition: transform 0.2s, border-color 0.2s;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.5);
 }
 .stat-card:hover {
-    border-color: var(--primary);
     transform: translateY(-4px);
+    border-color: #AAAAAA #333333 #333333 #AAAAAA;
     box-shadow:
         0 8px 20px var(--glow),
-        inset calc(var(--pixel) * -1) calc(var(--pixel) * -1) 0 0 rgba(0,0,0,0.3),
-        inset var(--pixel) var(--pixel) 0 0 rgba(255,255,255,0.04);
+        inset 0 0 10px rgba(255,255,85,0.1);
 }
 
 .stat-icon {
@@ -1472,25 +1470,31 @@ body {
     justify-content: center;
     gap: 32px;
     background-color: var(--dirt-1);
-    background-image:
-        repeating-linear-gradient(90deg,
-            var(--dirt-1) 0px, var(--dirt-1) 16px,
-            var(--dirt-2) 16px, var(--dirt-2) 32px,
-            var(--dirt-3) 32px, var(--dirt-3) 48px,
-            var(--dirt-4) 48px, var(--dirt-4) 64px
-        ),
-        repeating-linear-gradient(0deg,
-            var(--dirt-5) 0px, var(--dirt-5) 16px,
-            var(--dirt-1) 16px, var(--dirt-1) 32px,
-            var(--dirt-4) 32px, var(--dirt-4) 48px
-        );
-    background-size: 64px 100%, 100% 48px;
-    background-blend-mode: multiply;
+    background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAAEnQAABJ0Ad5mH3gAAAGsSURBVDhPrZFLT8JAEIbnDzTe9GZivHrxD/BqNCZe9WZM1ESjiaAgAgIiih6EClbZ7vYBSqGtlNJu+36zKw1BExOfZN7MzreTndkASf4TTC4rE6P+I1sS+8fWq81PcxkS22Kx+GvO4I43R5uDjX3BviR2cHyw2R80j0bM2o+P1+fHF+tXg9S9T78zN9vN+dHmQ2ZfEuu164+n2wH/eHn4eLkP7wI112Rj45084lCjBvJmZk9U2xV1A9ZpU+i5C7xI1A2r0x67L/70vE0FMg/Pz184b2v8g6A2Oq42Qy+eM8r04Wbj/J2H8sRz8N+uX1/fvv8xU7zWjD2+L6hJ/tC0I46Lww1YyO3Yl8T0kGnvP/mH1qN9SUxXk71/lWvHviSmx79B/n+wL4np+f/A/v//xL4kpqeq+g42N4B9SUxPV1N9l26m75G/xL4kpqen9z5sbgD7kpieE+l7sLk/sC+J6Xmyv/dgc39gXxLTk1+678Hm/sC+JKbn9/Q92Nwf2JfE9Jw3ug+b+wP7cjk/AQm8Z34tV5e/AAAAAElFTkSuQmCC');
+    background-size: 64px 64px;
     image-rendering: pixelated;
+}
+
+.loading-screen::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(ellipse at center, transparent 30%, rgba(0,0,0,0.85) 100%);
+    pointer-events: none;
+    z-index: 0;
 }
 
 .loading-screen.active {
     display: flex;
+}
+
+.loading-screen .loading-text,
+.loading-screen .loading-bar-container {
+    position: relative;
+    z-index: 1;
 }
 
 .loading-text {
@@ -1518,9 +1522,9 @@ body {
 .loading-bar {
     width: 100%;
     height: 22px;
-    background: #333333;
-    border: 3px solid;
-    border-color: #1a1a1a #555555 #555555 #1a1a1a;
+    background: #000000;
+    border: 4px solid;
+    border-color: #555555 #1a1a1a #1a1a1a #555555;
     position: relative;
     overflow: hidden;
 }
@@ -1529,6 +1533,83 @@ body {
     height: 100%;
     width: 0%;
     background: #5ab830;
-    box-shadow: inset 0 -3px 0 rgba(0,0,0,0.2), inset 0 2px 0 rgba(255,255,255,0.15);
-    transition: width 0.3s linear;
+    border-top: 4px solid #78d648;
+    border-bottom: 4px solid #3c7d1e;
+    box-sizing: border-box;
+    transition: width 0.8s ease-in-out;
+}
+
+/* --- GitHub Section Styles --- */
+.github-card {
+    background: var(--surface-low);
+    border: 4px solid;
+    border-color: #ffffff #555555 #555555 #ffffff;
+    padding: var(--sp-5);
+    margin-top: var(--sp-4);
+    box-shadow: 
+        inset calc(var(--pixel) * -1) calc(var(--pixel) * -1) 0 0 rgba(0,0,0,0.3),
+        inset var(--pixel) var(--pixel) 0 0 rgba(255,255,255,0.04);
+}
+
+.github-header {
+    display: flex;
+    align-items: center;
+    gap: var(--sp-4);
+    margin-bottom: var(--sp-5);
+}
+
+.gh-avatar {
+    width: 64px;
+    height: 64px;
+    border: 3px solid var(--primary);
+    box-shadow: 0 0 12px var(--glow);
+}
+
+.gh-info h3 {
+    font-family: 'Press Start 2P', monospace;
+    font-size: 10px;
+    color: var(--tertiary);
+    margin-bottom: var(--sp-2);
+}
+
+.gh-info p {
+    font-size: 12px;
+    color: var(--outline);
+    margin: 0;
+}
+
+.github-stats-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--sp-3);
+    border-top: 2px solid var(--outline-variant);
+    padding-top: var(--sp-4);
+}
+
+.gh-stat {
+    text-align: center;
+}
+
+.gh-stat-value {
+    display: block;
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 18px;
+    font-weight: 700;
+    color: var(--primary);
+}
+
+.gh-stat-label {
+    display: block;
+    font-family: 'Press Start 2P', monospace;
+    font-size: 6px;
+    color: var(--outline);
+    text-transform: uppercase;
+    margin-top: 4px;
+}
+
+@media (max-width: 640px) {
+    .github-header {
+        flex-direction: column;
+        text-align: center;
+    }
 }

@@ -66,6 +66,9 @@
                 githubLink.target = '_blank';
                 githubLink.textContent = 'GITHUB';
                 socialLinksContainer.appendChild(githubLink);
+                
+                // Cargar datos de GitHub API
+                loadGitHubData(memberData.github);
             }
             
             if (memberData.linkedin) {
@@ -154,6 +157,53 @@
         if (biomeLabel && memberData.biome && biomeNames[memberData.biome]) {
             biomeLabel.textContent = biomeNames[memberData.biome];
         }
+    }
+    
+    // Función para cargar datos desde la API de GitHub
+    function loadGitHubData(githubUrl) {
+        var githubSection = document.getElementById('githubSection');
+        if (!githubSection) return;
+        
+        // Extraer username de la URL (ej: https://github.com/dferram -> dferram)
+        var username = githubUrl.split('github.com/').pop().split('/')[0];
+        if (!username) return;
+        
+        // Mostrar la sección
+        githubSection.style.display = 'block';
+        
+        // Fetch a la API de GitHub
+        fetch('https://api.github.com/users/' + username)
+            .then(function(response) {
+                if (!response.ok) throw new Error('GitHub API Error');
+                return response.json();
+            })
+            .then(function(data) {
+                // Actualizar UI con datos reales
+                document.getElementById('githubAvatar').src = data.avatar_url;
+                document.getElementById('githubName').textContent = data.name || data.login;
+                document.getElementById('githubBio').textContent = data.bio || 'Sin biografía disponible.';
+                document.getElementById('ghRepos').textContent = data.public_repos;
+                document.getElementById('ghFollowers').textContent = data.followers;
+                document.getElementById('ghFollowing').textContent = data.following;
+                
+                // Cargar gráfico de contribuciones (usando un servicio externo gratuito)
+                var contributionsImg = document.getElementById('ghContributions');
+                if (contributionsImg) {
+                    // Usamos github-chart-api o similar
+                    contributionsImg.src = 'https://ghchart.rshah.org/4AEDD9/' + username;
+                }
+                
+                // Actualizar los stats de la cabecera (opcional, para que coincida con GitHub)
+                var statValues = document.querySelectorAll('.stat-value');
+                if (statValues.length >= 4) {
+                    // Solo como ejemplo, podríamos mapear algunos datos
+                    // statValues[2].textContent = data.public_repos; // En lugar de commits
+                }
+            })
+            .catch(function(err) {
+                console.error('Error cargando GitHub:', err);
+                document.getElementById('githubName').textContent = 'Error al cargar';
+            });
     }
     
     // Esperar a que el DOM y todos los scripts estén listos

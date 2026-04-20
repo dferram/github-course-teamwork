@@ -9,6 +9,16 @@
     automaticamente a partir de los datos que pongas aqui.
 
     =====================================================================
+    COMO AGREGAR MI PERFIL? (SOLO 1 PASO)
+    =====================================================================
+
+    Para aparecer en la galeria y tener tu propia pagina, SOLO debes 
+    agregar tu objeto personal al final del array 'team' mas abajo.
+
+    ¡NO NECESITAS EDITAR NADA EN LA CARPETA PAGES NI EN EL CSS!
+    El sistema (profile-loader.js) se encarga de todo.
+
+    =====================================================================
     REGLAS PARA EVITAR MERGE CONFLICTS:
     =====================================================================
 
@@ -47,7 +57,10 @@
                                Ejemplo: "5555555555555555115555111615516116655661..."
                                Tambien puedes usar un preset: "steve", "alex", etc.
 
-    github     (OBLIGATORIO) — URL de tu perfil de GitHub
+    github     (OBLIGATORIO) — URL de tu perfil de GitHub.
+                               IMPORTANTE: Al poner tu link de GitHub, el sistema 
+                               traera AUTOMATICAMENTE tus stats, bio y muro de 
+                               contribuciones desde la API oficial.
                                Ejemplo: "https://github.com/juanperez"
 
     about      (OBLIGATORIO) — Un parrafo sobre ti (puede ser largo)
@@ -58,6 +71,10 @@
 
     randomFact (OBLIGATORIO) — Un dato curioso o divertido sobre ti
                                Ejemplo: "Puedo resolver un cubo Rubik en 2 min"
+
+    biome      (OPCIONAL)    — El fondo de tu pagina. 
+                               Opciones: "forest", "desert", "jungle", "taiga", 
+                               "plains", "nether", "end".
 
     =====================================================================
     RECORDATORIO: NO OLVIDES LA COMA AL FINAL DE TU OBJETO
@@ -102,7 +119,8 @@ var team = [
     //     github: "https://github.com/tu-usuario",
     //     about: "Escribe un parrafo sobre ti.",
     //     skills: ["Skill1", "Skill2", "Skill3"],
-    //     randomFact: "Un dato curioso sobre ti"
+    //     randomFact: "Un dato curioso sobre ti",
+    //     biome: "forest"
     // },
     //
     // NO BORRES ESTE COMENTARIO — dejalo para tus companeros

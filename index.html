@@ -151,13 +151,13 @@
                     clearInterval(interval);
                     setTimeout(function() {
                         window.location.href = targetUrl;
-                    }, 400);
+                    }, 1000);
                     return;
                 }
                 fill.style.width = stages[i].pct + '%';
                 if (label) label.textContent = stages[i].label;
                 i++;
-            }, 350);
+            }, 800);
         }
     </script>
 
