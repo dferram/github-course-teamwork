@@ -82,7 +82,8 @@ var team = [
         github: "https://github.com/dferram",
         about: "Soy estudiante de ingeniería de Software en la UAQ, miembro de Centro de Desarrollo y del equipo de basketball de la facultad",
         skills: ["Git", "GitHub", "HTML", "CSS", "JavaScript"],
-        randomFact: "Mi deporte favorito es la F1 y mi piloto favorito es Checo Pérez"
+        randomFact: "Mi deporte favorito es la F1 y mi piloto favorito es Checo Pérez",
+        biome: "forest"
     },
 
     // =====================================================================

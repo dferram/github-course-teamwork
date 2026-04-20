@@ -157,22 +157,9 @@ var BiomeEngine = (function() {
         });
     }
 
-    // Parallax effect on biome background
+    // Parallax disabled — fixed background stays in place
     function setupParallax() {
-        var bgEl = document.querySelector('.biome-background');
-        if (!bgEl) return;
-
-        var ticking = false;
-        window.addEventListener('scroll', function() {
-            if (!ticking) {
-                window.requestAnimationFrame(function() {
-                    var scrollY = window.pageYOffset;
-                    bgEl.style.transform = 'translateY(' + (scrollY * 0.3) + 'px)';
-                    ticking = false;
-                });
-                ticking = true;
-            }
-        });
+        // No-op: removed to keep background stable on scroll
     }
 
     // Public API

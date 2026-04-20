@@ -47,8 +47,18 @@
         github: "https://github.com/juanperez",
         about: "Soy estudiante de ingenieria...",
         skills: ["HTML", "CSS", "JavaScript", "Python", "Git"],
-        randomFact: "Puedo resolver un cubo Rubik en 2 minutos"
+        randomFact: "Puedo resolver un cubo Rubik en 2 minutos",
+        biome: "forest"
     },
+
+    BIOMAS DISPONIBLES:
+        "forest"  — Bosque (default)
+        "desert"  — Desierto
+        "jungle"  — Selva tropical
+        "taiga"   — Taiga / Invierno
+        "plains"  — Praderas / Otono
+        "nether"  — El Nether
+        "end"     — The End
 
     =====================================================================
     ERRORES COMUNES:
@@ -75,7 +85,7 @@
 </head>
 <body>
 
-    <!-- Biome Background (decorativo — no tocar) -->
+    <!-- Biome Background — se aplica automaticamente desde team.js -->
     <div class="biome-background" id="biomeBackground"></div>
 
     <!-- Scanline overlay -->
@@ -84,16 +94,7 @@
     <!-- Top Bar -->
     <header class="top-bar">
         <a href="../dashboard.html" class="back-menu-btn">&lt; GALERIA</a>
-        <div class="biome-selector">
-            <span class="biome-label">BIOMA:</span>
-            <button class="biome-btn" data-biome="forest"></button>
-            <button class="biome-btn" data-biome="desert"></button>
-            <button class="biome-btn" data-biome="jungle"></button>
-            <button class="biome-btn" data-biome="taiga"></button>
-            <button class="biome-btn" data-biome="plains"></button>
-            <button class="biome-btn" data-biome="nether"></button>
-            <button class="biome-btn" data-biome="end"></button>
-        </div>
+        <span class="top-bar-logo" id="profileBiomeName"></span>
     </header>
 
     <div class="dashboard-container">
@@ -176,7 +177,6 @@
     <script src="../js/avatars.js?v=3"></script>
     <script src="../js/team.js?v=3"></script>
     <script src="../js/profile-loader.js?v=3"></script>
-    <script src="../js/biome-engine.js?v=3"></script>
 
 </body>
 </html>

@@ -11,7 +11,7 @@
 <body>
 
     <!-- ============================================
-         BIOME BACKGROUND — Dynamic landscape layer
+         BIOME BACKGROUND — Fixed forest biome
          ============================================ -->
     <div class="biome-background" id="biomeBackground"></div>
 
@@ -19,7 +19,7 @@
     <div class="scanlines"></div>
 
     <!-- ============================================
-         TOP APP BAR
+         TOP APP BAR (sin biome selector)
          ============================================ -->
     <header class="top-bar" id="topBar">
         <a href="index.html" class="back-menu-btn" id="btnBackMenu">&lt; MENU</a>
@@ -29,16 +29,6 @@
             <a href="#instrucciones" id="navInstructions">INSTRUCCIONES</a>
             <a href="#recursos" id="navResources">RECURSOS</a>
         </nav>
-        <div class="biome-selector" id="biomeSelector">
-            <span class="biome-label">BIOMA:</span>
-            <button class="biome-btn active" data-biome="forest" title="Bosque"></button>
-            <button class="biome-btn" data-biome="desert" title="Desierto"></button>
-            <button class="biome-btn" data-biome="jungle" title="Selva"></button>
-            <button class="biome-btn" data-biome="taiga" title="Taiga"></button>
-            <button class="biome-btn" data-biome="plains" title="Praderas"></button>
-            <button class="biome-btn" data-biome="nether" title="Nether"></button>
-            <button class="biome-btn" data-biome="end" title="The End"></button>
-        </div>
     </header>
 
     <!-- ============================================
@@ -82,7 +72,7 @@
 
         <!-- ========== XP BAR ========== -->
         <div class="xp-bar-container block-reveal" id="xpBarSection">
-            <div class="xp-label">PROGRESO DEL EQUIPO — <span class="biome-current-name">🌲 Bosque de Primavera</span></div>
+            <div class="xp-label">PROGRESO DEL EQUIPO</div>
             <div class="xp-bar">
                 <div class="xp-fill" id="xpFill" style="width: 0%;"></div>
             </div>
@@ -110,8 +100,8 @@
         <section class="instructions block-reveal" id="instrucciones">
             <h2 class="section-title">INSTRUCCIONES</h2>
             <p class="section-subtitle">
-                Sigue estos 10 pasos para unirte al proyecto. Lee con cuidado cada paso
-                antes de continuar al siguiente.
+                Sigue estos 10 pasos para unirte al proyecto. Todos trabajan
+                sobre el mismo repositorio — cada quien en su propio branch.
             </p>
 
             <div class="steps" id="stepsContainer">
@@ -120,16 +110,17 @@
                 <div class="step block-child">
                     <div class="step-number">01</div>
                     <div class="step-content">
-                        <h3>FORK DEL REPOSITORIO</h3>
+                        <h3>CLONA EL REPOSITORIO</h3>
                         <p>
-                            Ve al repositorio original en GitHub y haz clic en el botón
-                            <strong>Fork</strong> (esquina superior derecha). Esto crea
-                            una copia del repo en TU cuenta de GitHub.
+                            El instructor te dará acceso al repositorio en GitHub.
+                            Una vez que tengas acceso, clónalo a tu computadora:
                         </p>
+                        <code class="code-block">git clone https://github.com/USUARIO/Teamwork.git
+cd Teamwork</code>
                         <div class="tip-box">
                             <span class="box-label">TIP:</span>
-                            Un fork es tu copia personal — ahí puedes experimentar sin
-                            afectar al proyecto original.
+                            Todos trabajan sobre el MISMO repositorio. No es necesario
+                            hacer fork — solo clonar directamente.
                         </div>
                     </div>
                 </div>
@@ -138,24 +129,9 @@
                 <div class="step block-child">
                     <div class="step-number">02</div>
                     <div class="step-content">
-                        <h3>CLONA TU FORK</h3>
-                        <p>
-                            Clona tu fork a tu computadora con el comando:
-                        </p>
-                        <code class="code-block">git clone https://github.com/TU-USUARIO/Teamwork.git</code>
-                        <p style="margin-top: 8px;">
-                            Esto descarga todos los archivos del repositorio a tu máquina local.
-                        </p>
-                    </div>
-                </div>
-
-                <!-- PASO 3 -->
-                <div class="step block-child">
-                    <div class="step-number">03</div>
-                    <div class="step-content">
                         <h3>CREA TU BRANCH</h3>
                         <p>
-                            Crea una rama nueva con el formato correcto:
+                            Antes de hacer cambios, crea una rama nueva con el formato:
                         </p>
                         <code class="code-block">git checkout -b feature/pagina-nombre-apellido</code>
                         <div class="warning-box">
@@ -163,18 +139,23 @@
                             Usa minúsculas, guiones en vez de espacios, sin acentos.
                             Ejemplo: <code>feature/pagina-juan-perez</code>
                         </div>
+                        <div class="tip-box">
+                            <span class="box-label">TIP:</span>
+                            Tu branch es tu espacio de trabajo personal. Puedes hacer todos
+                            los commits que quieras sin afectar a los demás.
+                        </div>
                     </div>
                 </div>
 
-                <!-- PASO 4 -->
+                <!-- PASO 3 -->
                 <div class="step block-child">
-                    <div class="step-number">04</div>
+                    <div class="step-number">03</div>
                     <div class="step-content">
                         <h3>CREA TU AVATAR</h3>
                         <p>
                             Abre <code>avatar-builder.html</code> en tu navegador o haz clic en
-                            "CREA TU AVATAR" arriba. Diseña tu skin y copia el
-                            código de 64 caracteres.
+                            "CREA TU AVATAR" arriba. Diseña tu skin pixel-art y copia el
+                            código de 64 caracteres que genera.
                         </p>
                         <div class="tip-box">
                             <span class="box-label">TIP:</span>
@@ -183,16 +164,15 @@
                     </div>
                 </div>
 
-                <!-- PASO 5 -->
+                <!-- PASO 4 -->
                 <div class="step block-child">
-                    <div class="step-number">05</div>
+                    <div class="step-number">04</div>
                     <div class="step-content">
                         <h3>EDITA TEAM.JS</h3>
                         <p>
                             Abre <code>js/team.js</code> y busca el comentario
                             "AGREGA TU LINEA AQUI ABAJO". Copia el template y llena
-                            todos los campos con tus datos.<br>
-                            <strong>No olvides la coma al final.</strong>
+                            todos los campos con tus datos.
                         </p>
                         <code class="code-block">{
     name: "Tu Nombre",
@@ -202,8 +182,36 @@
     github: "https://github.com/tu-user",
     about: "Un parrafo sobre ti.",
     skills: ["Skill1", "Skill2", "Skill3"],
-    randomFact: "Dato curioso"
+    randomFact: "Dato curioso",
+    biome: "forest"
 },</code>
+                        <div class="warning-box">
+                            <span class="box-label">IMPORTANTE:</span>
+                            NO olvides la coma al final del objeto. Sin ella,
+                            el código falla para TODOS.
+                        </div>
+                    </div>
+                </div>
+
+                <!-- PASO 5 -->
+                <div class="step block-child">
+                    <div class="step-number">05</div>
+                    <div class="step-content">
+                        <h3>CREA TU PAGINA PERSONAL</h3>
+                        <p>
+                            Copia el archivo <code>pages/_plantilla.html</code> y renómbralo 
+                            con tu nombre. Ejemplo: <code>pages/juan-perez.html</code>.
+                        </p>
+                        <div class="warning-box">
+                            <span class="box-label">IMPORTANTE:</span>
+                            El nombre del archivo DEBE coincidir EXACTAMENTE con el campo
+                            <code>page</code> que pusiste en <code>team.js</code>.
+                        </div>
+                        <div class="tip-box">
+                            <span class="box-label">TIP:</span>
+                            No necesitas editar nada dentro del HTML — todo se carga
+                            automáticamente desde team.js.
+                        </div>
                     </div>
                 </div>
 
@@ -211,16 +219,18 @@
                 <div class="step block-child">
                     <div class="step-number">06</div>
                     <div class="step-content">
-                        <h3>CREA TU PAGINA PERSONAL</h3>
+                        <h3>(OPCIONAL) ELIGE TU BIOMA</h3>
                         <p>
-                            Copia el archivo <code>pages/_plantilla.html</code> y renómbralo.
-                            Ejemplo: <code>pages/juan-perez.html</code>.
+                            En tu objeto de <code>team.js</code>, el campo <code>biome</code>
+                            define el fondo de tu página personal. Las opciones son:
                         </p>
-                        <div class="warning-box">
-                            <span class="box-label">IMPORTANTE:</span>
-                            El nombre del archivo DEBE coincidir EXACTAMENTE con el campo
-                            <code>page</code> que pusiste en <code>team.js</code>.
-                        </div>
+                        <code class="code-block">biome: "forest"   // Bosque (default)
+biome: "desert"   // Desierto
+biome: "jungle"   // Selva tropical
+biome: "taiga"    // Taiga / Invierno
+biome: "plains"   // Praderas / Otoño
+biome: "nether"   // El Nether
+biome: "end"      // The End</code>
                     </div>
                 </div>
 
@@ -231,13 +241,14 @@
                         <h3>VERIFICA EN TU NAVEGADOR</h3>
                         <p>
                             Abre <code>dashboard.html</code> en tu navegador y verifica que
-                            tu tarjeta aparece en la galería y tu página de perfil
-                            carga correctamente.
+                            tu tarjeta aparece en la galería. Luego abre tu página
+                            personal y revisa que todos tus datos se muestran correctamente.
                         </p>
                         <div class="tip-box">
                             <span class="box-label">TIP:</span>
                             Si ves "datos no encontrados", revisa que el campo
-                            <code>page</code> coincida exactamente con tu archivo HTML.
+                            <code>page</code> en team.js coincida exactamente con
+                            el nombre de tu archivo HTML.
                         </div>
                     </div>
                 </div>
@@ -264,11 +275,16 @@ git commit -m "feat: agregar pagina de Juan Perez"</code>
                 <div class="step block-child">
                     <div class="step-number">09</div>
                     <div class="step-content">
-                        <h3>PUSH A TU FORK</h3>
+                        <h3>PUSH TU BRANCH</h3>
                         <p>
-                            Sube tus cambios a tu fork en GitHub:
+                            Sube tu branch al repositorio en GitHub:
                         </p>
                         <code class="code-block">git push origin feature/pagina-nombre-apellido</code>
+                        <div class="tip-box">
+                            <span class="box-label">TIP:</span>
+                            Si es la primera vez que subes tu branch, Git te pedirá
+                            que la crees en el remoto. Solo confirma y listo.
+                        </div>
                     </div>
                 </div>
 
@@ -278,14 +294,15 @@ git commit -m "feat: agregar pagina de Juan Perez"</code>
                     <div class="step-content">
                         <h3>CREA TU PULL REQUEST</h3>
                         <p>
-                            Ve a TU fork en GitHub. Verás un botón
-                            <strong>"Compare & pull request"</strong>. Haz clic y envía tu
-                            PR al repositorio original.
+                            Ve al repositorio en GitHub. Verás un banner con tu branch
+                            reciente y un botón <strong>"Compare &amp; pull request"</strong>.
+                            Haz clic y envía tu PR para que el instructor lo revise.
                         </p>
                         <div class="tip-box">
                             <span class="box-label">TIP:</span>
-                            Agrega un título claro como "feat: agregar página de Juan Pérez"
-                            y una descripción breve de lo que hiciste.
+                            Agrega un título como "feat: agregar página de Juan Pérez"
+                            y una descripción breve de lo que hiciste. Espera la
+                            aprobación antes de mergear.
                         </div>
                     </div>
                 </div>
@@ -318,7 +335,7 @@ git commit -m "feat: agregar pagina de Juan Perez"</code>
                         <h3>GITHUB DOCS</h3>
                         <p>
                             Documentación oficial de GitHub. Aprende sobre pull requests,
-                            issues, forks y más.
+                            issues y más.
                         </p>
                         <p><a href="https://docs.github.com" target="_blank" style="color: var(--primary); text-decoration: none;">docs.github.com →</a></p>
                     </div>
@@ -329,7 +346,7 @@ git commit -m "feat: agregar pagina de Juan Perez"</code>
                         <h3>LEARN GIT BRANCHING</h3>
                         <p>
                             Tutorial interactivo visual para aprender branching y merging
-                            de manera práctica.
+                            de manera práctica y divertida.
                         </p>
                         <p><a href="https://learngitbranching.js.org/" target="_blank" style="color: var(--primary); text-decoration: none;">learngitbranching.js.org →</a></p>
                     </div>
@@ -490,7 +507,6 @@ git commit -m "feat: agregar pagina de Juan Perez"</code>
             function animateXPBar() {
                 var xpFill = document.getElementById('xpFill');
                 if (!xpFill) return;
-                // Calculate percentage based on team members (max 30)
                 var pct = Math.min((team.length / 30) * 100, 100);
                 setTimeout(function() {
                     xpFill.style.width = pct + '%';
@@ -511,11 +527,9 @@ git commit -m "feat: agregar pagina de Juan Perez"</code>
                 var observer = new IntersectionObserver(function(entries) {
                     entries.forEach(function(entry) {
                         if (entry.isIntersecting) {
-                            // Remove active from all
                             Object.keys(links).forEach(function(key) {
                                 if (links[key]) links[key].classList.remove('active');
                             });
-                            // Add active to current
                             if (links[entry.target.id]) {
                                 links[entry.target.id].classList.add('active');
                             }
@@ -543,7 +557,7 @@ git commit -m "feat: agregar pagina de Juan Perez"</code>
                 });
             }
 
-            // Init everything when DOM is ready
+            // Init
             function init() {
                 if (typeof renderAvatar !== 'function' || typeof team === 'undefined') {
                     setTimeout(init, 50);

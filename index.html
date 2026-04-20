@@ -11,6 +11,19 @@
 <body>
 
     <!-- ============================================
+         LOADING SCREEN — Minecraft World Generation
+         ============================================ -->
+    <div class="loading-screen" id="loadingScreen">
+        <div class="loading-text" id="loadingText">Generating world</div>
+        <div class="loading-bar-container">
+            <span class="loading-bar-label" id="loadingLabel">Building terrain</span>
+            <div class="loading-bar">
+                <div class="loading-bar-fill" id="loadingBarFill"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ============================================
          TITLE SCREEN — Minecraft Menu Clone
          ============================================ -->
     <div class="title-screen" id="titleScreen">
@@ -24,7 +37,7 @@
         <!-- Logo -->
         <div class="mc-logo-container">
             <span class="mc-logo">TEAMWORK</span>
-            <span class="mc-logo-sub">GIT & GITHUB EDITION</span>
+            <span class="mc-logo-sub">GIT &amp; GITHUB EDITION</span>
         </div>
 
         <!-- Splash Text -->
@@ -32,20 +45,20 @@
 
         <!-- Menu Buttons -->
         <div class="mc-menu">
-            <a href="dashboard.html" class="mc-button" id="btnGallery">
+            <button class="mc-button" id="btnGallery" onclick="showLoadingScreen('dashboard.html')">
                 GALERIA DEL EQUIPO
-            </a>
-            <a href="dashboard.html#instrucciones" class="mc-button" id="btnInstructions">
+            </button>
+            <button class="mc-button" id="btnInstructions" onclick="showLoadingScreen('dashboard.html#instrucciones')">
                 INSTRUCCIONES
-            </a>
+            </button>
             <a href="avatar-builder.html" class="mc-button" id="btnAvatar">
                 CREAR TU AVATAR
             </a>
 
             <div class="mc-button-row">
-                <a href="dashboard.html#recursos" class="mc-button mc-button-half" id="btnResources">
+                <button class="mc-button mc-button-half" id="btnResources" onclick="showLoadingScreen('dashboard.html#recursos')">
                     Recursos...
-                </a>
+                </button>
                 <a href="https://github.com" target="_blank" class="mc-button mc-button-half" id="btnGithub">
                     GitHub
                 </a>
@@ -55,7 +68,7 @@
         <!-- Version & Copyright -->
         <div class="mc-version">Teamwork v1.0</div>
         <div class="mc-copyright">
-            Curso de Git & GitHub // 2026<br>
+            Curso de Git &amp; GitHub // 2026<br>
             No distribuir sin permiso del instructor
         </div>
 
@@ -95,18 +108,57 @@
             }
         })();
 
-        // Button press sound simulation (visual feedback)
+        // Button press 8-bit tactile feedback
         document.querySelectorAll('.mc-button').forEach(function(btn) {
             btn.addEventListener('mousedown', function() {
-                this.style.transform = 'translateY(3px)';
+                this.classList.add('mc-button-pressed');
             });
             btn.addEventListener('mouseup', function() {
-                this.style.transform = '';
+                this.classList.remove('mc-button-pressed');
             });
             btn.addEventListener('mouseleave', function() {
-                this.style.transform = '';
+                this.classList.remove('mc-button-pressed');
             });
         });
+
+        // Loading screen — Minecraft world generation animation
+        function showLoadingScreen(targetUrl) {
+            var screen = document.getElementById('loadingScreen');
+            var fill = document.getElementById('loadingBarFill');
+            var label = document.getElementById('loadingLabel');
+            var text = document.getElementById('loadingText');
+
+            if (!screen || !fill) {
+                window.location.href = targetUrl;
+                return;
+            }
+
+            screen.classList.add('active');
+
+            var stages = [
+                { pct: 14, label: 'Building terrain' },
+                { pct: 30, label: 'Preparing spawn area' },
+                { pct: 48, label: 'Loading team data' },
+                { pct: 64, label: 'Placing blocks' },
+                { pct: 80, label: 'Spawning players' },
+                { pct: 93, label: 'Almost done' },
+                { pct: 100, label: 'Done!' }
+            ];
+
+            var i = 0;
+            var interval = setInterval(function() {
+                if (i >= stages.length) {
+                    clearInterval(interval);
+                    setTimeout(function() {
+                        window.location.href = targetUrl;
+                    }, 400);
+                    return;
+                }
+                fill.style.width = stages[i].pct + '%';
+                if (label) label.textContent = stages[i].label;
+                i++;
+            }, 350);
+        }
     </script>
 
 </body>

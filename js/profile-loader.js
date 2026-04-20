@@ -134,6 +134,26 @@
             }
             renderAvatar(avatarCanvas, memberData.avatar, 96, customColors);
         }
+        
+        // Aplicar bioma desde team.js (si existe el campo)
+        if (memberData.biome) {
+            document.body.setAttribute('data-biome', memberData.biome);
+        }
+        
+        // Mostrar nombre del bioma en el top bar
+        var biomeNames = {
+            forest: '🌲 Bosque',
+            desert: '🏜️ Desierto',
+            jungle: '🌴 Selva',
+            taiga: '❄️ Taiga',
+            plains: '🎃 Praderas',
+            nether: '🔥 Nether',
+            end: '🐉 The End'
+        };
+        var biomeLabel = document.getElementById('profileBiomeName');
+        if (biomeLabel && memberData.biome && biomeNames[memberData.biome]) {
+            biomeLabel.textContent = biomeNames[memberData.biome];
+        }
     }
     
     // Esperar a que el DOM y todos los scripts estén listos
