@@ -60,7 +60,7 @@
         <!-- INSTRUCCIONES -->
         <section id="instrucciones" class="instructions">
             <h2 class="section-title">INSTRUCCIONES</h2>
-            <p class="section-subtitle">Sigue estos pasos para agregar tu pagina a la galeria.</p>
+            <p class="section-subtitle">Sigue estos pasos para agregar tu pagina a la galeria. Lee el README.md para instrucciones detalladas.</p>
 
             <div class="steps">
 
@@ -70,11 +70,11 @@
                     <div class="step-content">
                         <h3>CLONAR EL REPOSITORIO</h3>
                         <p>Abre tu terminal y clona el repositorio del curso:</p>
-                        <div class="code-block">git clone https://github.com/USUARIO/Teamwork.git
+                        <div class="code-block">git clone &lt;URL_DEL_REPOSITORIO&gt;
 cd Teamwork</div>
                         <div class="tip-box">
                             <span class="box-label">[TIP]</span>
-                            <span>Cambia <code>USUARIO</code> por el nombre del repositorio que te de tu instructor.</span>
+                            <span>Tu instructor te dara la URL del repositorio.</span>
                         </div>
                     </div>
                 </div>
@@ -83,8 +83,8 @@ cd Teamwork</div>
                 <div class="step">
                     <div class="step-number">2</div>
                     <div class="step-content">
-                        <h3>CREAR UNA RAMA NUEVA</h3>
-                        <p>Crea una rama con tu nombre para trabajar sin afectar <code>main</code>:</p>
+                        <h3>CREAR TU RAMA</h3>
+                        <p>Crea una rama con tu nombre (minusculas, con guiones). NUNCA trabajes en <code>main</code>:</p>
                         <div class="code-block">git checkout -b nombre-apellido</div>
                         <div class="tip-box">
                             <span class="box-label">[TIP]</span>
@@ -97,16 +97,20 @@ cd Teamwork</div>
                 <div class="step">
                     <div class="step-number">3</div>
                     <div class="step-content">
-                        <h3>CREAR TU PAGINA HTML</h3>
-                        <p>Copia la plantilla y renombrala con tu nombre:</p>
-                        <div class="code-block">cp _plantilla.html nombre-apellido.html</div>
-                        <p style="margin-top: 10px;">
-                            Abre tu archivo y personalizalo: cambia el titulo, escribe
-                            sobre ti, agrega tus redes. Se creativo.
-                        </p>
+                        <h3>COPIAR LA PLANTILLA HTML</h3>
+                        <p>Copia la plantilla y renombrala con tu nombre. NO edites el contenido del HTML:</p>
+                        <div class="code-block">Copy-Item pages\_plantilla.html pages\nombre-apellido.html</div>
+                        <div class="warning-box">
+                            <span class="box-label">[!]</span>
+                            <span>
+                                NO escribas tu nombre, avatar ni skills en el HTML.
+                                Todo se carga automaticamente desde <code>team.js</code>.
+                                Solo necesitas que el archivo exista con el nombre correcto.
+                            </span>
+                        </div>
                         <div class="tip-box">
                             <span class="box-label">[TIP]</span>
-                            <span>Revisa <code>FernandoRamirez.html</code> para ver como se ve una pagina terminada.</span>
+                            <span>En Mac/Linux usa: <code>cp pages/_plantilla.html pages/nombre-apellido.html</code></span>
                         </div>
                     </div>
                 </div>
@@ -118,13 +122,12 @@ cd Teamwork</div>
                         <h3>CREAR TU AVATAR 8-BIT</h3>
                         <p>
                             Abre <code>avatar-builder.html</code> en tu navegador.
-                            Puedes elegir un preset (spiderman, wizard, ninja, zombie...)
-                            o dibujar tu propio personaje pixel por pixel.
-                            Personaliza los colores primario y secundario.
+                            Elige un preset de la galeria o dibuja tu propio avatar pixel por pixel.
+                            Cuando termines, haz clic en COPIAR para obtener el codigo.
                         </p>
                         <div class="tip-box">
                             <span class="box-label">[TIP]</span>
-                            <span>Los avatares son solo cabezas (8 filas superiores). Si usas un preset, solo copia su nombre. Si dibujas uno, el builder genera el código automáticamente.</span>
+                            <span>Guarda el codigo en un bloc de notas por si lo necesitas despues. El codigo se ve asi: <code>555555555555555511555511...</code></span>
                         </div>
                     </div>
                 </div>
@@ -133,26 +136,26 @@ cd Teamwork</div>
                 <div class="step">
                     <div class="step-number">5</div>
                     <div class="step-content">
-                        <h3>REGISTRAR TU PAGINA EN LA GALERIA</h3>
+                        <h3>REGISTRAR TUS DATOS EN TEAM.JS</h3>
                         <p>
-                            Abre el archivo <code>team.js</code> y agrega
-                            UNA linea con TUS datos dentro del array, debajo del comentario "AGREGA TU LINEA AQUI ABAJO":
+                            Abre <code>js/team.js</code>, busca el comentario
+                            <strong>"AGREGA TU LINEA AQUI ABAJO"</strong> y agrega
+                            tu objeto con TODOS tus datos:
                         </p>
-                        <div class="code-block">{ name: "Tu Nombre", page: "nombre-apellido.html", desc: "Tu frase", avatar: "spiderman", colors: "#e74c3c,#1a1a2e" },</div>
+                        <div class="code-block">{ name: "Tu Nombre", page: "pages/nombre-apellido.html", tagline: "Tu frase", avatar: "TU_CODIGO", github: "https://github.com/tu-usuario", about: "Sobre ti", skills: ["HTML", "CSS"], randomFact: "Dato curioso" },</div>
                         <p style="margin-top: 10px;">
-                            <strong>¿Cómo sé que estoy editando MI avatar?</strong><br>
-                            - Busca tu nombre en el array. Si NO estás, agrega una NUEVA línea.<br>
-                            - Si YA estás, edita SOLO tu línea (la que tiene tu nombre).<br>
-                            - NO modifiques las líneas de otros estudiantes.<br>
-                            - Cada línea es independiente = cada estudiante tiene su propio avatar.
+                            <strong>Reglas para evitar merge conflicts:</strong><br>
+                            - Edita SOLO tu linea, nunca toques las de otros.<br>
+                            - Agrega tu objeto al final, debajo del comentario guia.<br>
+                            - NO borres el comentario "AGREGA TU LINEA AQUI ABAJO".<br>
+                            - Verifica que tu objeto termine con <code>},</code> (coma obligatoria).
                         </p>
                         <div class="warning-box">
                             <span class="box-label">[!]</span>
                             <span>
-                                Varios alumnos editan este mismo archivo. Si hay un
-                                <strong>merge conflict</strong>, es normal.
-                                Solo necesitas conservar tu linea y las de tus
-                                companeros. Ver paso 8.
+                                El campo <code>page</code> debe coincidir EXACTAMENTE
+                                con el nombre de tu archivo HTML del paso 3.
+                                Si no coincide, tu pagina aparecera en blanco.
                             </span>
                         </div>
                     </div>
@@ -162,11 +165,12 @@ cd Teamwork</div>
                 <div class="step">
                     <div class="step-number">6</div>
                     <div class="step-content">
-                        <h3>COMMIT Y PUSH</h3>
-                        <p>Guarda tus cambios y subelos al repositorio:</p>
-                        <div class="code-block">git add .
-git commit -m "Agregar pagina de nombre-apellido"
-git push origin nombre-apellido</div>
+                        <h3>VERIFICAR LOCALMENTE</h3>
+                        <p>Abre <code>index.html</code> con Live Server o un servidor local y verifica que tu tarjeta aparezca en la galeria y tu pagina cargue bien.</p>
+                        <div class="tip-box">
+                            <span class="box-label">[TIP]</span>
+                            <span>Si algo no funciona, abre la consola (F12) y revisa los errores. El problema mas comun es una coma faltante en <code>team.js</code>.</span>
+                        </div>
                     </div>
                 </div>
 
@@ -174,13 +178,11 @@ git push origin nombre-apellido</div>
                 <div class="step">
                     <div class="step-number">7</div>
                     <div class="step-content">
-                        <h3>CREAR UN PULL REQUEST</h3>
-                        <p>
-                            Ve al repositorio en GitHub. Veras un banner para crear
-                            un Pull Request de tu rama. Haz clic en
-                            <strong>"Compare & pull request"</strong>,
-                            escribe un titulo descriptivo y crealo.
-                        </p>
+                        <h3>COMMIT Y PUSH</h3>
+                        <p>Guarda tus cambios y subelos a GitHub:</p>
+                        <div class="code-block">git add .
+git commit -m "Agregar pagina de nombre-apellido"
+git push origin nombre-apellido</div>
                     </div>
                 </div>
 
@@ -188,21 +190,13 @@ git push origin nombre-apellido</div>
                 <div class="step">
                     <div class="step-number">8</div>
                     <div class="step-content">
-                        <h3>RESOLVER MERGE CONFLICTS</h3>
-                        <p>Si GitHub indica conflictos al hacer merge, actualiza tu rama:</p>
-                        <div class="code-block">git checkout main
-git pull origin main
-git checkout nombre-apellido
-git merge main</div>
-                        <p style="margin-top: 10px;">
-                            Abre los archivos con conflictos (probablemente
-                            <code>team.js</code>), resuelvelos conservando todas
-                            las lineas de tus companeros y la tuya, y sube
-                            los cambios:
+                        <h3>CREAR UN PULL REQUEST</h3>
+                        <p>
+                            Ve al repositorio en GitHub. Veras un banner amarillo para crear
+                            un Pull Request. Haz clic en
+                            <strong>"Compare & pull request"</strong>,
+                            escribe un titulo descriptivo y crealo.
                         </p>
-                        <div class="code-block">git add .
-git commit -m "Resolver merge conflicts"
-git push origin nombre-apellido</div>
                     </div>
                 </div>
 
@@ -210,12 +204,35 @@ git push origin nombre-apellido</div>
                 <div class="step">
                     <div class="step-number">9</div>
                     <div class="step-content">
+                        <h3>RESOLVER MERGE CONFLICTS (SI LOS HAY)</h3>
+                        <p>Si GitHub indica conflictos, actualiza tu rama:</p>
+                        <div class="code-block">git checkout main
+git pull origin main
+git checkout nombre-apellido
+git merge main</div>
+                        <p style="margin-top: 10px;">
+                            Abre <code>team.js</code>, busca las marcas
+                            <code>&lt;&lt;&lt;&lt;&lt;&lt;&lt;</code>, <code>=======</code> y
+                            <code>&gt;&gt;&gt;&gt;&gt;&gt;&gt;</code>.
+                            Borra esas 3 lineas y conserva AMBOS bloques de codigo
+                            (tu linea y la de tu companero):
+                        </p>
+                        <div class="code-block">git add .
+git commit -m "Resolver merge conflicts"
+git push origin nombre-apellido</div>
+                    </div>
+                </div>
+
+                <!-- Paso 10 -->
+                <div class="step">
+                    <div class="step-number">10</div>
+                    <div class="step-content">
                         <h3>MISION COMPLETA</h3>
                         <p>
-                            Una vez que tu Pull Request sea aprobado y mergeado,
+                            Una vez que tu PR sea aprobado y mergeado,
                             tu pagina aparecera en la galeria del equipo
                             automaticamente. Acabas de colaborar en un
-                            proyecto real.
+                            proyecto real con Git.
                         </p>
                     </div>
                 </div>
