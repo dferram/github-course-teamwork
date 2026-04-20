@@ -3,7 +3,7 @@
    Design System from Stitch MCP
    ============================================ */
 
-@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Space+Grotesk:wght@400;500;600;700&family=Manrope:wght@400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
 
 /* ===========================================
    CSS RESET
@@ -73,6 +73,15 @@
     --dirt-5: #4a3019;
 }
 
+body[data-biome="forest"] { --biome-bg: url('../assets/biomes/forest.png'); --primary: #FFFF55; }
+body[data-biome="desert"] { --biome-bg: url('../assets/biomes/desert.png'); --primary: #f2cb05; }
+body[data-biome="jungle"] { --biome-bg: url('../assets/biomes/jungle.png'); --primary: #55FF55; }
+body[data-biome="taiga"] { --biome-bg: url('../assets/biomes/taiga.png'); --primary: #55FFFF; }
+body[data-biome="plains"] { --biome-bg: url('../assets/biomes/plains.png'); --primary: #FF5555; }
+body[data-biome="nether"] { --biome-bg: url('../assets/biomes/nether.png'); --primary: #AA0000; }
+body[data-biome="night"] { --biome-bg: url('../assets/biomes/night.png'); --primary: #D48FFF; }
+body[data-biome="end"] { --biome-bg: url('../assets/biomes/end.png'); --primary: #AA00AA; }
+
 html {
     scroll-behavior: smooth;
     image-rendering: auto;
@@ -128,8 +137,8 @@ body {
 }
 
 @keyframes lateral-drift-transform {
-    0% { transform: scale(1.15) translateX(3%); }
-    100% { transform: scale(1.15) translateX(-3%); }
+    0% { transform: scale(1.2) translateX(6%); }
+    100% { transform: scale(1.2) translateX(-6%); }
 }
 
 /* --- Logo --- */
@@ -350,7 +359,7 @@ body {
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
-    animation: lateral-drift-transform 55s ease-in-out infinite alternate;
+    animation: lateral-drift-transform 35s ease-in-out infinite alternate;
     filter: brightness(0.35) saturate(1.2);
 }
 .biome-background::after {
@@ -528,7 +537,7 @@ body {
 }
 
 .hero p {
-    font-family: 'Manrope', sans-serif;
+    font-family: 'Press Start 2P', monospace;
     font-size: 13px;
     color: var(--outline);
     max-width: 560px;
@@ -577,7 +586,7 @@ body {
     display: block;
 }
 .stat-value {
-    font-family: 'Space Grotesk', sans-serif;
+    font-family: 'Press Start 2P', monospace;
     font-size: 24px;
     font-weight: 700;
     color: var(--primary);
@@ -711,7 +720,7 @@ body {
 }
 
 .section-subtitle {
-    font-family: 'Manrope', sans-serif;
+    font-family: 'Press Start 2P', monospace;
     color: var(--outline);
     font-size: 12px;
     margin-bottom: var(--sp-6);
@@ -786,7 +795,7 @@ body {
 }
 
 .gallery-card h3 {
-    font-family: 'Space Grotesk', sans-serif;
+    font-family: 'Press Start 2P', monospace;
     font-size: 13px;
     font-weight: 600;
     color: var(--on-surface);
@@ -794,7 +803,7 @@ body {
 }
 
 .gallery-card p {
-    font-family: 'Manrope', sans-serif;
+    font-family: 'Press Start 2P', monospace;
     font-size: 11px;
     color: var(--outline);
     line-height: 1.7;
@@ -888,7 +897,7 @@ body {
 }
 
 .step-content p {
-    font-family: 'Manrope', sans-serif;
+    font-family: 'Press Start 2P', monospace;
     font-size: 12px;
     color: var(--outline);
     line-height: 1.8;
@@ -949,7 +958,7 @@ body {
     background: rgba(74, 237, 217, 0.04);
     border-left: var(--pixel) solid var(--primary);
     margin-top: var(--sp-3);
-    font-family: 'Manrope', sans-serif;
+    font-family: 'Press Start 2P', monospace;
     font-size: 11px;
     color: var(--primary);
     line-height: 1.8;
@@ -963,7 +972,7 @@ body {
     background: rgba(250, 211, 0, 0.04);
     border-left: var(--pixel) solid var(--tertiary);
     margin-top: var(--sp-3);
-    font-family: 'Manrope', sans-serif;
+    font-family: 'Press Start 2P', monospace;
     font-size: 11px;
     color: var(--tertiary);
     line-height: 1.8;
@@ -1003,7 +1012,7 @@ body {
     flex-shrink: 0;
 }
 .log-text {
-    font-family: 'Manrope', sans-serif;
+    font-family: 'Press Start 2P', monospace;
     font-size: 11px;
     color: var(--outline);
 }
@@ -1062,7 +1071,7 @@ body {
     text-align: center;
     padding: var(--sp-6) 0;
     border-top: var(--pixel) solid var(--outline-variant);
-    font-family: 'Manrope', sans-serif;
+    font-family: 'Press Start 2P', monospace;
     color: var(--outline);
     font-size: 11px;
     line-height: 1.8;
@@ -1079,21 +1088,50 @@ body {
 /* ===========================================
    PROFILE PAGE STYLES — Student Pages
    =========================================== */
+.profile-layout {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--sp-6);
+    align-items: flex-start;
+}
+@media (min-width: 900px) {
+    .profile-layout {
+        grid-template-columns: 320px 1fr;
+    }
+}
+
+.profile-sidebar {
+    position: sticky;
+    top: 80px;
+    display: flex;
+    flex-direction: column;
+    gap: var(--sp-3);
+}
+
+.profile-main {
+    display: flex;
+    flex-direction: column;
+    gap: var(--sp-6);
+}
+
 .profile-hero {
     text-align: center;
-    padding: var(--sp-8) 0 var(--sp-6);
+    padding: var(--sp-6) var(--sp-4);
+    background: var(--surface-high);
+    box-shadow: 4px 4px 0 rgba(0,0,0,0.3); /* Hard shadow, without blur */
+    margin-bottom: 0;
 }
 
 .profile-avatar {
     width: 104px;
     height: 104px;
     background: var(--surface);
-    border: var(--pixel) solid var(--primary);
     display: flex;
     align-items: center;
     justify-content: center;
     margin: 0 auto var(--sp-5);
-    box-shadow: 0 0 24px var(--glow), 0 8px 32px rgba(0,0,0,0.4);
+    /* Hard floating shadow */
+    box-shadow: 4px 4px 0 rgba(74, 237, 217, 0.15); 
     animation: float-pixel 3s ease-in-out infinite;
 }
 
@@ -1103,21 +1141,61 @@ body {
 
 .profile-hero h1 {
     font-family: 'Press Start 2P', monospace;
-    font-size: 16px;
+    font-size: 14px;
     color: var(--tertiary);
-    text-shadow: 3px 3px 0 #5a4400;
+    text-shadow: 3px 3px 0 #1a1a1a;
     margin-bottom: var(--sp-3);
+    line-height: 1.4;
 }
 
 .profile-hero .tagline {
-    font-family: 'Manrope', sans-serif;
+    font-family: 'Press Start 2P', monospace;
     color: var(--outline);
     font-size: 13px;
     line-height: 1.8;
 }
 
+/* Reset splash text in profile so it behaves like a normal sub-tagline, avoiding overlaps */
+.profile-hero .mc-logo-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--sp-2);
+}
+.profile-hero .splash-text {
+    position: static;
+    transform: none;
+    animation: none;
+    white-space: normal;
+    color: var(--primary);
+    font-size: 8px;
+    max-width: 250px;
+    line-height: 1.4;
+    text-shadow: none;
+}
+
+/* Stats verticales en el sidebar */
+.vertical-stats {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--sp-2);
+    margin: 0;
+}
+.vertical-stats .stat-card {
+    border: none;
+    background: var(--surface-low);
+    padding: var(--sp-3);
+    box-shadow: none;
+}
+.vertical-stats .stat-card:hover {
+    background: var(--surface-high);
+    transform: none;
+    box-shadow: 2px 2px 0 var(--glow);
+}
+
 .profile-section {
-    padding: var(--sp-6) 0;
+    padding: var(--sp-5);
+    background: var(--surface-low); /* Background shift instead of 1px lines */
 }
 
 .profile-section h2 {
@@ -1127,13 +1205,13 @@ body {
     margin-bottom: var(--sp-4);
     text-transform: uppercase;
     letter-spacing: 2px;
-    padding-left: var(--sp-4);
-    border-left: var(--pixel) solid var(--primary);
+    padding-left: 0;
+    border-left: none; /* No 1px border */
     text-shadow: 0 0 8px var(--glow);
 }
 
 .profile-section p {
-    font-family: 'Manrope', sans-serif;
+    font-family: 'Press Start 2P', monospace;
     color: var(--outline);
     font-size: 13px;
     line-height: 1.9;
@@ -1142,10 +1220,9 @@ body {
 /* --- Social Links --- */
 .social-links {
     display: flex;
-    gap: var(--sp-3);
-    margin-top: var(--sp-5);
-    justify-content: center;
-    flex-wrap: wrap;
+    flex-direction: column;
+    gap: var(--sp-2);
+    margin-top: var(--sp-4);
 }
 
 .social-link {
@@ -1153,24 +1230,22 @@ body {
     align-items: center;
     gap: var(--sp-2);
     padding: var(--sp-3) var(--sp-4);
-    background: var(--surface);
-    border: 3px solid var(--outline-variant);
+    background: var(--surface-highest); /* Tonal Layering */
+    border: none;
     color: var(--on-surface);
     text-decoration: none;
     font-family: 'Press Start 2P', monospace;
     font-size: 7px;
     transition: all 0.15s;
     text-transform: uppercase;
-    box-shadow:
-        inset -2px -2px 0 rgba(0,0,0,0.3),
-        inset 2px 2px 0 rgba(255,255,255,0.08);
+    /* Hard floating shadow on hover */
+    box-shadow: 2px 2px 0 rgba(0,0,0,0.5);
 }
 
 .social-link:hover {
-    border-color: var(--primary);
-    transform: translateY(-3px);
+    transform: translate(-2px, -2px);
     color: var(--primary);
-    box-shadow: 0 4px 16px var(--glow);
+    box-shadow: 4px 4px 0 var(--glow);
 }
 
 /* --- Skills / Tags --- */
@@ -1185,8 +1260,8 @@ body {
     padding: var(--sp-2) var(--sp-3);
     font-family: 'Press Start 2P', monospace;
     font-size: 7px;
-    background: rgba(74, 237, 217, 0.06);
-    border: 2px solid var(--primary);
+    background: var(--surface-highest); /* No borders, tonal shift */
+    border: none;
     color: var(--primary);
     text-transform: uppercase;
     letter-spacing: 1px;
@@ -1565,14 +1640,27 @@ body {
 
 /* --- GitHub Section Styles --- */
 .github-card {
-    background: var(--surface-low);
-    border: 4px solid;
-    border-color: #ffffff #555555 #555555 #ffffff;
-    padding: var(--sp-5);
+    background: var(--surface-highest);
+    padding: var(--sp-6);
     margin-top: var(--sp-4);
-    box-shadow: 
-        inset calc(var(--pixel) * -1) calc(var(--pixel) * -1) 0 0 rgba(0,0,0,0.3),
-        inset var(--pixel) var(--pixel) 0 0 rgba(255,255,255,0.04);
+    box-shadow: 6px 6px 0 rgba(0,0,0,0.5); /* Tonal lift */
+    position: relative;
+    border: none;
+}
+
+/* CRT scanlines sub-overlay for datapad effect */
+.github-card::after {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: repeating-linear-gradient(
+        0deg,
+        rgba(0, 0, 0, 0.05) 0px,
+        rgba(0, 0, 0, 0.05) 1px,
+        transparent 1px,
+        transparent 4px
+    );
+    pointer-events: none;
 }
 
 .github-header {
@@ -1580,13 +1668,16 @@ body {
     align-items: center;
     gap: var(--sp-4);
     margin-bottom: var(--sp-5);
+    position: relative;
+    z-index: 2;
 }
 
 .gh-avatar {
     width: 64px;
     height: 64px;
-    border: 3px solid var(--primary);
-    box-shadow: 0 0 12px var(--glow);
+    border: none;
+    box-shadow: 4px 4px 0 var(--glow); /* offset hard shadow */
+    image-rendering: pixelated;
 }
 
 .gh-info h3 {
@@ -1600,24 +1691,29 @@ body {
     font-size: 12px;
     color: var(--outline);
     margin: 0;
+    font-family: 'Press Start 2P', monospace;
 }
 
 .github-stats-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: var(--sp-3);
-    border-top: 2px solid var(--outline-variant);
+    gap: var(--sp-2);
     padding-top: var(--sp-4);
+    margin-bottom: var(--sp-4);
+    position: relative;
+    z-index: 2;
 }
 
 .gh-stat {
     text-align: center;
+    background: var(--surface-low); /* Background shift instead of border */
+    padding: var(--sp-3);
 }
 
 .gh-stat-value {
     display: block;
-    font-family: 'Space Grotesk', sans-serif;
-    font-size: 18px;
+    font-family: 'Press Start 2P', monospace;
+    font-size: 20px;
     font-weight: 700;
     color: var(--primary);
 }
