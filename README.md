@@ -125,9 +125,10 @@ Copia este template, pegalo debajo del comentario, y modifica cada campo con tus
     tagline: "Una frase corta sobre ti",
     avatar: "PEGA_TU_CODIGO_DEL_BUILDER_AQUI",
     github: "https://github.com/tu-usuario",
-    about: "Un parrafo sobre ti. Habla de tus intereses, experiencia o lo que quieras.",
+    about: "Un párrafo sobre ti. Habla de tus intereses, experiencia o lo que desees compartir.",
     skills: ["HTML", "CSS", "JavaScript", "Git"],
-    randomFact: "Un dato curioso o divertido sobre ti"
+    randomFact: "Un dato curioso o divertido sobre ti",
+    biome: "forest"
 },
 ```
 
@@ -139,10 +140,11 @@ Copia este template, pegalo debajo del comentario, y modifica cada campo con tus
 | `page` | Si | Ruta de tu HTML (debe coincidir con el archivo del paso 3) | `"pages/juan-perez.html"` |
 | `tagline` | Si | Una frase corta (max. 50 caracteres) | `"Code, coffee, repeat"` |
 | `avatar` | Si | El codigo que copiaste del builder (paso 4) | `"5555555555555555..."` |
-| `github` | Si | Tu perfil de GitHub | `"https://github.com/juanperez"` |
-| `about` | Si | Un parrafo sobre ti | `"Soy estudiante de ingenieria..."` |
-| `skills` | Si | Lista de habilidades (min. 3) | `["Python", "React", "Git"]` |
-| `randomFact` | Si | Un dato curioso | `"Puedo resolver un cubo Rubik en 2 min"` |
+| `github` | Sí | URL de tu perfil de GitHub. El sistema obtendrá automáticamente tus estadísticas (Total de contribuciones, racha, seguidores y badges) mediante la API oficial. | `"https://github.com/juanperez"` |
+| `about` | Sí | Un párrafo sobre ti (intereses, experiencia o lo que desees compartir). | `"Soy estudiante de ingeniería..."` |
+| `skills` | Sí | Lista de habilidades técnicas (mín. 3). | `["Python", "React", "Git"]` |
+| `randomFact` | Sí | Un dato curioso o divertido sobre ti. | `"Puedo resolver un cubo Rubik en 2 min"` |
+| `biome` | Sí | El fondo visual de tu página. Opciones: `forest`, `desert`, `jungle`, `taiga`, `plains`, `nether`, `end`, `night`. | `"night"` |
 
 #### 5.5 — Verificaciones ANTES de guardar
 
