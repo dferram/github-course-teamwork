@@ -43,9 +43,15 @@
     // Función para cargar los datos en la página
     function loadProfileData() {
         // Cargar nombre
-        var nameElement = document.querySelector('.profile-hero h1');
+        var nameElement = document.querySelector('#profileName');
         if (nameElement && memberData.name) {
             nameElement.textContent = memberData.name.toUpperCase();
+        }
+        
+        // Cargar Splash Text
+        var splashElement = document.querySelector('#profileSplash');
+        if (splashElement) {
+            splashElement.textContent = memberData.randomFact ? memberData.randomFact : "Player joined!";
         }
         
         // Cargar tagline

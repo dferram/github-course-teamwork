@@ -109,8 +109,11 @@
                 <!-- El avatar se renderiza automaticamente desde team.js -->
                 <canvas id="myAvatar" width="96" height="96"></canvas>
             </div>
-            <!-- El nombre se carga automaticamente desde team.js -->
-            <h1>TU NOMBRE COMPLETO</h1>
+            <div class="mc-logo-container" style="margin-bottom: var(--sp-2);">
+                <!-- El nombre se carga automaticamente desde team.js -->
+                <h1 id="profileName" style="font-size: clamp(24px, 5vw, 48px); margin-bottom: 0;">TU NOMBRE COMPLETO</h1>
+                <div class="splash-text" id="profileSplash">Player joined!</div>
+            </div>
             <!-- El tagline se carga automaticamente desde team.js -->
             <p class="tagline">Tu tagline aqui</p>
 
