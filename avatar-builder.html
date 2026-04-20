@@ -35,27 +35,34 @@
         .draw-grid {
             display: grid;
             grid-template-columns: repeat(8, 1fr);
-            gap: 1px;
-            background: rgba(255,255,255,0.05);
-            border: 2px solid var(--border-color);
+            gap: 2px;
+            background: var(--surface-highest);
+            padding: 8px;
+            border: 4px solid;
+            border-color: #555555 #1a1a1a #1a1a1a #555555;
             aspect-ratio: 1;
-            max-width: 320px;
+            max-width: 340px;
             margin: 0 auto;
             cursor: crosshair;
             user-select: none;
+            box-shadow: inset 0 0 10px rgba(0,0,0,0.5), 0 4px 8px rgba(0,0,0,0.4);
         }
 
         .draw-cell {
             aspect-ratio: 1;
             background: var(--bg);
-            transition: background 0.05s;
-            border: 1px solid rgba(255,255,255,0.03);
+            transition: background 0.05s, transform 0.05s;
+            border-top: 2px solid #1a1a1a;
+            border-left: 2px solid #1a1a1a;
+            border-bottom: 2px solid #555555;
+            border-right: 2px solid #555555;
         }
 
         .draw-cell:hover {
             outline: 2px solid var(--gold);
             outline-offset: -2px;
             z-index: 1;
+            transform: scale(1.05);
         }
 
         /* Color palette */
@@ -236,7 +243,7 @@
             <p>Dibuja tu avatar 8-bit. Usa los presets o crea uno desde cero.</p>
             
             <div style="background: rgba(255, 204, 0, 0.1); border: 2px solid var(--gold); padding: 20px; margin-top: 20px; border-radius: 4px;">
-                <h3 style="color: var(--gold); font-size: 10px; margin-bottom: 12px;">📋 INSTRUCCIONES PARA ESTUDIANTES</h3>
+                <h3 style="color: var(--gold); font-size: 10px; margin-bottom: 12px;">INSTRUCCIONES PARA ESTUDIANTES</h3>
                 <div style="font-size: 8px; line-height: 1.6; color: var(--text);">
                     <p style="margin-bottom: 10px;"><strong>¿Cómo funciona el sistema?</strong></p>
                     <ol style="margin-left: 20px; margin-bottom: 10px;">
@@ -254,7 +261,7 @@
                         <li style="margin-bottom: 6px;">Pega el código en <code>team.js</code> en tu línea personal</li>
                     </ol>
                     
-                    <p style="color: var(--cyan); margin-top: 10px;"><strong>💡 Tips:</strong></p>
+                    <p style="color: var(--cyan); margin-top: 10px;"><strong>Tips:</strong></p>
                     <ul style="margin-left: 20px; margin-top: 6px;">
                         <li style="margin-bottom: 4px;">Los avatares son cabezas completas en formato 8x8 (64 píxeles)</li>
                         <li style="margin-bottom: 4px;">Tienes 32 colores disponibles en la paleta expandida</li>

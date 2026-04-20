@@ -14,37 +14,37 @@ var BiomeEngine = (function() {
     var BIOMES = {
         forest: {
             name: 'Bosque de Primavera',
-            icon: '🌲',
+            icon: '',
             bg: 'assets/biomes/forest.png'
         },
         desert: {
             name: 'Desierto de Verano',
-            icon: '🏜️',
+            icon: '',
             bg: 'assets/biomes/desert.png'
         },
         jungle: {
             name: 'Selva Tropical',
-            icon: '🌴',
+            icon: '',
             bg: 'assets/biomes/jungle.png'
         },
         taiga: {
             name: 'Taiga de Invierno',
-            icon: '❄️',
+            icon: '',
             bg: 'assets/biomes/taiga.png'
         },
         plains: {
             name: 'Praderas de Otoño',
-            icon: '🎃',
+            icon: '',
             bg: 'assets/biomes/plains.png'
         },
         nether: {
             name: 'El Nether',
-            icon: '🔥',
+            icon: '',
             bg: 'assets/biomes/nether.png'
         },
         end: {
             name: 'The End',
-            icon: '🐉',
+            icon: '',
             bg: 'assets/biomes/end.png'
         }
     };

@@ -151,13 +151,13 @@
         
         // Mostrar nombre del bioma en el top bar
         var biomeNames = {
-            forest: '🌲 Bosque',
-            desert: '🏜️ Desierto',
-            jungle: '🌴 Selva',
-            taiga: '❄️ Taiga',
-            plains: '🎃 Praderas',
-            nether: '🔥 Nether',
-            end: '🐉 The End'
+            forest: 'Bosque',
+            desert: 'Desierto',
+            jungle: 'Selva',
+            taiga: 'Taiga',
+            plains: 'Praderas',
+            nether: 'Nether',
+            end: 'The End'
         };
         var biomeLabel = document.getElementById('profileBiomeName');
         if (biomeLabel && memberData.biome && biomeNames[memberData.biome]) {
