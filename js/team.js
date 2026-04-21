@@ -110,6 +110,319 @@ var team = [
     // Copia el template de abajo, quita los "//" del inicio de cada linea,
     // y modifica cada campo con tus datos personales.
     //
+    // Guadalupe Bazaldua
+    // TEMPLATE (copia desde aqui):
+    // {
+    //     name: "Tu Nombre Completo",
+    //     page: "pages/nombre-apellido.html",
+    //     tagline: "Una frase corta sobre ti",
+    //     avatar: "PEGA_TU_CODIGO_DEL_BUILDER_AQUI",
+    //     github: "https://github.com/tu-usuario",
+    //     about: "Escribe un parrafo sobre ti.",
+    //     skills: ["Skill1", "Skill2", "Skill3"],
+    //     randomFact: "Un dato curioso sobre ti",
+    //     biome: "forest" (opciones: forest, desert, jungle, taiga, plains, nether, end, night)
+    // },
+    //
+    // NO BORRES ESTE COMENTARIO — dejalo para tus companeros
+    // =====================================================================
+
+    // =====================================================================
+    // AGREGA TU LINEA AQUI ABAJO
+    // =====================================================================
+    //
+    // Copia el template de abajo, quita los "//" del inicio de cada linea,
+    // y modifica cada campo con tus datos personales.
+    //
+    // Paola Vazquez
+    // TEMPLATE (copia desde aqui):
+    // {
+    //     name: "Tu Nombre Completo",
+    //     page: "pages/nombre-apellido.html",
+    //     tagline: "Una frase corta sobre ti",
+    //     avatar: "PEGA_TU_CODIGO_DEL_BUILDER_AQUI",
+    //     github: "https://github.com/tu-usuario",
+    //     about: "Escribe un parrafo sobre ti.",
+    //     skills: ["Skill1", "Skill2", "Skill3"],
+    //     randomFact: "Un dato curioso sobre ti",
+    //     biome: "forest" (opciones: forest, desert, jungle, taiga, plains, nether, end, night)
+    // },
+    //
+    // NO BORRES ESTE COMENTARIO — dejalo para tus companeros
+    // =====================================================================
+
+    // =====================================================================
+    // AGREGA TU LINEA AQUI ABAJO
+    // =====================================================================
+    //
+    // Copia el template de abajo, quita los "//" del inicio de cada linea,
+    // y modifica cada campo con tus datos personales.
+    //
+    // Emmanuel Rico
+    // TEMPLATE (copia desde aqui):
+    // {
+    //     name: "Tu Nombre Completo",
+    //     page: "pages/nombre-apellido.html",
+    //     tagline: "Una frase corta sobre ti",
+    //     avatar: "PEGA_TU_CODIGO_DEL_BUILDER_AQUI",
+    //     github: "https://github.com/tu-usuario",
+    //     about: "Escribe un parrafo sobre ti.",
+    //     skills: ["Skill1", "Skill2", "Skill3"],
+    //     randomFact: "Un dato curioso sobre ti",
+    //     biome: "forest" (opciones: forest, desert, jungle, taiga, plains, nether, end, night)
+    // },
+    //
+    // NO BORRES ESTE COMENTARIO — dejalo para tus companeros
+    // =====================================================================
+
+    // =====================================================================
+    // AGREGA TU LINEA AQUI ABAJO
+    // =====================================================================
+    //
+    // Copia el template de abajo, quita los "//" del inicio de cada linea,
+    // y modifica cada campo con tus datos personales.
+    //
+    // David Ureña
+    // TEMPLATE (copia desde aqui):
+    // {
+    //     name: "Tu Nombre Completo",
+    //     page: "pages/nombre-apellido.html",
+    //     tagline: "Una frase corta sobre ti",
+    //     avatar: "PEGA_TU_CODIGO_DEL_BUILDER_AQUI",
+    //     github: "https://github.com/tu-usuario",
+    //     about: "Escribe un parrafo sobre ti.",
+    //     skills: ["Skill1", "Skill2", "Skill3"],
+    //     randomFact: "Un dato curioso sobre ti",
+    //     biome: "forest" (opciones: forest, desert, jungle, taiga, plains, nether, end, night)
+    // },
+    //
+    // NO BORRES ESTE COMENTARIO — dejalo para tus companeros
+    // =====================================================================
+
+    // =====================================================================
+    // AGREGA TU LINEA AQUI ABAJO
+    // =====================================================================
+    //
+    // Copia el template de abajo, quita los "//" del inicio de cada linea,
+    // y modifica cada campo con tus datos personales.
+    //
+    // Jezrael Espino
+    // TEMPLATE (copia desde aqui):
+    // {
+    //     name: "Tu Nombre Completo",
+    //     page: "pages/nombre-apellido.html",
+    //     tagline: "Una frase corta sobre ti",
+    //     avatar: "PEGA_TU_CODIGO_DEL_BUILDER_AQUI",
+    //     github: "https://github.com/tu-usuario",
+    //     about: "Escribe un parrafo sobre ti.",
+    //     skills: ["Skill1", "Skill2", "Skill3"],
+    //     randomFact: "Un dato curioso sobre ti",
+    //     biome: "forest" (opciones: forest, desert, jungle, taiga, plains, nether, end, night)
+    // },
+    //
+    // NO BORRES ESTE COMENTARIO — dejalo para tus companeros
+    // =====================================================================
+
+    // =====================================================================
+    // AGREGA TU LINEA AQUI ABAJO
+    // =====================================================================
+    //
+    // Copia el template de abajo, quita los "//" del inicio de cada linea,
+    // y modifica cada campo con tus datos personales.
+    //
+    // Christopher Castedan
+    // TEMPLATE (copia desde aqui):
+    // {
+    //     name: "Tu Nombre Completo",
+    //     page: "pages/nombre-apellido.html",
+    //     tagline: "Una frase corta sobre ti",
+    //     avatar: "PEGA_TU_CODIGO_DEL_BUILDER_AQUI",
+    //     github: "https://github.com/tu-usuario",
+    //     about: "Escribe un parrafo sobre ti.",
+    //     skills: ["Skill1", "Skill2", "Skill3"],
+    //     randomFact: "Un dato curioso sobre ti",
+    //     biome: "forest" (opciones: forest, desert, jungle, taiga, plains, nether, end, night)
+    // },
+    //
+    // NO BORRES ESTE COMENTARIO — dejalo para tus companeros
+    // =====================================================================
+
+    // =====================================================================
+    // AGREGA TU LINEA AQUI ABAJO
+    // =====================================================================
+    //
+    // Copia el template de abajo, quita los "//" del inicio de cada linea,
+    // y modifica cada campo con tus datos personales.
+    //
+    // Aarón Rosas
+    // TEMPLATE (copia desde aqui):
+    // {
+    //     name: "Tu Nombre Completo",
+    //     page: "pages/nombre-apellido.html",
+    //     tagline: "Una frase corta sobre ti",
+    //     avatar: "PEGA_TU_CODIGO_DEL_BUILDER_AQUI",
+    //     github: "https://github.com/tu-usuario",
+    //     about: "Escribe un parrafo sobre ti.",
+    //     skills: ["Skill1", "Skill2", "Skill3"],
+    //     randomFact: "Un dato curioso sobre ti",
+    //     biome: "forest" (opciones: forest, desert, jungle, taiga, plains, nether, end, night)
+    // },
+    //
+    // NO BORRES ESTE COMENTARIO — dejalo para tus companeros
+    // =====================================================================
+
+    // =====================================================================
+    // AGREGA TU LINEA AQUI ABAJO
+    // =====================================================================
+    //
+    // Copia el template de abajo, quita los "//" del inicio de cada linea,
+    // y modifica cada campo con tus datos personales.
+    //
+    // Uriel Negrete
+    // TEMPLATE (copia desde aqui):
+    // {
+    //     name: "Tu Nombre Completo",
+    //     page: "pages/nombre-apellido.html",
+    //     tagline: "Una frase corta sobre ti",
+    //     avatar: "PEGA_TU_CODIGO_DEL_BUILDER_AQUI",
+    //     github: "https://github.com/tu-usuario",
+    //     about: "Escribe un parrafo sobre ti.",
+    //     skills: ["Skill1", "Skill2", "Skill3"],
+    //     randomFact: "Un dato curioso sobre ti",
+    //     biome: "forest" (opciones: forest, desert, jungle, taiga, plains, nether, end, night)
+    // },
+    //
+    // NO BORRES ESTE COMENTARIO — dejalo para tus companeros
+    // =====================================================================
+
+    // =====================================================================
+    // AGREGA TU LINEA AQUI ABAJO
+    // =====================================================================
+    //
+    // Copia el template de abajo, quita los "//" del inicio de cada linea,
+    // y modifica cada campo con tus datos personales.
+    //
+    // Vanessa Lopez
+    // TEMPLATE (copia desde aqui):
+    // {
+    //     name: "Tu Nombre Completo",
+    //     page: "pages/nombre-apellido.html",
+    //     tagline: "Una frase corta sobre ti",
+    //     avatar: "PEGA_TU_CODIGO_DEL_BUILDER_AQUI",
+    //     github: "https://github.com/tu-usuario",
+    //     about: "Escribe un parrafo sobre ti.",
+    //     skills: ["Skill1", "Skill2", "Skill3"],
+    //     randomFact: "Un dato curioso sobre ti",
+    //     biome: "forest" (opciones: forest, desert, jungle, taiga, plains, nether, end, night)
+    // },
+    //
+    // NO BORRES ESTE COMENTARIO — dejalo para tus companeros
+    // =====================================================================
+
+    // =====================================================================
+    // AGREGA TU LINEA AQUI ABAJO
+    // =====================================================================
+    //
+    // Copia el template de abajo, quita los "//" del inicio de cada linea,
+    // y modifica cada campo con tus datos personales.
+    //
+    // Angel Mota
+    // TEMPLATE (copia desde aqui):
+    // {
+    //     name: "Tu Nombre Completo",
+    //     page: "pages/nombre-apellido.html",
+    //     tagline: "Una frase corta sobre ti",
+    //     avatar: "PEGA_TU_CODIGO_DEL_BUILDER_AQUI",
+    //     github: "https://github.com/tu-usuario",
+    //     about: "Escribe un parrafo sobre ti.",
+    //     skills: ["Skill1", "Skill2", "Skill3"],
+    //     randomFact: "Un dato curioso sobre ti",
+    //     biome: "forest" (opciones: forest, desert, jungle, taiga, plains, nether, end, night)
+    // },
+    //
+    // NO BORRES ESTE COMENTARIO — dejalo para tus companeros
+    // =====================================================================
+
+    // =====================================================================
+    // AGREGA TU LINEA AQUI ABAJO
+    // =====================================================================
+    //
+    // Copia el template de abajo, quita los "//" del inicio de cada linea,
+    // y modifica cada campo con tus datos personales.
+    //
+    // Aric Huerta
+    // TEMPLATE (copia desde aqui):
+    // {
+    //     name: "Tu Nombre Completo",
+    //     page: "pages/nombre-apellido.html",
+    //     tagline: "Una frase corta sobre ti",
+    //     avatar: "PEGA_TU_CODIGO_DEL_BUILDER_AQUI",
+    //     github: "https://github.com/tu-usuario",
+    //     about: "Escribe un parrafo sobre ti.",
+    //     skills: ["Skill1", "Skill2", "Skill3"],
+    //     randomFact: "Un dato curioso sobre ti",
+    //     biome: "forest" (opciones: forest, desert, jungle, taiga, plains, nether, end, night)
+    // },
+    //
+    // NO BORRES ESTE COMENTARIO — dejalo para tus companeros
+    // =====================================================================
+
+    // =====================================================================
+    // AGREGA TU LINEA AQUI ABAJO
+    // =====================================================================
+    //
+    // Copia el template de abajo, quita los "//" del inicio de cada linea,
+    // y modifica cada campo con tus datos personales.
+    //
+    // Efrain Peréz
+    // TEMPLATE (copia desde aqui):
+    // {
+    //     name: "Tu Nombre Completo",
+    //     page: "pages/nombre-apellido.html",
+    //     tagline: "Una frase corta sobre ti",
+    //     avatar: "PEGA_TU_CODIGO_DEL_BUILDER_AQUI",
+    //     github: "https://github.com/tu-usuario",
+    //     about: "Escribe un parrafo sobre ti.",
+    //     skills: ["Skill1", "Skill2", "Skill3"],
+    //     randomFact: "Un dato curioso sobre ti",
+    //     biome: "forest" (opciones: forest, desert, jungle, taiga, plains, nether, end, night)
+    // },
+    //
+    // NO BORRES ESTE COMENTARIO — dejalo para tus companeros
+    // =====================================================================
+
+    // =====================================================================
+    // AGREGA TU LINEA AQUI ABAJO
+    // =====================================================================
+    //
+    // Copia el template de abajo, quita los "//" del inicio de cada linea,
+    // y modifica cada campo con tus datos personales.
+    //
+    // Diego Vidales
+    // TEMPLATE (copia desde aqui):
+    // {
+    //     name: "Tu Nombre Completo",
+    //     page: "pages/nombre-apellido.html",
+    //     tagline: "Una frase corta sobre ti",
+    //     avatar: "PEGA_TU_CODIGO_DEL_BUILDER_AQUI",
+    //     github: "https://github.com/tu-usuario",
+    //     about: "Escribe un parrafo sobre ti.",
+    //     skills: ["Skill1", "Skill2", "Skill3"],
+    //     randomFact: "Un dato curioso sobre ti",
+    //     biome: "forest" (opciones: forest, desert, jungle, taiga, plains, nether, end, night)
+    // },
+    //
+    // NO BORRES ESTE COMENTARIO — dejalo para tus companeros
+    // =====================================================================
+
+    // =====================================================================
+    // AGREGA TU LINEA AQUI ABAJO
+    // =====================================================================
+    //
+    // Copia el template de abajo, quita los "//" del inicio de cada linea,
+    // y modifica cada campo con tus datos personales.
+    //
+    // Pablo Morales
     // TEMPLATE (copia desde aqui):
     // {
     //     name: "Tu Nombre Completo",
