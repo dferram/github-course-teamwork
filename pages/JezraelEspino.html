@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jezrael Espino</title>
+    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="icon" href="../assets/computer.png">
+</head>
+<body>
+
+    <!-- Biome Background — se aplica automaticamente desde team.js -->
+    <div class="biome-background" id="biomeBackground"></div>
+
+    <!-- Scanline overlay -->
+    <div class="scanlines"></div>
+
+    <!-- Top Bar -->
+    <header class="top-bar">
+        <a href="../dashboard.html" class="back-menu-btn">&lt; GALERIA</a>
+    </header>
+
+    <div class="dashboard-container">
+
+        <div class="profile-layout">
+            
+            <!-- ====== COLUMNA IZQUIERDA (Sidebar Fijo) ====== -->
+            <aside class="profile-sidebar">
+                <section class="profile-hero">
+                    <div class="profile-avatar">
+                        <canvas id="myAvatar" width="96" height="96"></canvas>
+                    </div>
+                    <div class="mc-logo-container" style="margin-bottom: var(--sp-2);">
+                        <h1 id="profileName" style="font-size: clamp(20px, 3vw, 36px); margin-bottom: 0;">TU NOMBRE</h1>
+                        <div class="splash-text" id="profileSplash">Player joined!</div>
+                    </div>
+                    <p class="tagline">Tu tagline aqui</p>
+
+                    <div class="social-links">
+                    </div>
+                </section>
+
+                <section class="vertical-stats">
+                    <div class="stat-card">
+                        <span class="stat-icon"></span>
+                        <span class="stat-value" id="statBloques">—</span>
+                        <span class="stat-label">TOTAL CONTRIBUTIONS</span>
+                    </div>
+                    <div class="stat-card">
+                        <span class="stat-icon"></span>
+                        <span class="stat-value" id="statDias">—</span>
+                        <span class="stat-label">STREAK</span>
+                    </div>
+                    <div class="stat-card">
+                        <span class="stat-icon"></span>
+                        <span class="stat-value" id="statRepos">—</span>
+                        <span class="stat-label">PUBLIC REPOS</span>
+                    </div>
+                    <div class="stat-card">
+                        <span class="stat-icon"></span>
+                        <span class="stat-value" id="ghBadges">-</span>
+                        <span class="stat-label">BADGES</span>
+                    </div>
+                </section>
+            </aside>
+
+            <!-- ====== COLUMNA DERECHA (Contenido Principal) ====== -->
+            <main class="profile-main">
+                <section class="profile-section" style="margin-top: var(--sp-5);">
+                    <h2>SOBRE MI</h2>
+                    <p>Este contenido se carga automaticamente desde team.js</p>
+                </section>
+
+                <section class="profile-section">
+                    <h2>SKILLS</h2>
+                    <div class="tags">
+                    </div>
+                </section>
+
+                <!-- GitHub Section -->
+                <section class="profile-section github-section" id="githubSection" style="display: none;">
+                    <h2>GITHUB STATS</h2>
+                    <div class="github-card">
+                        <div class="github-header">
+                            <img id="githubAvatar" src="" alt="GitHub Avatar" class="gh-avatar">
+                            <div class="gh-info">
+                                <h3 id="githubName">Cargando...</h3>
+                            </div>
+                        </div>
+                        <div class="github-stats-grid">
+                            <div class="gh-stat">
+                                <span class="gh-stat-value" id="ghFollowers">-</span>
+                                <span class="gh-stat-label">FOLLOWERS</span>
+                            </div>
+                            <div class="gh-stat">
+                                <span class="gh-stat-value" id="ghFollowing">-</span>
+                                <span class="gh-stat-label">FOLLOWING</span>
+                            </div>
+                        </div>
+                        <div class="github-contributions" style="position: relative; z-index: 2;">
+                            <img id="ghContributions" src="" alt="GitHub Contributions" style="width: 100%; margin-top: 15px; filter: invert(1) hue-rotate(180deg) brightness(1.2) contrast(1.1);">
+                        </div>
+                    </div>
+                </section>
+            </main>
+
+        </div>
+
+    </div>
+
+    <footer class="footer">
+        <p>Hecho para el curso de Git &amp; GitHub // 2026</p>
+    </footer>
+
+    <script src="../js/avatars.js?v=3"></script>
+    <script src="../js/team.js?v=3"></script>
+    <script src="../js/profile-loader.js?v=3"></script>
+
+</body>
+</html>
