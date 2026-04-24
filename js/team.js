@@ -100,7 +100,7 @@ var team = [
         about: "Estudiante de 6to semestre de ingenieria de software en la UAQ, miembro de Centro de desarrollo y del equipo de basketball de la facultad",
         skills: [ "Node.js", "MongoDB","PostgreSQL", "Docker", "Git", "GitHub", "HTML", "CSS", "JavaScript", "Python"],
         randomFact: "",
-        biome: "night"
+        biome: "desert"
     },
 
     // =====================================================================
