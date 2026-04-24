@@ -94,12 +94,10 @@ var team = [
     {
         name: "Fernando Ramírez",
         page: "pages/FernandoRamirez.html",
-        tagline: "Idk man, life is beautiful",
         avatar: "5555555555555555115555111615516116655661511551155555555555555555",
         github: "https://github.com/dferram",
         about: "Estudiante de 6to semestre de ingenieria de software en la UAQ, miembro de Centro de desarrollo y del equipo de basketball de la facultad",
         skills: [ "Node.js", "MongoDB","PostgreSQL", "Docker", "Git", "GitHub", "HTML", "CSS", "JavaScript", "Python"],
-        randomFact: "",
         biome: "desert"
     },
 
@@ -109,12 +107,10 @@ var team = [
     {
         name: "Guadalupe Bazaldua",
         page: "pages/guadalupe-bazaldua.html",
-        tagline: "Creando soluciones, una linea a la vez",
         avatar: "alex",
         github: "https://github.com/guadalupebazaldua",
         about: "Estudiante de ingenieria de software en la UAQ. Me apasiona el desarrollo web y el diseño de interfaces. En mi tiempo libre me gusta leer y explorar nuevas tecnologias.",
         skills: ["HTML", "CSS", "JavaScript", "React", "Figma", "Git"],
-        randomFact: "Puedo nombrar todas las capitales de America Latina",
         biome: "forest"
     },
 
@@ -124,12 +120,10 @@ var team = [
     {
         name: "Paola Vazquez",
         page: "pages/paola-vazquez.html",
-        tagline: "Debug the world, one bug at a time",
         avatar: "villager",
         github: "https://github.com/paolavazquez",
         about: "Estudiante de 6to semestre de ingenieria de software. Me encanta la programacion backend y las bases de datos. Tambien soy fan de los videojuegos RPG.",
         skills: ["Python", "Django", "PostgreSQL", "Docker", "Linux", "Git"],
-        randomFact: "He completado el Pokedex completo en tres generaciones",
         biome: "jungle"
     },
 
