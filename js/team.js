@@ -108,7 +108,7 @@ var team = [
         name: "Guadalupe Bazaldua",
         page: "pages/guadalupe-bazaldua.html",
         avatar: "alex",
-        github: "https://github.com/guadalupebazaldua",
+        github: "https://github.com/lubazaldua",
         about: "Estudiante de ingenieria de software en la UAQ. Me apasiona el desarrollo web y el diseño de interfaces. En mi tiempo libre me gusta leer y explorar nuevas tecnologias.",
         skills: ["HTML", "CSS", "JavaScript", "React", "Figma", "Git"],
         biome: "forest"
